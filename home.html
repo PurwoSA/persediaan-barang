@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Amanda Reload</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="dist/css/bootstrap-responsive.min.css"/>
+  <link rel="stylesheet" href="dist/css/fullcalendar.css"/>
+  <link rel="stylesheet" href="dist/css/matrix-style.css"/>
+  <link rel="stylesheet" href="dist/css/matrix-media.css"/>
+  <link rel="stylesheet" href="dist/font-awesome/css/font-awesome.css"/>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800" type="text/css">
+</head>
+
+<body>
+
+  <!--Header-part-->
+  <div id="header">
+    <h4><a href="dashboard.html">Amanda Reload</a></h4>
+  </div>
+  <!--close-Header-part-->
+
+
+  <!--top-Header-menu-->
+  <div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+    </ul>
+  </div>
+  <!--close-top-Header-menu-->
+  <!--sidebar-menu-->
+  <div id="sidebar"><a href="#" class="visible-phone"><i class="fa fa-home"></i> Beranda</a>
+    <ul>
+      <li class="active"><a href="index.html"><i class="fa fa-home fa-fw"></i> <span>Beranda</span></a> </li>
+      <li class="submenu"> <a href="#"><i class="fa fa-pencil fa-fw"></i> <span>Master</span></a>
+        <ul>
+          <li><a href="master/staff.html"><i class="fa fa-user fa-fw"></i> Staf</a></li>
+          <li><a href="master/barang.html"><i class="fa fa-archive fa-fw"></i> Barang</a></li>
+          <li><a href="master/supplier.html"><i class="fa fa-building fa-fw"></i> Supplier</a></li>
+        </ul>
+      </li>
+      <li class="submenu"> <a href="#"><i class="fa fa-pencil-square fa-fw"></i> <span>Transaksi</span></a>
+        <ul>
+          <li><a href="transaksi/isisp.html"><i class="fa fa-share fa-fw"></i> Isi Surat Pesan</a></li>
+          <li><a href="transaksi/suratpesan.html"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
+          <li><a href="transaksi/barangkeluar.html"><i class="fa fa-shopping-cart fa-fw"></i> Isi Barang Keluar</a></li>
+          <li><a href="transaksi/tandaterima.html"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
+        </ul>
+      </li>
+      <li class="submenu"> <a href="#"><i class="fa fa-files-o fa-fw"></i> <span>Laporan</span></a>
+        <ul>
+          <li><a href="laporan/laporanbarangkeluar.html"><i class="fa fa-file fa-fw"></i> Laporan Barang Keluar</a></li>
+          <li><a href="laporan/laporanbarangmasuk.html"><i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--sidebar-menu-->
+
+  <!--main-container-part-->
+  <div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+      <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="fa fa-home"></i> Beranda</a></div>
+      <h1>Beranda</h1>
+      <hr>
+    </div>
+    <!--End-breadcrumbs-->
+
+    <!--Action boxes-->
+    <div class="container-fluid">
+      <h4>Master</h4>
+      <hr>
+      <div class="quick-actions_homepage">
+        <ul class="quick-actions">
+          <li class="bg_lb span4">
+            <a href="master/staff.html"> <i class="fa fa-user fa-5x"></i><br> Staf</a></li>
+          </li>
+          <li class="bg_lg span3">
+            <a href="master/barang.html"> <i class="fa fa-archive fa-5x"></i><br> Barang</a></li>
+          </li>
+          <li class="bg_ly span4">
+            <a href="master/supplier.html"> <i class="fa fa-building fa-5x"></i><br> Supplier</a></li>
+          </li>
+        </ul>
+      <!--End-Action boxes-->
+    </div>
+    <h4>Transaksi</h4>
+    <hr>
+    <div class="quick-actions_homepage">
+      <ul class="quick-actions">
+        <li class="bg_lb span4">
+          <a href="transaksi/isisp.html"> <i class="fa fa-share fa-4x"></i><br> Isi Surat Pesan</a></li>
+        </li>
+        <li class="bg_lg">
+          <a href="transaksi/suratpesan.html"> <i class="fa fa-envelope fa-4x"></i><br> Surat Pesan</a></li>
+        </li>
+        <li class="bg_ly span3">
+          <a href="transaksi/barangkeluar.html"> <i class="fa fa-shopping-cart fa-4x"></i><br> Isi Barang Keluar</a></li>
+        </li>
+        <li class="bg_ly span3">
+          <a href="transaksi/tandaterimabarang.html"> <i class="fa fa-reply fa-4x"></i><br> Tanda Terima Barang</a></li>
+        </li>
+      </ul>
+  </div>
+  </div>
+  <!--end-main-container-part-->
+
+  <!--Footer-part-->
+
+  <div class="row-fluid">
+    <div id="footer" class="span12"><h4> 2017 &copy; Tugas APSI by <a href="http://fendi.comuv.com">KITA</a> </h4></div>
+  </div>
+
+  <!--end-Footer-part-->
+
+  <script src="dist/js/excanvas.min.js"></script>
+  <script src="dist/js/jquery.min.js"></script>
+  <script src="dist/js/jquery.ui.custom.js"></script>
+  <script src="dist/js/bootstrap.min.js"></script>
+  <script src="dist/js/jquery.flot.min.js"></script>
+  <script src="dist/js/jquery.flot.resize.min.js"></script>
+  <script src="dist/js/jquery.peity.min.js"></script>
+  <script src="dist/js/fullcalendar.min.js"></script>
+  <script src="dist/js/matrix.js"></script>
+  <script src="dist/js/matrix.dashboard.js"></script>
+  <script src="dist/js/matrix.interface.js"></script>
+  <script src="dist/js/matrix.chat.js"></script>
+  <script src="dist/js/jquery.validate.js"></script>
+  <script src="dist/js/matrix.form_validation.js"></script>
+  <script src="dist/js/jquery.wizard.js"></script>
+  <script src="dist/js/jquery.uniform.js"></script>
+  <script src="dist/js/select2.min.js"></script>
+  <script src="dist/js/matrix.popover.js"></script>
+  <script src="dist/js/jquery.dataTables.min.js"></script>
+  <script src="dist/js/matrix.tables.js"></script>
+
+  <script type="text/javascript">
+    // This function is called from the pop-up menus to transfer to
+    // a different page. Ignore if the value returned is a null string:
+    function goPage(newURL) {
+
+      // if url is empty, skip the menu dividers and reset the menu selection to default
+      if (newURL != "") {
+
+        // if url is "-", it is this page -- reset the menu:
+        if (newURL == "-") {
+          resetMenu();
+        }
+        // else, send page to designated URL
+        else {
+          document.location.href = newURL;
+        }
+      }
+    }
+
+    // resets the menu selection upon entry to this page:
+    function resetMenu() {
+      document.gomenu.selector.selectedIndex = 2;
+    }
+  </script>
+</body>
+
+</html>
