@@ -35,7 +35,7 @@
 
   <body>
 
-    <nav class="navbar navbar-inverted" class="add-top-padding">
+    <nav class="navbar navbar-inverted">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -48,17 +48,8 @@
           <a class="navbar-brand" href="#">Amanda Reload</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
+        <li><a href="#"><i class="fa fa-user-circle"></i> <?php echo $currentUser['nm_staf'] ?></a></li>
+        <li><a href="logout.php"><i class="fa fa-sign-out"></i> Keluar</a></li>
       </ul>
         <!-- /.navbar-collapse -->
       </div>
@@ -69,16 +60,16 @@
     <div id="sidebar"><a href="#" class="visible-phone"><i class="fa fa-home"></i> Beranda</a>
       <ul>
         <li class="active"><a href="index.html"><i class="fa fa-home fa-fw"></i> <span>Beranda</span></a> </li>
-        <li class="submenu"> <a href="#"><i class="fa fa-pencil fa-fw"></i> <span>Master</span></a>
+        <li class="submenu"> <a href="#"><i class="fa fa-book fa-fw"></i> <span>Master</span></a>
           <ul>
-            <li><a href="master/staff.html"><i class="fa fa-user fa-fw"></i> Staf</a></li>
+            <li><a href="master/staff.html"><i class="fa fa-users fa-fw"></i> Staf</a></li>
             <li><a href="master/barang.html"><i class="fa fa-archive fa-fw"></i> Barang</a></li>
             <li><a href="master/supplier.html"><i class="fa fa-building fa-fw"></i> Supplier</a></li>
           </ul>
         </li>
-        <li class="submenu"> <a href="#"><i class="fa fa-pencil-square fa-fw"></i> <span>Transaksi</span></a>
+        <li class="submenu"> <a href="#"><i class="fa fa-money fa-fw"></i> <span>Transaksi</span></a>
           <ul>
-            <li><a href="transaksi/isi_sp.html"><i class="fa fa-share fa-fw"></i> Isi Surat Pesan</a></li>
+            <li><a href="transaksi/isi_sp.html"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
             <li><a href="transaksi/surat_pesan.html"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
             <li><a href="transaksi/barangkeluar.html"><i class="fa fa-shopping-cart fa-fw"></i> Isi Barang Keluar</a></li>
             <li><a href="transaksi/tandaterima.html"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
@@ -90,7 +81,6 @@
             <li><a href="laporan/lap_barang_masuk.html"><i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk</a></li>
           </ul>
         </li>
-        <li><a href="logout.php"><i class="fa fa-sign-out"></i> <span>Keluar</span></a></li>
       </ul>
     </div>
     <!--sidebar-menu-->
@@ -99,7 +89,7 @@
     <div id="content">
       <!--breadcrumbs-->
       <div id="content-header">
-        <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="fa fa-home"></i> Beranda</a></div>
+        <div id="breadcrumb"> <a href="index.php" title="Pergi ke beranda" class="tip-bottom"><i class="fa fa-home"></i> Beranda</a></div>
         <h1>Beranda</h1>
         <hr>
       </div>
@@ -112,12 +102,12 @@
         <div class="quick-actions_homepage">
           <ul class="quick-actions">
             <li class="bg_lb span4">
-              <a href="master/staff.html"> <i class="fa fa-user fa-5x"></i><br> Staf</a>
+              <a href="master/staff.html"> <i class="fa fa-users fa-5x"></i><br> Staf</a>
             </li>
             <li class="bg_lg span3">
               <a href="master/barang.html"> <i class="fa fa-archive fa-5x"></i><br> Barang</a>
             </li>
-            <li class="bg_ly span3">
+            <li class="bg_lo span3">
               <a href="master/supplier.html"> <i class="fa fa-building fa-5x"></i><br> Supplier</a>
             </li>
           </ul>
@@ -127,15 +117,15 @@
         <div class="quick-actions_homepage">
           <ul class="quick-actions">
             <li class="bg_lb span6">
-              <a href="transaksi/isi_sp.html"> <i class="fa fa-share fa-4x"></i><br> Isi Surat Pesan</a>
+              <a href="transaksi/isi_sp.html"> <i class="fa fa-pencil-square-o fa-4x"></i><br> Isi Surat Pesan</a>
             </li>
             <li class="bg_lg span5">
               <a href="transaksi/surat_pesan.html"> <i class="fa fa-envelope fa-4x"></i><br> Surat Pesan</a>
             </li>
-            <li class="bg_ly span5">
+            <li class="bg_lo span5">
               <a href="transaksi/barang_keluar.html"> <i class="fa fa-shopping-cart fa-4x"></i><br> Isi Barang Keluar</a>
             </li>
-            <li class="bg_ly span6">
+            <li class="bg_ls span6">
               <a href="transaksi/ttb.html"> <i class="fa fa-reply fa-4x"></i><br> Tanda Terima Barang</a>
             </li>
           </ul>
@@ -164,7 +154,7 @@
     <!--end-Footer-part-->
 
     <script src="dist/js/excanvas.min.js"></script>
-    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/jquery.js"></script>
     <script src="dist/js/jquery.ui.custom.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="dist/js/jquery.flot.min.js"></script>

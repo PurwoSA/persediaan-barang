@@ -34,13 +34,13 @@ DELETE FROM `barang`;
 -- membuang struktur untuk table db_persediaan.barang_klr
 CREATE TABLE IF NOT EXISTS `barang_klr` (
   `no_keluar` int(11) NOT NULL AUTO_INCREMENT,
-  `nip` int(3) DEFAULT NULL,
+  `nip` varchar(3) DEFAULT NULL,
   `jml_keluar` int(3) NOT NULL,
   `wkt_keluar` time NOT NULL,
   `tgl_keluar` date NOT NULL,
   PRIMARY KEY (`no_keluar`),
-  KEY `FK__staf` (`nip`),
-  CONSTRAINT `FK__staf` FOREIGN KEY (`nip`) REFERENCES `staf` (`nip`)
+  KEY `FK_barang_klr_staf` (`nip`),
+  CONSTRAINT `FK_barang_klr_staf` FOREIGN KEY (`nip`) REFERENCES `staf` (`nip`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Membuang data untuk tabel db_persediaan.barang_klr: ~0 rows (lebih kurang)
@@ -66,17 +66,20 @@ DELETE FROM `isi_sp`;
 
 -- membuang struktur untuk table db_persediaan.staf
 CREATE TABLE IF NOT EXISTS `staf` (
-  `nip` int(3) NOT NULL AUTO_INCREMENT,
+  `nip` varchar(5) NOT NULL,
   `nm_staf` varchar(50) NOT NULL,
   `telp_staf` varchar(15) DEFAULT NULL,
   `almt_staf` varchar(100) DEFAULT NULL,
   `password` varchar(50) NOT NULL,
-  PRIMARY KEY (`nip`)
+  PRIMARY KEY (`nip`),
+  UNIQUE KEY `telp_staf` (`telp_staf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Membuang data untuk tabel db_persediaan.staf: ~0 rows (lebih kurang)
 DELETE FROM `staf`;
 /*!40000 ALTER TABLE `staf` DISABLE KEYS */;
+INSERT INTO `staf` (`nip`, `nm_staf`, `telp_staf`, `almt_staf`, `password`) VALUES
+	('123', 'Paijo', '123', 'Jalan Rusak', 'admin');
 /*!40000 ALTER TABLE `staf` ENABLE KEYS */;
 
 -- membuang struktur untuk table db_persediaan.supplier
