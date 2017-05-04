@@ -35,7 +35,7 @@
 
   <body>
 
-    <nav class="navbar navbar-inverted">
+    <nav class="navbar navbar-inverted" class="add-top-padding">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -96,7 +96,7 @@
     <!--sidebar-menu-->
 
     <!--main-container-part-->
-    <div id="content" class="add-top-padding">
+    <div id="content">
       <!--breadcrumbs-->
       <div id="content-header">
         <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="fa fa-home"></i> Beranda</a></div>
