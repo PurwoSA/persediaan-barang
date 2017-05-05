@@ -15,8 +15,8 @@
     $currentUser = $user->getUser();
 
  ?>
-  <!DOCTYPE html>
-  <html lang="id">
+  <!DOCTYPE php>
+  <php lang="id">
 
   <head>
     <title>Amanda Reload</title>
@@ -59,26 +59,26 @@
     <!--sidebar-menu-->
     <div id="sidebar"><a href="#" class="visible-phone"><i class="fa fa-home"></i> Beranda</a>
       <ul>
-        <li class="active"><a href="index.html"><i class="fa fa-home fa-fw"></i> <span>Beranda</span></a> </li>
+        <li class="active"><a href="index.php"><i class="fa fa-home fa-fw"></i> <span>Beranda</span></a> </li>
         <li class="submenu"> <a href="#"><i class="fa fa-book fa-fw"></i> <span>Master</span></a>
           <ul>
-            <li><a href="master/staff.html"><i class="fa fa-users fa-fw"></i> Staf</a></li>
-            <li><a href="master/barang.html"><i class="fa fa-archive fa-fw"></i> Barang</a></li>
-            <li><a href="master/supplier.html"><i class="fa fa-building fa-fw"></i> Supplier</a></li>
+            <li><a href="master/staff.php"><i class="fa fa-users fa-fw"></i> Staf</a></li>
+            <li><a href="master/barang.php"><i class="fa fa-archive fa-fw"></i> Barang</a></li>
+            <li><a href="master/supplier.php"><i class="fa fa-building fa-fw"></i> Supplier</a></li>
           </ul>
         </li>
         <li class="submenu"> <a href="#"><i class="fa fa-money fa-fw"></i> <span>Transaksi</span></a>
           <ul>
-            <li><a href="transaksi/isi_sp.html"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
-            <li><a href="transaksi/surat_pesan.html"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
-            <li><a href="transaksi/barangkeluar.html"><i class="fa fa-shopping-cart fa-fw"></i> Isi Barang Keluar</a></li>
-            <li><a href="transaksi/tandaterima.html"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
+            <li><a href="transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
+            <li><a href="transaksi/surat_pesan.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
+            <li><a href="transaksi/barangkeluar.php"><i class="fa fa-shopping-cart fa-fw"></i> Isi Barang Keluar</a></li>
+            <li><a href="transaksi/tandaterima.php"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
           </ul>
         </li>
         <li class="submenu"> <a href="#"><i class="fa fa-files-o fa-fw"></i> <span>Laporan</span></a>
           <ul>
-            <li><a href="laporan/lap_barang_keluar.html"><i class="fa fa-file fa-fw"></i> Laporan Barang Keluar</a></li>
-            <li><a href="laporan/lap_barang_masuk.html"><i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk</a></li>
+            <li><a href="laporan/lap_barang_keluar.php"><i class="fa fa-file fa-fw"></i> Laporan Barang Keluar</a></li>
+            <li><a href="laporan/lap_barang_masuk.php"><i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk</a></li>
           </ul>
         </li>
       </ul>
@@ -102,13 +102,13 @@
         <div class="quick-actions_homepage">
           <ul class="quick-actions">
             <li class="bg_lb span4">
-              <a href="master/staff.html"> <i class="fa fa-users fa-5x"></i><br> Staf</a>
+              <a href="master/staff.php"> <i class="fa fa-users fa-5x"></i><br> Staf</a>
             </li>
             <li class="bg_lg span3">
-              <a href="master/barang.html"> <i class="fa fa-archive fa-5x"></i><br> Barang</a>
+              <a href="master/barang.php"> <i class="fa fa-archive fa-5x"></i><br> Barang</a>
             </li>
             <li class="bg_lo span3">
-              <a href="master/supplier.html"> <i class="fa fa-building fa-5x"></i><br> Supplier</a>
+              <a href="master/supplier.php"> <i class="fa fa-building fa-5x"></i><br> Supplier</a>
             </li>
           </ul>
         </div>
@@ -117,16 +117,16 @@
         <div class="quick-actions_homepage">
           <ul class="quick-actions">
             <li class="bg_lb span6">
-              <a href="transaksi/isi_sp.html"> <i class="fa fa-pencil-square-o fa-4x"></i><br> Isi Surat Pesan</a>
+              <a href="transaksi/isi_sp.php"> <i class="fa fa-pencil-square-o fa-4x"></i><br> Isi Surat Pesan</a>
             </li>
             <li class="bg_lg span5">
-              <a href="transaksi/surat_pesan.html"> <i class="fa fa-envelope fa-4x"></i><br> Surat Pesan</a>
+              <a href="transaksi/surat_pesan.php"> <i class="fa fa-envelope fa-4x"></i><br> Surat Pesan</a>
             </li>
             <li class="bg_lo span5">
-              <a href="transaksi/barang_keluar.html"> <i class="fa fa-shopping-cart fa-4x"></i><br> Isi Barang Keluar</a>
+              <a href="transaksi/barang_keluar.php"> <i class="fa fa-shopping-cart fa-4x"></i><br> Isi Barang Keluar</a>
             </li>
             <li class="bg_ls span6">
-              <a href="transaksi/ttb.html"> <i class="fa fa-reply fa-4x"></i><br> Tanda Terima Barang</a>
+              <a href="transaksi/ttb.php"> <i class="fa fa-reply fa-4x"></i><br> Tanda Terima Barang</a>
             </li>
           </ul>
         </div>
@@ -135,10 +135,10 @@
         <div class="quick-actions_homepage">
           <ul class="quick-actions">
             <li class="bg_lb span6">
-              <a href="laporan/lap_barang_keluar.html"> <i class="fa fa-file fa-4x"></i><br> Laporan Barang Keluar</a>
+              <a href="laporan/lap_barang_keluar.php"> <i class="fa fa-file fa-4x"></i><br> Laporan Barang Keluar</a>
             </li>
             <li class="bg_lg span5">
-              <a href="laporan/lap_barang_masuk.html"> <i class="fa fa-file-text fa-4x"></i><br> Laporan Barang Masuk</a>
+              <a href="laporan/lap_barang_masuk.php"> <i class="fa fa-file-text fa-4x"></i><br> Laporan Barang Masuk</a>
             </li>
           </ul>
         </div>
@@ -196,4 +196,4 @@
       }
     </script>
   </body>
-  </html>
+  </php>
