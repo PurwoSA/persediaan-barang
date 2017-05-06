@@ -13,11 +13,11 @@ if ($user->isLoggedIn()) {
 
 //jika ada data yg dikirim
 if (isset($_POST['kirim'])) {
-    $telp_staf = $_POST['telp_staf'];
-    $password  = $_POST['password'];
+    $nip      = $_POST['nip'];
+    $password = $_POST['password'];
 
     // Proses login user
-    if ($user->login($telp_staf, $password)) {
+    if ($user->login($nip, $password)) {
         header("location: index.php");
     } else {
         // Jika login gagal, ambil pesan error
@@ -51,7 +51,7 @@ if (isset($_POST['kirim'])) {
             <div class="control-group">
                 <div class="controls">
                     <div class="main_input_box">
-                        <span class="add-on bg_lg"><i class="fa fa-user"> </i></span><input type="text" placeholder="Masukkan Nomor Telepon" name="telp_staf"/>
+                        <span class="add-on bg_lg"><i class="fa fa-user"> </i></span><input type="text" placeholder="Masukkan NIP" name="nip"/>
                     </div>
                 </div>
             </div>

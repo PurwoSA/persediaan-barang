@@ -17,12 +17,12 @@
         }
 
         //Login user
-        public function login($telp_staf, $password)
+        public function login($nip, $password)
         {
             try {
                 // Ambil data dari database
-                $query = $this->db->prepare("SELECT * FROM staf WHERE telp_staf = :telp_staf");
-                $query->bindParam(":telp_staf", $telp_staf);
+                $query = $this->db->prepare("SELECT * FROM staf WHERE nip = :nip");
+                $query->bindParam(":nip", $nip);
                 $query->execute();
                 $data = $query->fetch();
 
@@ -37,7 +37,7 @@
                         return false;
                     }
                 } else {
-                    $this->error = "Nomor Telepon Salah";
+                    $this->error = "NIP Salah";
                     return false;
                 }
             } catch (PDOException $e) {

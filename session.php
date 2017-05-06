@@ -7,9 +7,9 @@ session_start();// Memulai Session
 // Menyimpan Session
 $user_check    = $_SESSION['login_user'];
 // Ambil nama karyawan berdasarkan username karyawan dengan mysql_fetch_assoc
-$ses_sql       = mysql_query("SELECT telp_staf FROM staf WHERE telp_staf='$user_check'", $connection);
+$ses_sql       = mysql_query("SELECT nip FROM staf WHERE nip='$user_check'", $connection);
 $row           = mysql_fetch_assoc($ses_sql);
-$login_session = $row['telp_staf'];
+$login_session = $row['nip'];
 if(!isset($login_session)){
 	mysql_close($connection); // Menutup koneksi
 	header('Location: index.php'); // Mengarahkan ke Home Page
