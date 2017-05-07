@@ -20,7 +20,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amanda Reload | Dashboard</title>
+  <title>Amanda Reload | Beranda</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -100,7 +100,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="master/staff.php"><i class="fa fa-users"></i> Staf</a></li>
+            <li><a href="master/staf.php"><i class="fa fa-users"></i> Staf</a></li>
             <li><a href="master/barang.php"><i class="fa fa-archive"></i> Barang</a></li>
             <li><a href="master/supplier.php"><i class="fa fa-building"></i> Supplier</a></li>
           </ul>
@@ -158,12 +158,12 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h4>Staff</h4><br>
+              <h4>Staf</h4><br>
             </div>
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="master/staff.php" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="master/staf.php" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
