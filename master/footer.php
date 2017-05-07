@@ -1,44 +1,59 @@
-<!--Footer-part-->
+<footer class="main-footer">
+  <div class="pull-right hidden-xs">
+    <b>Version</b> 2.3.8
+  </div>
+  <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+  reserved.
+</footer>
 
-    <div class="row-fluid">
-      <div id="footer" class="span12">2017 &copy; Tugas APSI by <a href="http://fendi.comuv.com">KITA</a></div>
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Create the tabs -->
+  <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <!-- Home tab content -->
+    <div class="tab-pane" id="control-sidebar-home-tab">
+      <!-- /.control-sidebar-menu -->
     </div>
-
-    <!--end-Footer-part-->
-
-    <script src="../dist/js/jquery.min.js"></script>
-    <script src="../dist/js/jquery.ui.custom.js"></script>
-    <script src="../dist/js/bootstrap.min.js"></script>
-    <script src="../dist/js/jquery.uniform.js"></script>
-    <script src="../dist/js/select2.min.js"></script>
-    <script src="../dist/js/jquery.dataTables.min.js"></script>
-    <script src="../dist/js/matrix.js"></script>
-    <script src="../dist/js/matrix.tables.js"></script>
-
-    <script type="text/javascript">
-      // This function is called from the pop-up menus to transfer to
-      // a different page. Ignore if the value returned is a null string:
-      function goPage(newURL) {
-
-        // if url is empty, skip the menu dividers and reset the menu selection to default
-        if (newURL != "") {
-
-          // if url is "-", it is this page -- reset the menu:
-          if (newURL == "-") {
-            resetMenu();
-          }
-          // else, send page to designated URL
-          else {
-            document.location.href = newURL;
-          }
-        }
-      }
-
-      // resets the menu selection upon entry to this page:
-      function resetMenu() {
-        document.gomenu.selector.selectedIndex = 2;
-      }
-    </script>
-  </body>
-
-  </html>
+    <!-- /.tab-pane -->
+  </div>
+</aside>
+<!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+<!-- jQuery 2.2.3 -->
+<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
+</body>
+</html>
