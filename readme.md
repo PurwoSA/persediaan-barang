@@ -1,3 +1,3 @@
-# sipb-amanda-reload
-Sistem Informasi Persediaan Barang Konter HP Amanda Reload untuk tugas APSI
+# Sistem Informasi Persediaan Barang
+Sistem Informasi Persediaan Barang Konter HP Amanda Reload untuk tugas APSI <br>
 Menggunakan Admin LTE dari Almsaeed Studio
