@@ -11,7 +11,7 @@
           <i class="fa fa-book"></i> <span>Master</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-            </span>
+          </span>
         </a>
         <ul class="treeview-menu">
           <li><a href="../master/staf.php"><i class="fa fa-users fa-fw"></i> Staf</a></li>
@@ -25,7 +25,7 @@
           <span>Transaksi</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-            </span>
+          </span>
         </a>
         <ul class="treeview-menu">
           <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
@@ -72,13 +72,14 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-hover table-responsive">
               <thead>
                 <tr>
-                  <th>NIP</th>
-                  <th>Nama</th>
-                  <th>Nomor Telepon</th>
-                  <th>Alamat</th>
+                  <th>Kode Barang</th>
+                  <th>Nama Barang</th>
+                  <th>Jenis</th>
+                  <th>Satuan</th>
+                  <th>Harga</th>
                 </tr>
               </thead>
               <tbody>
@@ -106,7 +107,7 @@
                     }
                 }
                 try {
-                    $stmt = $db->prepare("SELECT nip, nm_staf, telp_staf, almt_staf FROM staf");
+                    $stmt = $db->prepare("SELECT * FROM barang");
                     $stmt->execute();
 
                     // set the resulting array to associative
@@ -122,10 +123,11 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <th>NIP</th>
-                  <th>Nama</th>
-                  <th>Nomor Telepon</th>
-                  <th>Alamat</th>
+                  <th>Kode Barang</th>
+                  <th>Nama Barang</th>
+                  <th>Jenis</th>
+                  <th>Satuan</th>
+                  <th>Harga</th>
                 </tr>
               </tfoot>
             </table>
