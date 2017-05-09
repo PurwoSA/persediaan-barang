@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
         $harga  = htmlentities($_POST['harga']);
 
         // Prepared statement untuk menambah data
-        $query = $db->prepare("INSERT INTO `barang`(`nm_brg`, `jenis`, `satuan`, `harga`) VALUES (:nm_brg,:jenis,:satuan,:harga)");
+        $query = $db->prepare("INSERT INTO `barang`(`nm_brg`, `jenis`, `satuan`, `harga`) VALUES (:nm_brg, :jenis, :satuan, :harga)");
         $query->bindParam(":nm_brg", $nm_brg);
         $query->bindParam(":jenis", $jenis);
         $query->bindParam(":satuan", $satuan);
