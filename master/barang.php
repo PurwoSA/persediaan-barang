@@ -68,7 +68,7 @@
         <div class="box">
           <div class="box-header">
             <h3 class="box-title">Data Barang</h3>
-            <a href="#" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
+            <a href="tambah_barang.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
