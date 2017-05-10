@@ -1,17 +1,21 @@
 <?php
 include 'header.php';
 
+if(!isset($_GET['id'])){
+    die("Error: ID Tidak Dimasukkan");
+}
+
 //Ambil data
-$query =$db->prepare("SELECT * FROM `barang");
-//Jalankan perintah SQL
+$query = $db->prepare("SELECT * FROM `barang` WHERE kd_brg = :kd_brg");
+$query->bindParam(":kd_brg", $_GET['id']);
+// Jalankan perintah sql
 $query->execute();
-if ($query->rowCount() == 0) {
-    //Tidak ada hasil
-    $kode = 1;
-} else {
+if($query->rowCount() == 0){
+    // Tidak ada hasil
+    die("Error: ID Tidak Ditemukan");
+}else{
     // ID Ditemukan, Ambil data
     $data = $query->fetch();
-    $kode = $data['kd_brg'] + 1;
 }
 
 if(isset($_POST['submit'])){
@@ -22,12 +26,13 @@ if(isset($_POST['submit'])){
     $satuan = htmlentities($_POST['satuan']);
     $harga  = htmlentities($_POST['harga']);
 
-    // Prepared statement untuk menambah data
-    $query = $db->prepare("INSERT INTO `barang`(`nm_brg`, `jenis`, `satuan`, `harga`) VALUES (:nm_brg, :jenis, :satuan, :harga)");
+    // Prepared statement untuk mengubah data
+    $query = $db->prepare("UPDATE `barang` SET `nm_brg` = :nm_brg,`jenis` = :jenis,`satuan` = :satuan, `harga` = :harga WHERE kd_brg = :kd_brg");
     $query->bindParam(":nm_brg", $nm_brg);
     $query->bindParam(":jenis", $jenis);
     $query->bindParam(":satuan", $satuan);
     $query->bindParam(":harga", $harga);
+    $query->bindParam(":kd_brg", $_GET['id']);
     // Jalankan perintah SQL
     $query->execute();
     // Alihkan ke index.php
@@ -103,31 +108,31 @@ if(isset($_POST['submit'])){
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="nm_brg">Kode Barang</label>
-                                    <input type="text" name="kd_brg" id="kd_brg" class="form-control" value="<?php echo $kode ?>" readonly>
+                                    <input type="text" name="kd_brg" id="kd_brg" class="form-control" value="<?php echo $data['kd_brg'] ?>" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="nm_brg">Nama Barang</label>
-                                    <input type="text" name="nm_brg" id="nm_brg" class="form-control" value="">
+                                    <input type="text" name="nm_brg" id="nm_brg" class="form-control" value="<?php echo $data['nm_brg'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="jenis">Jenis Barang</label>
-                                    <input type="text" name="jenis" id="jenis" class="form-control" value="">
+                                    <input type="text" name="jenis" id="jenis" class="form-control" value="<?php echo $data['jenis'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="satuan">Satuan Barang</label>
-                                    <input type="text" name="satuan" id="satuan" class="form-control" value="">
+                                    <input type="text" name="satuan" id="satuan" class="form-control" value="<?php echo $data['satuan'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga Barang</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">Rp</span>
-                                        <input type="number" name="harga" id="harga" class="form-control" value="">
+                                        <input type="number" name="harga" id="harga" class="form-control" value="<?php echo $data['harga'] ?>">
                                         <span class="input-group-addon">,00</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
+                                <button type="submit" class="btn btn-primary btn-flat" name="submit">Ubah</button>
                             </div>
                         </form>
                         <!-- /.box-body -->
