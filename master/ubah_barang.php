@@ -1,5 +1,5 @@
 <?php
-include '../header.php';
+include 'header.php';
 
 if(!isset($_GET['id'])){
     die("Error: ID Tidak Dimasukkan");
@@ -116,7 +116,16 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="jenis">Jenis Barang</label>
-                                    <input type="text" name="jenis" id="jenis" class="form-control" value="<?php echo $data['jenis'] ?>">
+                                    <select class="form-control select2" style="width: 100%;">
+                                        <option value="<?php echo $data['jenis']?>" selected="selected"><?php echo $data['jenis']?></option>
+                                        <option value="Power Bank">Power Bank</option>
+                                        <option value="Charger">Charger</option>
+                                        <option value="Headset">Headset</option>
+                                        <option value="Case">Case</option>
+                                        <option value="Aksesoris">Aksesoris</option>
+                                        <option value="Kabel Data">Kabel Data</option>
+                                        <option value="Lainnya">Lainnya</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="satuan">Satuan Barang</label>
@@ -146,4 +155,4 @@ if(isset($_POST['submit'])){
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <?php include '../footer.php'; ?>
+    <?php include 'footer.php'; ?>

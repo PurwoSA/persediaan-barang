@@ -1,5 +1,5 @@
 <?php
-include '../header.php';
+include 'header.php';
 
 //Ambil data
 $query =$db->prepare("SELECT MAX(`kd_brg`) AS palingGede FROM `barang");
@@ -112,13 +112,13 @@ if(isset($_POST['submit'])){
                                 <div class="form-group">
                                     <label for="jenis">Jenis Barang</label>
                                     <select class="form-control select2" style="width: 100%;">
-                                        <option>Power Bank</option>
-                                        <option>Charger</option>
-                                        <option>Headset</option>
-                                        <option>Case</option>
-                                        <option>Aksesoris</option>
-                                        <option>Kabel Data</option>
-                                        <option>Lainnya</option>
+                                        <option value="Power Bank">Power Bank</option>
+                                        <option value="Charger">Charger</option>
+                                        <option value="Headset">Headset</option>
+                                        <option value="Case">Case</option>
+                                        <option value="Aksesoris">Aksesoris</option>
+                                        <option value="Kabel Data">Kabel Data</option>
+                                        <option value="Lainnya">Lainnya</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
