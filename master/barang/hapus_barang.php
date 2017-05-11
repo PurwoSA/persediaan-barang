@@ -1,5 +1,5 @@
 <?php  
-    require_once "../koneksi.php";
+    require_once "../../koneksi.php";
 
     if(isset($_GET["id"])){
         // Prepared statement untuk menghapus data

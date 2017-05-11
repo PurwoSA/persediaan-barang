@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include '../header.php';
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
 $query = $db->prepare("SELECT * FROM barang");
 // Jalankan perintah SQL
@@ -140,4 +140,4 @@ $data = $query->fetchAll();
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <?php include 'footer.php'; ?>
+  <?php include '../footer.php'; ?>

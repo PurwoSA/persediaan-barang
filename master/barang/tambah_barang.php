@@ -1,38 +1,33 @@
 <?php
-include 'header.php';
-
-if(!isset($_GET['id'])){
-    die("Error: ID Tidak Dimasukkan");
-}
+include '../header.php';
 
 //Ambil data
-$query = $db->prepare("SELECT * FROM `barang` WHERE kd_brg = :kd_brg");
-$query->bindParam(":kd_brg", $_GET['id']);
-// Jalankan perintah sql
+$query =$db->prepare("SELECT MAX(`kd_brg`) AS palingGede FROM `barang");
+//Jalankan perintah SQL
 $query->execute();
-if($query->rowCount() == 0){
-    // Tidak ada hasil
-    die("Error: ID Tidak Ditemukan");
-}else{
+if ($query->rowCount() == 0) {
+    //Tidak ada hasil
+    $kode = 1;
+} else {
     // ID Ditemukan, Ambil data
     $data = $query->fetch();
+    $kode = $data['palingGede'] + 1;
 }
 
 if(isset($_POST['submit'])){
-    // Simpan data yang di inputkan ke POST ke masing-masing variable
-    // dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
+    // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
     $nm_brg = htmlentities($_POST['nm_brg']);
     $jenis  = htmlentities($_POST['jenis']);
     $satuan = htmlentities($_POST['satuan']);
     $harga  = htmlentities($_POST['harga']);
 
-    // Prepared statement untuk mengubah data
-    $query = $db->prepare("UPDATE `barang` SET `nm_brg` = :nm_brg,`jenis` = :jenis,`satuan` = :satuan, `harga` = :harga WHERE kd_brg = :kd_brg");
+    // Prepared statement untuk menambah data
+    $query = $db->prepare("INSERT INTO `barang`(`kd_brg`, `nm_brg`, `jenis`, `satuan`, `harga`) VALUES (:kd_brg, :nm_brg, :jenis, :satuan, :harga)");
+    $query->bindParam(":kd_brg", $kode);
     $query->bindParam(":nm_brg", $nm_brg);
     $query->bindParam(":jenis", $jenis);
     $query->bindParam(":satuan", $satuan);
     $query->bindParam(":harga", $harga);
-    $query->bindParam(":kd_brg", $_GET['id']);
     // Jalankan perintah SQL
     $query->execute();
     // Alihkan ke index.php
@@ -108,31 +103,39 @@ if(isset($_POST['submit'])){
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="nm_brg">Kode Barang</label>
-                                    <input type="text" name="kd_brg" id="kd_brg" class="form-control" value="<?php echo $data['kd_brg'] ?>" readonly>
+                                    <input type="text" name="kd_brg" id="kd_brg" class="form-control" value="<?php echo $kode ?>" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="nm_brg">Nama Barang</label>
-                                    <input type="text" name="nm_brg" id="nm_brg" class="form-control" value="<?php echo $data['nm_brg'] ?>">
+                                    <input type="text" name="nm_brg" id="nm_brg" class="form-control" value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="jenis">Jenis Barang</label>
-                                    <input type="text" name="jenis" id="jenis" class="form-control" value="<?php echo $data['jenis'] ?>">
+                                    <select class="form-control select2" style="width: 100%;">
+                                        <option>Power Bank</option>
+                                        <option>Charger</option>
+                                        <option>Headset</option>
+                                        <option>Case</option>
+                                        <option>Aksesoris</option>
+                                        <option>Kabel Data</option>
+                                        <option>Lainnya</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="satuan">Satuan Barang</label>
-                                    <input type="text" name="satuan" id="satuan" class="form-control" value="<?php echo $data['satuan'] ?>">
+                                    <input type="text" name="satuan" id="satuan" class="form-control" value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga Barang</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">Rp</span>
-                                        <input type="number" name="harga" id="harga" class="form-control" value="<?php echo $data['harga'] ?>">
+                                        <input type="number" name="harga" id="harga" class="form-control" value="">
                                         <span class="input-group-addon">,00</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary btn-flat" name="submit">Ubah</button>
+                                <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
                             </div>
                         </form>
                         <!-- /.box-body -->
