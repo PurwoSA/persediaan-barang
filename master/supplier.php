@@ -1,4 +1,12 @@
-<?php include 'header.php';?>
+<?php
+include 'header.php';
+// Buat prepared statement untuk mengambil semua data dari tbBiodata
+$query = $db->prepare("SELECT * FROM supplier");
+// Jalankan perintah SQL
+$query->execute();
+// Ambil semua data dan masukkan ke variable $data
+$data = $query->fetchAll();
+?>
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
   <!-- sidebar: style can be found in sidebar.less -->
@@ -68,7 +76,7 @@
         <div class="box">
           <div class="box-header">
             <h3 class="box-title">Data Supplier</h3>
-            <a href="#" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
+            <a href="tambah_supplier.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -79,46 +87,31 @@
                   <th>Nama Supplier</th>
                   <th>Alamat Supplier</th>
                   <th>Telepon Supplier</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                <?php
-                class TableRows extends RecursiveIteratorIterator
-                {
-                    public function __construct($it)
-                    {
-                        parent::__construct($it, self::LEAVES_ONLY);
-                    }
-
-                    public function current()
-                    {
-                        return "<td>" . parent::current(). "</td>";
-                    }
-
-                    public function beginChildren()
-                    {
-                        echo "<tr>";
-                    }
-
-                    public function endChildren()
-                    {
-                        echo "</tr>" . "\n";
-                    }
-                }
-                try {
-                    $stmt = $db->prepare("SELECT * FROM barang");
-                    $stmt->execute();
-
-                    // set the resulting array to associative
-                    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                    foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-                        echo $v;
-                    }
-                } catch (PDOException $e) {
-                    echo "Error: " . $e->getMessage();
-                }
-                $db = null;
-                ?>
+                <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->
+                  <?php foreach ($data as $value): ?>
+                  <tr>
+                    <td>
+                      <?php echo $value['kd_supplier'] ?>
+                    </td>
+                    <td>
+                      <?php echo $value['nm_supplier'] ?>
+                    </td>
+                    <td>
+                      <?php echo $value['almt_supplier'] ?>
+                    </td>
+                    <td>
+                      <?php echo $value['telp_supplier'] ?>
+                    </td>
+                    <td>
+                      <a href="ubah_supplier.php?id=<?php echo $value['kd_supplier']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
+                      <a href="hapus_supplier.php?id=<?php echo $value['kd_supplier']?>" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
+                    </td>
+                  </tr>
+                  <?php endforeach; ?>
               </tbody>
               <tfoot>
                 <tr>
@@ -126,6 +119,7 @@
                   <th>Nama Supplier</th>
                   <th>Alamat Supplier</th>
                   <th>Telepon Supplier</th>
+                  <th>Aksi</th>
                 </tr>
               </tfoot>
             </table>
