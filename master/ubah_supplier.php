@@ -114,7 +114,7 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="almt_supplier">Alamat Supplier</label>
-                                    <input type="text" name="almt_supplier" id="almt_supplier" class="form-control" value="<?php echo $data['almt_supplier'] ?>">
+                                    <textarea type="text" name="almt_supplier" id="almt_supplier" class="form-control" value="<?php echo $data['almt_supplier'] ?>"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="telp_supplier">Telepon Supplier</label>
