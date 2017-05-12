@@ -116,14 +116,15 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="jenis">Jenis Barang</label>
-                                    <select class="form-control select2" style="width: 100%;">
+                                    <select class="form-control select2" style="width: 100%;" name="jenis" id="jenis">
                                         <option value="<?php echo $data['jenis']?>" selected="selected"><?php echo $data['jenis']?></option>
-                                        <option value="Power Bank">Power Bank</option>
+                                        <option value=""></option>
+                                        <option value="Aksesoris">Aksesoris</option>
+                                        <option value="Case">Case</option>
                                         <option value="Charger">Charger</option>
                                         <option value="Headset">Headset</option>
-                                        <option value="Case">Case</option>
-                                        <option value="Aksesoris">Aksesoris</option>
                                         <option value="Kabel Data">Kabel Data</option>
+                                        <option value="Power Bank">Power Bank</option>
                                         <option value="Lainnya">Lainnya</option>
                                     </select>
                                 </div>
