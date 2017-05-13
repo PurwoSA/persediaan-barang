@@ -1,35 +1,46 @@
 <?php
 include 'header.php';
 
+if(!isset($_GET['id'])){
+    die("Error: ID Tidak Dimasukkan");
+}
+
 //Ambil data
-$query =$db->prepare("SELECT MAX(`kd_supplier`) AS palingGede FROM `supplier");
-//Jalankan perintah SQL
+$query = $db->prepare("SELECT * FROM `staf` WHERE nip = :nip");
+$query->bindParam(":nip", $_GET['id']);
+// Jalankan perintah sql
 $query->execute();
-if ($query->rowCount() == 0) {
-    //Tidak ada hasil
-    $kode = 1;
-} else {
+if($query->rowCount() == 0){
+    // Tidak ada hasil
+    die("Error: ID Tidak Ditemukan");
+}else{
     // ID Ditemukan, Ambil data
     $data = $query->fetch();
-    $kode = $data['palingGede'] + 1;
 }
 
 if(isset($_POST['submit'])){
-    // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
-    $nm_supplier   = htmlentities($_POST['nm_supplier']);
-    $almt_supplier = htmlentities($_POST['almt_supplier']);
-    $telp_supplier = htmlentities($_POST['telp_supplier']);
+    // Simpan data yang di inputkan ke POST ke masing-masing variable
+    // dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
+    $nm_staf   = htmlentities($_POST['nm_staf']);
+    $almt_staf = htmlentities($_POST['almt_staf']);
+    $telp_staf = htmlentities($_POST['telp_staf']);
+    $password  = htmlentities($_POST['password']);
+    $kpass     = htmlentities($_POST['kpass']);
 
-    // Prepared statement untuk menambah data
-    $query = $db->prepare("INSERT INTO `supplier`(`kd_supplier`, `nm_supplier`, `almt_supplier`, `telp_supplier`) VALUES (:kd_supplier, :nm_supplier, :almt_supplier, :telp_supplier)");
-    $query->bindParam(":kd_supplier", $kode);
-    $query->bindParam(":nm_supplier", $nm_supplier);
-    $query->bindParam(":almt_supplier", $almt_supplier);
-    $query->bindParam(":telp_supplier", $telp_supplier);
-    // Jalankan perintah SQL
-    $query->execute();
-    // Alihkan ke index.php
-    header("location: supplier.php");
+    //Cocokkan password
+    if ($kpass == $password) {
+        // Prepared statement untuk mengubah data
+        $query = $db->prepare("UPDATE `staf` SET `nm_staf` = :nm_staf,`almt_staf` = :almt_staf,`telp_staf` = :telp_staf, `password` = :password WHERE nip = :nip");
+        $query->bindParam(":nm_staf", $nm_staf);
+        $query->bindParam(":almt_staf", $almt_staf);
+        $query->bindParam(":telp_staf", $telp_staf);
+        $query->bindParam(":password", $password);
+        $query->bindParam(":nip", $_GET['id']);
+        // Jalankan perintah SQL
+        $query->execute();
+        // Alihkan ke index.php
+        header("location: staf.php");
+    }
 }
 ?>
     <!-- Let side column. contains the logo and sidebar -->
@@ -46,8 +57,8 @@ if(isset($_POST['submit'])){
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="../master/staf.php"><i class="fa fa-users fa-fw"></i> Staf</a></li>
-                        <li><a href="../master/barang.php"><i class="fa fa-archive fa-fw"></i> Barang</a></li>
-                        <li class="active"><a href="../master/supplier.php"><i class="fa fa-building fa-fw"></i> Supplier</a></li>
+                        <li class="active"><a href="../master/barang.php"><i class="fa fa-archive fa-fw"></i> Barang</a></li>
+                        <li><a href="../master/supplier.php"><i class="fa fa-building fa-fw"></i> Supplier</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -84,7 +95,7 @@ if(isset($_POST['submit'])){
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Supplier
+                Staf
             </h1>
         </section>
 
@@ -94,30 +105,38 @@ if(isset($_POST['submit'])){
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Tambah Supplier</h3>
+                            <h3 class="box-title">Tambah Staf</h3>
                         </div>
                         <!-- /.box-header -->
                         <form method=post>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="nm_supplier">Kode Supplier</label>
-                                    <input type="text" name="kd_supplier" id="kd_supplier" class="form-control" value="<?php echo $kode ?>" readonly>
+                                    <label for="nm_staf">NIP</label>
+                                    <input type="text" name="nip" id="nip" class="form-control" value="<?php echo $data['nip'] ?>" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nm_supplier">Nama Supplier</label>
-                                    <input type="text" name="nm_supplier" id="nm_supplier" class="form-control" value="">
+                                    <label for="nm_staf">Nama Staf</label>
+                                    <input type="text" name="nm_staf" id="nm_staf" class="form-control" value="<?php echo $data['nm_staf'] ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="almt_supplier">Alamat Supplier</label>
-                                    <textarea type="text" name="almt_supplier" id="almt_supplier" class="form-control" value=""></textarea>
+                                    <label for="almt_staf">Alamat Staf</label>
+                                    <input type="text" name="almt_staf" id="almt_staf" class="form-control" value="<?php echo $data['almt_staf'] ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="telp_supplier">Telepon Supplier</label>
-                                    <input type="text" name="telp_supplier" id="telp_supplier" class="form-control" value="">
+                                    <label for="telp_staf">Telepon Staf</label>
+                                    <input type="text" name="telp_staf" id="telp_staf" class="form-control" value="<?php echo $data['telp_staf'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kpass">Konfirmasi Password</label>
+                                    <input type="password" name="kpass" id="kpass" class="form-control" value="">
                                 </div>
                             </div>
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
+                                <button type="submit" class="btn btn-primary btn-flat" name="submit">Ubah</button>
                             </div>
                         </form>
                         <!-- /.box-body -->

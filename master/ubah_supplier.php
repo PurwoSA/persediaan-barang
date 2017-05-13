@@ -21,8 +21,8 @@ if($query->rowCount() == 0){
 if(isset($_POST['submit'])){
     // Simpan data yang di inputkan ke POST ke masing-masing variable
     // dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
-    $nm_supplier = htmlentities($_POST['nm_supplier']);
-    $almt_supplier  = htmlentities($_POST['almt_supplier']);
+    $nm_supplier   = htmlentities($_POST['nm_supplier']);
+    $almt_supplier = htmlentities($_POST['almt_supplier']);
     $telp_supplier = htmlentities($_POST['telp_supplier']);
 
     // Prepared statement untuk mengubah data

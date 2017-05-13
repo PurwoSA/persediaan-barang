@@ -76,7 +76,7 @@ $data = $query->fetchAll();
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Staf</h3>
-              <a href="#" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
+              <a href="tambah_staf.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -107,17 +107,7 @@ $data = $query->fetchAll();
                       <?php echo $value['almt_staf'] ?>
                     </td>
                     <td>
-                    <?php
-                    if ($value['nip'] == $currentUser['nip']) {
-                      ?>
-                      <a href="ubah_staf.php?id=<?php echo $value['nip']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
-                      <?php
-                    } else {
-                      ?>
-                      <a href="ubah_staf.php?id=<?php echo $value['nip']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
-                      <?php
-                    }
-                    ?>
+                    <a href="ubah_staf.php?id=<?php echo $value['nip']?>" class="btn btn-warning btn-flat <?php if ($value['nip'] != $currentUser['nip']) {echo 'disabled';} ?>"><i class="fa fa-pencil"></i></a>
                     </td>
                   </tr>
                   <?php endforeach; ?>

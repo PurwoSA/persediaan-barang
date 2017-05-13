@@ -68,7 +68,7 @@
         <ul class="nav navbar-nav">
           <!-- User Account: style can be found in dropdown.less -->
           <li><a href="#"><i class="fa fa-user-circle"></i> <?php echo $currentUser['nm_staf'] ?></a></li>
-          <li><a href="logout.php"><i class="fa fa-sign-out"></i> Keluar</a></li>
+          <li><a href="../logout.php"><i class="fa fa-sign-out"></i> Keluar</a></li>
           <!-- Control Sidebar Toggle Button -->
           <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
