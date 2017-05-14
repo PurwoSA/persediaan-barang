@@ -64,8 +64,8 @@ if(isset($_POST['submit'])){
                     <ul class="treeview-menu">
                         <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
                         <li><a href="../transaksi/surat_pesan.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
-                        <li><a href="../transaksi/barangkeluar.php"><i class="fa fa-shopping-cart fa-fw"></i> Isi Barang Keluar</a></li>
-                        <li><a href="../transaksi/tandaterima.php"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
+                        <li><a href="../transaksi/barangkeluar.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
+                        <li><a href="../transaksi/ttb.php"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -114,11 +114,11 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="almt_supplier">Alamat Supplier</label>
-                                    <textarea type="text" name="almt_supplier" id="almt_supplier" class="form-control" value="<?php echo $data['almt_supplier'] ?>"></textarea>
+                                    <input type="text" name="almt_supplier" id="almt_supplier" class="form-control" value="<?php echo $data['almt_supplier'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="telp_supplier">Telepon Supplier</label>
-                                    <input type="text" name="telp_supplier" id="telp_supplier" class="form-control" value="<?php echo $data['telp_supplier'] ?>">
+                                    <input type="text" name="telp_supplier" id="telp_supplier" class="form-control" value="<?php echo $data['telp_supplier'] ?>" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                                 </div>
                             </div>
                             <div class="box-footer">

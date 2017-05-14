@@ -66,8 +66,8 @@ if(isset($_POST['submit'])){
                     <ul class="treeview-menu">
                         <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
                         <li><a href="../transaksi/surat_pesan.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
-                        <li><a href="../transaksi/barangkeluar.php"><i class="fa fa-shopping-cart fa-fw"></i> Isi Barang Keluar</a></li>
-                        <li><a href="../transaksi/tandaterima.php"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
+                        <li><a href="../transaksi/barangkeluar.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
+                        <li><a href="../transaksi/ttb.php"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -130,7 +130,7 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="satuan">Satuan Barang</label>
-                                    <input type="text" name="satuan" id="satuan" class="form-control" value="<?php echo $data['satuan'] ?>">
+                                    <input type="text" name="satuan" id="satuan" class="form-control" value="<?php echo $data['satuan'] ?>"  onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga Barang</label>

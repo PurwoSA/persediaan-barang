@@ -65,7 +65,7 @@ if (isset($_POST['kirim'])) {
 
     <form id="loginform" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Masukkan NIP" name="nip">
+        <input type="text" class="form-control" placeholder="Masukkan NIP" name="nip" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

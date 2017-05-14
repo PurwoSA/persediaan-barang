@@ -35,6 +35,10 @@
 <!-- DataTables -->
 <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- bootstrap datepicker -->
+<script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- bootstrap time picker -->
+<script src="../plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- SlimScroll -->
 <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -57,6 +61,15 @@
       "ordering": true,
       "info": true,
       "autoWidth": false
+    });
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true,
+      format: 'dd/mm/yyyy'
+    });
+    //Timepicker
+    $(".timepicker").timepicker({
+      showInputs: false
     });
   });
 </script>
