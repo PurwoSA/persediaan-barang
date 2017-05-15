@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT x.*, y.nm_supplier FROM surat_pesan x, supplier y WHERE x.kd_supplier = y.kd_supplier");
+$query = $db->prepare("SELECT z.*, y.nm_brg, x.nm_staf FROM staf x, barang y, barang_klr z WHERE x.nip = z.nip AND y.kd_brg = z.kd_brg");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
@@ -37,8 +37,8 @@ $data  = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
-            <li class="active"><a href="../transaksi/sp.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
-            <li><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
+            <li><a href="../transaksi/sp.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
+            <li  class="active"><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
             <li><a href="../transaksi/ttb.php"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
           </ul>
         </li>
@@ -65,7 +65,7 @@ $data  = $query->fetchAll();
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Surat Pesan
+        Barang Keluar
       </h1>
     </section>
 
@@ -75,18 +75,20 @@ $data  = $query->fetchAll();
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Surat Pesan</h3>
-              <a href="tambah_sp.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
+              <h3 class="box-title">Data Barang Keluar</h3>
+              <a href="tambah_brg_klr.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>
-                    <th>Nomor SP</th>
-                    <th>Kode Supplier</th>
-                    <th>Nama Supplier</th>
-                    <th>Tanggal SP</th>
+                    <th>Nomor Barang Keluar</th>
+                    <th>Nama Staf</th>
+                    <th>Nama Barang</th>
+                    <th>Jumlah Keluar</th>
+                    <th>Waktu Keluar</th>
+                    <th>Tanggal Keluar</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -95,30 +97,38 @@ $data  = $query->fetchAll();
                   <?php foreach ($data as $value): ?>
                   <tr>
                     <td>
-                      <?php echo $value['no_sp'] ?>
+                      <?php echo $value['no_klr']; ?>
                     </td>
                     <td>
-                      <?php echo $value['kd_supplier'] ?>
+                      <?php echo $value['nm_staf'] ?>
                     </td>
                     <td>
-                      <?php echo $value['nm_supplier'] ?>
+                      <?php echo $value['nm_brg'] ?>
                     </td>
                     <td>
-                      <?php echo $value['tgl_sp'] ?>
+                      <?php echo $value['jml_klr'] ?>
                     </td>
                     <td>
-                      <a href="ubah_sp.php?id=<?php echo $value['no_sp']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
-                      <a href="hapus_sp.php?id=<?php echo $value['no_sp']?>" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
+                      <?php echo $value['wkt_klr'] ?>
+                    </td>
+                    <td>
+                      <?php echo $value['tgl_klr'] ?>
+                    </td>
+                    <td>
+                      <a href="ubah_brg_klr.php?id=<?php echo $value['no_klr']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
+                      <a href="hapus_brg_klr.php?id=<?php echo $value['no_klr']?>" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
                     </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Nomor SP</th>
-                    <th>Kode Supplier</th>
-                    <th>Nama Supplier</th>
-                    <th>Tanggal SP</th>
+                    <th>Nomor Barang Keluar</th>
+                    <th>Nama Staf</th>
+                    <th>Nama Barang</th>
+                    <th>Jumlah Keluar</th>
+                    <th>Waktu Keluar</th>
+                    <th>Tanggal Keluar</th>
                     <th>Aksi</th>
                   </tr>
                 </tfoot>

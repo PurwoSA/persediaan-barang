@@ -118,7 +118,7 @@
               <ul class="treeview-menu">
                 <li><a href="transaksi/isi_sp.php"><i class="fa fa-pencil-square-o"></i> Isi Surat Pesan</a></li>
                 <li><a href="transaksi/sp.php"><i class="fa fa-envelope"></i> Surat Pesan</a></li>
-                <li><a href="transaksi/barangkeluar.php"><i class="fa fa-shopping-cart"></i> Barang Keluar</a></li>
+                <li><a href="transaksi/brg_klr.php"><i class="fa fa-shopping-cart"></i> Barang Keluar</a></li>
                 <li><a href="transaksi/ttb.php"><i class="fa fa-reply"></i> Tanda Terima Barang</a></li>
               </ul>
             </li>
@@ -241,7 +241,7 @@
                     <div class="icon">
                       <i class="fa fa-shopping-cart"></i>
                     </div>
-                    <a href="transaksi/barangkeluar.php" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="transaksi/brg_klr.php" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
                   </div>
                 </div>
                 <!-- ./col -->
