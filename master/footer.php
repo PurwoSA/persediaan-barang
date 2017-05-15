@@ -2,8 +2,7 @@
   <div class="pull-right hidden-xs">
     <b>Version</b> 2.3.8
   </div>
-  <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-  reserved.
+  <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
 </footer>
 
 <!-- Control Sidebar -->
@@ -51,14 +50,15 @@
 
     $("#example1").DataTable();
     $('#example2').DataTable({
-      "paging": true,
+      "paging"      : true,
       "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
+      "searching"   : false,
+      "ordering"    : true,
+      "info"        : true,
+      "autoWidth"   : false
     });
   });
 </script>
 </body>
+
 </html>

@@ -55,21 +55,26 @@
 
     $("#example1").DataTable();
     $('#example2').DataTable({
-      "paging": true,
+      "paging"      : true,
       "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
+      "searching"   : false,
+      "ordering"    : true,
+      "info"        : true,
+      "autoWidth"   : false
     });
     //Date picker
     $('#datepicker').datepicker({
       autoclose: true,
-      format: 'dd/mm/yyyy'
+      format   : 'dd/mm/yyyy'
     });
     //Timepicker
     $(".timepicker").timepicker({
-      showInputs: false
+      showInputs  : false,
+      showSeconds : true,
+      showMeridian: false,
+      maxHours    : 24,
+      secondStep  : 1,
+      minuteStep  : 1,
     });
   });
 </script>
