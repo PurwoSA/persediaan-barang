@@ -88,6 +88,7 @@ $data = $query->fetchAll();
                     <th>Jenis</th>
                     <th>Satuan</th>
                     <th>Harga</th>
+                    <th>Stok</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -111,6 +112,9 @@ $data = $query->fetchAll();
                       Rp<?php echo $value['harga'] ?>,00
                     </td>
                     <td>
+                      <?php echo $value['stok'] ?>
+                    </td>
+                    <td>
                       <a href="ubah_barang.php?id=<?php echo $value['kd_brg']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
                       <a href="hapus_barang.php?id=<?php echo $value['kd_brg']?>" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
                     </td>
@@ -124,6 +128,7 @@ $data = $query->fetchAll();
                     <th>Jenis</th>
                     <th>Satuan</th>
                     <th>Harga</th>
+                    <th>Stok</th>
                     <th>Aksi</th>
                   </tr>
                 </tfoot>

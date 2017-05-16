@@ -19,19 +19,20 @@ if($query->rowCount() == 0){
 }
 
 if(isset($_POST['submit'])){
-    // Simpan data yang di inputkan ke POST ke masing-masing variable
-    // dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
+    // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
     $nm_brg = htmlentities($_POST['nm_brg']);
     $jenis  = htmlentities($_POST['jenis']);
     $satuan = htmlentities($_POST['satuan']);
     $harga  = htmlentities($_POST['harga']);
+    $stok   = htmlentities($_POST['stok']);
 
     // Prepared statement untuk mengubah data
-    $query = $db->prepare("UPDATE `barang` SET `nm_brg` = :nm_brg,`jenis` = :jenis,`satuan` = :satuan, `harga` = :harga WHERE kd_brg = :kd_brg");
+    $query = $db->prepare("UPDATE `barang` SET `nm_brg` = :nm_brg,`jenis` = :jenis,`satuan` = :satuan, `harga` = :harga, `stok` = :stok WHERE kd_brg = :kd_brg");
     $query->bindParam(":nm_brg", $nm_brg);
     $query->bindParam(":jenis", $jenis);
     $query->bindParam(":satuan", $satuan);
     $query->bindParam(":harga", $harga);
+    $query->bindParam(":stok", $stok);
     $query->bindParam(":kd_brg", $_GET['id']);
     // Jalankan perintah SQL
     $query->execute();
@@ -112,11 +113,11 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="nm_brg">Nama Barang</label>
-                                    <input type="text" name="nm_brg" id="nm_brg" class="form-control" value="<?php echo $data['nm_brg'] ?>">
+                                    <input type="text" name="nm_brg" id="nm_brg" class="form-control" value="<?php echo $data['nm_brg'] ?>" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="jenis">Jenis Barang</label>
-                                    <select class="form-control select2" style="width: 100%;" name="jenis" id="jenis">
+                                    <select class="form-control select2" style="width: 100%;" name="jenis" id="jenis" required="">
                                         <option value="<?php echo $data['jenis']?>" selected="selected"><?php echo $data['jenis']?></option>
                                         <option value=""></option>
                                         <option value="Aksesoris">Aksesoris</option>
@@ -130,15 +131,19 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="satuan">Satuan Barang</label>
-                                    <input type="text" name="satuan" id="satuan" class="form-control" value="<?php echo $data['satuan'] ?>"  onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                                    <input type="text" name="satuan" id="satuan" class="form-control" value="<?php echo $data['satuan'] ?>" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga Barang</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">Rp</span>
-                                        <input type="number" name="harga" id="harga" class="form-control" value="<?php echo $data['harga'] ?>">
+                                        <input type="number" name="harga" id="harga" class="form-control" value="<?php echo $data['harga'] ?>" required="">
                                         <span class="input-group-addon">,00</span>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="satuan">Stok Barang</label>
+                                    <input type="number" name="stok" id="stok" class="form-control" value="<?php echo $data['stok'] ?>" required="">
                                 </div>
                             </div>
                             <div class="box-footer">

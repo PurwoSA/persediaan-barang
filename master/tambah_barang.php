@@ -20,14 +20,16 @@ if(isset($_POST['submit'])){
     $jenis  = htmlentities($_POST['jenis']);
     $satuan = htmlentities($_POST['satuan']);
     $harga  = htmlentities($_POST['harga']);
+    $stok   = htmlentities($_POST['stok']);
 
     // Prepared statement untuk menambah data
-    $query = $db->prepare("INSERT INTO `barang`(`kd_brg`, `nm_brg`, `jenis`, `satuan`, `harga`) VALUES (:kd_brg, :nm_brg, :jenis, :satuan, :harga)");
+    $query = $db->prepare("INSERT INTO `barang`(`kd_brg`, `nm_brg`, `jenis`, `satuan`, `harga`, `stok`) VALUES (:kd_brg, :nm_brg, :jenis, :satuan, :harga, :stok)");
     $query->bindParam(":kd_brg", $kode);
     $query->bindParam(":nm_brg", $nm_brg);
     $query->bindParam(":jenis", $jenis);
     $query->bindParam(":satuan", $satuan);
     $query->bindParam(":harga", $harga);
+    $query->bindParam(":stok", $stok);
     // Jalankan perintah SQL
     $query->execute();
     // Alihkan ke index.php
@@ -107,11 +109,11 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="nm_brg">Nama Barang</label>
-                                    <input type="text" name="nm_brg" id="nm_brg" class="form-control" value="" >
+                                    <input type="text" name="nm_brg" id="nm_brg" class="form-control" value="" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="jenis">Jenis Barang</label>
-                                    <select class="form-control select2" style="width: 100%;" name="jenis" id="jenis">
+                                    <select class="form-control select2" style="width: 100%;" name="jenis" id="jenis" required="">
                                         <option value=""> </option>
                                         <option value="Aksesoris">Aksesoris</option>
                                         <option value="Case">Case</option>
@@ -124,15 +126,19 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="satuan">Satuan Barang</label>
-                                    <input type="text" name="satuan" id="satuan" class="form-control" value="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                                    <input type="text" name="satuan" id="satuan" class="form-control" value="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga Barang</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">Rp</span>
-                                        <input type="number" name="harga" id="harga" class="form-control" value="">
+                                        <input type="number" name="harga" id="harga" class="form-control" value="" required="">
                                         <span class="input-group-addon">,00</span>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="satuan">Stok Barang</label>
+                                    <input type="number" name="stok" id="stok" class="form-control" value="" required="">
                                 </div>
                             </div>
                             <div class="box-footer">
