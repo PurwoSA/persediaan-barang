@@ -2,19 +2,9 @@
 include 'header.php';
 
 //Ambil data
-$query  = $db->prepare("SELECT MAX(kd_isi) AS palingGede FROM isi_sp");
 $query1 = $db->prepare("SELECT x.*, y.nm_supplier FROM surat_pesan x, supplier y WHERE x.kd_supplier = y.kd_supplier");
 $query2 = $db->prepare("SELECT x.kd_brg, x.nm_brg FROM barang x");
 //Jalankan perintah SQL
-$query->execute();
-if ($query->rowCount() == 0) {
-    //Tidak ada hasil
-    $kode = 1;
-} else {
-    // ID Ditemukan, Ambil data
-    $data = $query->fetch();
-    $kode = $data['palingGede'] + 1;
-}
 $query1->execute();
 $query2->execute();
 // Ambil semua data dan masukkan ke variable $data
@@ -28,8 +18,7 @@ if(isset($_POST['submit'])){
     $jml_psn = htmlentities($_POST['jml_psn']);
 
     // Prepared statement untuk menambah data
-    $query = $db->prepare("INSERT INTO `isi_sp`(`kd_isi`, `no_sp`, `kd_brg`, `jml_psn`) VALUES (:kd_isi, :no_sp, :kd_brg, :jml_psn)");
-    $query->bindParam(":kd_isi", $kode);
+    $query = $db->prepare("INSERT INTO `isi_sp`(`no_sp`, `kd_brg`, `jml_psn`) VALUES (:no_sp, :kd_brg, :jml_psn)");
     $query->bindParam(":no_sp", $no_sp);
     $query->bindParam(":kd_brg", $kd_brg);
     $query->bindParam(":jml_psn", $jml_psn);
@@ -106,10 +95,6 @@ if(isset($_POST['submit'])){
                         <!-- /.box-header -->
                         <form method=post>
                             <div class="box-body">
-                                <div class="form-group">
-                                    <label for="kd_isi">Nomor Isi Surat Pesan</label>
-                                    <input type="text" name="kd_isi" id="kd_isi" class="form-control" value="<?php echo $kode ?>" readonly>
-                                </div>
                                 <div class="form-group">
                                     <label for="no_sp">Kode Surat Pesan, Tanggal Pesan, dan Nama Supplier</label>
                                     <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->

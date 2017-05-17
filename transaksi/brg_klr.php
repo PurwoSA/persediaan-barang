@@ -38,7 +38,7 @@ $data  = $query->fetchAll();
           <ul class="treeview-menu">
             <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
             <li><a href="../transaksi/sp.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
-            <li  class="active"><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
+            <li class="active"><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
             <li><a href="../transaksi/ttb.php"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
           </ul>
         </li>
@@ -89,7 +89,6 @@ $data  = $query->fetchAll();
                     <th>Jumlah Keluar</th>
                     <th>Waktu Keluar</th>
                     <th>Tanggal Keluar</th>
-                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -114,10 +113,6 @@ $data  = $query->fetchAll();
                     <td>
                       <?php echo $value['tgl_klr'] ?>
                     </td>
-                    <td>
-                      <a href="ubah_brg_klr.php?id=<?php echo $value['no_klr']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
-                      <a href="hapus_brg_klr.php?id=<?php echo $value['no_klr']?>" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
-                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -129,7 +124,6 @@ $data  = $query->fetchAll();
                     <th>Jumlah Keluar</th>
                     <th>Waktu Keluar</th>
                     <th>Tanggal Keluar</th>
-                    <th>Aksi</th>
                   </tr>
                 </tfoot>
               </table>

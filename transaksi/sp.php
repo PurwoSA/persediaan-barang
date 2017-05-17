@@ -87,7 +87,6 @@ $data  = $query->fetchAll();
                     <th>Kode Supplier</th>
                     <th>Nama Supplier</th>
                     <th>Tanggal SP</th>
-                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -106,10 +105,6 @@ $data  = $query->fetchAll();
                     <td>
                       <?php echo $value['tgl_sp'] ?>
                     </td>
-                    <td>
-                      <a href="ubah_sp.php?id=<?php echo $value['no_sp']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
-                      <a href="hapus_sp.php?id=<?php echo $value['no_sp']?>" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
-                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -119,7 +114,6 @@ $data  = $query->fetchAll();
                     <th>Kode Supplier</th>
                     <th>Nama Supplier</th>
                     <th>Tanggal SP</th>
-                    <th>Aksi</th>
                   </tr>
                 </tfoot>
               </table>

@@ -83,22 +83,17 @@ $data  = $query->fetchAll();
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>
-                    <th>Kode Isi SP</th>
                     <th>Nomor SP</th>
                     <th>Kode Barang</th>
                     <th>Nama Barang</th>
                     <th>Tanggal SP</th>
                     <th>Jumlah Pesan</th>
-                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->
                   <?php foreach ($data as $value): ?>
                   <tr>
-                    <td>
-                      <?php echo $value['kd_isi']; ?>
-                    </td>
                     <td>
                       <?php echo $value['no_sp'] ?>
                     </td>
@@ -114,22 +109,16 @@ $data  = $query->fetchAll();
                     <td>
                       <?php echo $value['jml_psn'] ?>
                     </td>
-                    <td>
-                      <a href="ubah_isi_sp.php?id=<?php echo $value['kd_isi']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
-                      <a href="hapus_isi_sp.php?id=<?php echo $value['kd_isi']?>" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
-                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Kode Isi SP</th>
                     <th>Nomor SP</th>
                     <th>Kode Barang</th>
                     <th>Nama Barang</th>
                     <th>Tanggal SP</th>
                     <th>Jumlah Pesan</th>
-                    <th>Aksi</th>
                   </tr>
                 </tfoot>
               </table>

@@ -4,7 +4,7 @@ include 'header.php';
 //Ambil data
 $query  = $db->prepare("SELECT MAX(no_klr) AS palingGede FROM barang_klr");
 $query1 = $db->prepare("SELECT nip, nm_staf FROM staf");
-$query2 = $db->prepare("SELECT kd_brg, nm_brg FROM barang");
+$query2 = $db->prepare("SELECT kd_brg, nm_brg, stok FROM barang");
 //Jalankan perintah SQL
 $query->execute();
 if ($query->rowCount() == 0) {
@@ -28,18 +28,33 @@ if(isset($_POST['submit'])){
     $wkt_klr = htmlentities($_POST['wkt_klr']);
     $tgl_klr = htmlentities($_POST['tgl_klr']);
 
-    // Prepared statement untuk menambah data
-    $query = $db->prepare("INSERT INTO `barang_klr`(`no_klr`, `nip`, `kd_brg`, `jml_klr`, `wkt_klr`, `tgl_klr`) VALUES (:no_klr, :nip, :kd_brg, :jml_klr, :wkt_klr, :tgl_klr)");
-    $query->bindParam(":no_klr", $kode);
-    $query->bindParam(":nip", $currentUser['nip']);
-    $query->bindParam(":kd_brg", $kd_brg);
-    $query->bindParam(":jml_klr", $jml_klr);
-    $query->bindParam(":wkt_klr", $wkt_klr);
-    $query->bindParam(":tgl_klr", $tgl_klr);
-    // Jalankan perintah SQL
-    $query->execute();
-    // Alihkan ke index.php
-    header("location: brg_klr.php");
+    $ambil = $db->prepare("SELECT `stok` FROM `barang` WHERE `kd_brg` = :kd_brg");
+    $ambil->bindParam(":kd_brg", $kd_brg);
+    $ambil->execute();
+    $data3 = $ambil->fetch();
+    $stok = $data3['stok'];
+    if ($jml_klr <= $stok) {
+      // Prepared statement untuk menambah data
+      $query = $db->prepare("INSERT INTO `barang_klr`(`no_klr`, `nip`, `kd_brg`, `jml_klr`, `wkt_klr`, `tgl_klr`) VALUES (:no_klr, :nip, :kd_brg, :jml_klr, :wkt_klr, :tgl_klr)");
+      $query->bindParam(":no_klr", $kode);
+      $query->bindParam(":nip", $currentUser['nip']);
+      $query->bindParam(":kd_brg", $kd_brg);
+      $query->bindParam(":jml_klr", $jml_klr);
+      $query->bindParam(":wkt_klr", $wkt_klr);
+      $query->bindParam(":tgl_klr", $tgl_klr);
+      // Mengurangi jumlah stok
+      $stok = $stok - $jml_klr;
+      $query2 = $db->prepare("UPDATE `barang` SET `stok` = :stok WHERE `kd_brg` = :kd_brg");
+      $query2->bindParam(":stok", $stok);
+      $query2->bindParam(":kd_brg", $kd_brg);
+      // Jalankan perintah SQL
+      $query->execute();
+      $query2->execute();
+      // Alihkan ke index.php
+      header("location: brg_klr.php");
+    } else {
+      header("location: tambah_brg_klr.php");
+    }
 }
 ?>
     <!-- Let side column. contains the logo and sidebar -->
@@ -119,7 +134,7 @@ if(isset($_POST['submit'])){
                                     <select class="form-control select2" style="width: 100%;" name="kd_brg" id="kd_brg" required="">
                                         <option value=""> </option>
                                         <?php foreach ($data2 as $value): ?>
-                                        <option value="<?php echo $value['kd_brg'] ?>"><?php echo $value['kd_brg'] ?> - <?php echo $value['nm_brg']; ?></option>
+                                        <option value="<?php echo $value['kd_brg'] ?>"><?php echo $value['kd_brg'] ?> - <?php echo $value['nm_brg']; ?> - <?php echo $value['stok']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
