@@ -2,7 +2,7 @@
 include 'header.php';
 
 //Ambil data
-$query1 = $db->prepare("SELECT * FROM brg_klr WHERE nip = :nip");
+$query1 = $db->prepare("SELECT * FROM nota");
 $query2 = $db->prepare("SELECT kd_brg, nm_brg, stok FROM barang");
 //Jalankan perintah SQL
 $query1->bindParam(":nip", $currentUser['nip']);
@@ -14,34 +14,32 @@ $data2 = $query2->fetchAll();
 
 if(isset($_POST['submit'])){
     // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
-    $kd_klr  = htmlentities($_POST['kd_klr']);
-    $kd_brg  = htmlentities($_POST['kd_brg']);
-    $jml_klr = htmlentities($_POST['jml_klr']);
+    $no_nota  = htmlentities($_POST['no_nota']);
+    $kd_brg   = htmlentities($_POST['kd_brg']);
+    $hrg_beli = htmlentities($_POST['hrg_beli']);
+    $jml_msk  = htmlentities($_POST['jml_msk']);
 
     $ambil = $db->prepare("SELECT `stok` FROM `barang` WHERE `kd_brg` = :kd_brg");
     $ambil->bindParam(":kd_brg", $kd_brg);
     $ambil->execute();
     $data3 = $ambil->fetch();
     $stok = $data3['stok'];
-    if ($jml_klr <= $stok) {
-      // Prepared statement untuk menambah data
-      $query = $db->prepare("INSERT INTO `isi_brg_klr`(`kd_brg`, `kd_klr`, `jml_klr`) VALUES (:kd_brg, :kd_klr, :jml_klr)");
-      $query->bindParam(":kd_klr", $kd_klr);
-      $query->bindParam(":kd_brg", $kd_brg);
-      $query->bindParam(":jml_klr", $jml_klr);
-      // Mengurangi jumlah stok
-      $stok = $stok - $jml_klr;
-      $query2 = $db->prepare("UPDATE `barang` SET `stok` = :stok WHERE `kd_brg` = :kd_brg");
-      $query2->bindParam(":stok", $stok);
-      $query2->bindParam(":kd_brg", $kd_brg);
-      // Jalankan perintah SQL
-      $query->execute();
-      $query2->execute();
-      // Alihkan ke index.php
-      header("location: isi_brg_klr.php");
-    } else {
-      header("location: tambah_isi_brg_klr.php");
-    }
+    // Prepared statement untuk menambah data
+    $query = $db->prepare("INSERT INTO `isi_nota`(`kd_brg`, `no_nota`, `hrg_beli`, `jml_msk`) VALUES (:kd_brg, :no_nota, :hrg_beli, :jml_msk)");
+    $query->bindParam(":no_nota", $no_nota);
+    $query->bindParam(":kd_brg", $kd_brg);
+    $query->bindParam(":hrg_beli", $hrg_beli);
+    $query->bindParam(":jml_msk", $jml_msk);
+    // Menambah jumlah stok
+    $stok = $stok + $jml_msk;
+    $query2 = $db->prepare("UPDATE `barang` SET `stok` = :stok WHERE `kd_brg` = :kd_brg");
+    $query2->bindParam(":stok", $stok);
+    $query2->bindParam(":kd_brg", $kd_brg);
+    // Jalankan perintah SQL
+    $query->execute();
+    $query2->execute();
+    // Alihkan ke index.php
+    header("location: isi_nota.php");
 }
 ?>
     <!-- Let side column. contains the logo and sidebar -->
@@ -69,12 +67,12 @@ if(isset($_POST['submit'])){
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../transaksi/isi_nota.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
+                        <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
                         <li><a href="../transaksi/surat_pesan.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
                         <li><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
-                        <li class="active"><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
+                        <li><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
                         <li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
-                        <li><a href="../transaksi/isi_nota.php"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
+                        <li class="active"><a href="../transaksi/isi_nota.php"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -98,7 +96,7 @@ if(isset($_POST['submit'])){
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Isi Barang Keluar
+                Isi Nota
             </h1>
         </section>
 
@@ -108,18 +106,18 @@ if(isset($_POST['submit'])){
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Tambah Isi Barang Keluar</h3>
+                            <h3 class="box-title">Tambah Isi Nota</h3>
                         </div>
                         <!-- /.box-header -->
                         <form method=post>
                             <div class="box-body">
                               <div class="form-group">
-                                  <label for="kd_klr">Kode Keluar, Tanggal Pesan, dan Waktu Keluar</label>
+                                  <label for="no_nota">Nomor dan Tanggal Nota</label>
                                   <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->
-                                  <select class="form-control select2" style="width: 100%;" name="kd_klr" id="kd_klr" required="">
+                                  <select class="form-control select2" style="width: 100%;" name="no_nota" id="no_nota" required="">
                                       <option value=""> </option>
                                       <?php foreach ($data1 as $value): ?>
-                                      <option value="<?php echo $value['kd_klr'] ?>"><?php echo $value['kd_klr'] ?> - <?php echo $value['tgl_klr'] ?> - <?php echo $value['wkt_klr']; ?></option>
+                                      <option value="<?php echo $value['no_nota'] ?>"><?php echo $value['no_nota'] ?> - <?php echo $value['tgl_nota'] ?></option>
                                       <?php endforeach; ?>
                                   </select>
                               </div>
@@ -134,8 +132,16 @@ if(isset($_POST['submit'])){
                                   </select>
                               </div>
                               <div class="form-group">
-                                  <label for="jml_klr">Jumlah Keluar</label>
-                                  <input type="number" name="jml_klr" id="jml_klr" class="form-control" value="" required="">
+                                  <label for="hrg_beli">Harga Beli</label>
+                                  <div class="input-group">
+                                      <span class="input-group-addon">Rp</span>
+                                      <input type="number" name="hrg_beli" id="hrg_beli" class="form-control" value="" required="">
+                                      <span class="input-group-addon">,00</span>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="jml_msk">Jumlah Masuk</label>
+                                  <input type="number" name="jml_msk" id="jml_msk" class="form-control" value="" required="">
                               </div>
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>

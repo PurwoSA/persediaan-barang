@@ -16,19 +16,19 @@ if ($query->rowCount() == 0) {
 
 if(isset($_POST['submit'])){
     // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
-    $nm_brg = htmlentities($_POST['nm_brg']);
-    $jenis  = htmlentities($_POST['jenis']);
-    $satuan = htmlentities($_POST['satuan']);
-    $harga  = htmlentities($_POST['harga']);
-    $stok   = htmlentities($_POST['stok']);
+    $nm_brg  = htmlentities($_POST['nm_brg']);
+    $jenis   = htmlentities($_POST['jenis']);
+    $satuan  = htmlentities($_POST['satuan']);
+    $hrg_brg = htmlentities($_POST['hrg_brg']);
+    $stok    = htmlentities($_POST['stok']);
 
     // Prepared statement untuk menambah data
-    $query = $db->prepare("INSERT INTO `barang`(`kd_brg`, `nm_brg`, `jenis`, `satuan`, `harga`, `stok`) VALUES (:kd_brg, :nm_brg, :jenis, :satuan, :harga, :stok)");
+    $query = $db->prepare("INSERT INTO `barang`(`kd_brg`, `nm_brg`, `jenis`, `satuan`, `hrg_brg`, `stok`) VALUES (:kd_brg, :nm_brg, :jenis, :satuan, :hrg_brg, :stok)");
     $query->bindParam(":kd_brg", $kode);
     $query->bindParam(":nm_brg", $nm_brg);
     $query->bindParam(":jenis", $jenis);
     $query->bindParam(":satuan", $satuan);
-    $query->bindParam(":harga", $harga);
+    $query->bindParam(":hrg_brg", $hrg_brg);
     $query->bindParam(":stok", $stok);
     // Jalankan perintah SQL
     $query->execute();
@@ -65,8 +65,8 @@ if(isset($_POST['submit'])){
                         <li><a href="../transaksi/surat_pesan.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
                         <li><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
                         <li><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
-<li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
-<li><a href="../transaksi/isi_nota.php"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
+                        <li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
+                        <li><a href="../transaksi/isi_nota.php"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -131,10 +131,10 @@ if(isset($_POST['submit'])){
                                     <input type="text" name="satuan" id="satuan" class="form-control" value="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)" required="">
                                 </div>
                                 <div class="form-group">
-                                    <label for="harga">Harga Barang</label>
+                                    <label for="hrg_brg">Harga Barang</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">Rp</span>
-                                        <input type="number" name="harga" id="harga" class="form-control" value="" required="">
+                                        <input type="number" name="hrg_brg" id="hrg_brg" class="form-control" value="" required="">
                                         <span class="input-group-addon">,00</span>
                                     </div>
                                 </div>

@@ -23,15 +23,15 @@ if(isset($_POST['submit'])){
     $nm_brg = htmlentities($_POST['nm_brg']);
     $jenis  = htmlentities($_POST['jenis']);
     $satuan = htmlentities($_POST['satuan']);
-    $harga  = htmlentities($_POST['harga']);
+    $hrg_brg  = htmlentities($_POST['hrg_brg']);
     $stok   = htmlentities($_POST['stok']);
 
     // Prepared statement untuk mengubah data
-    $query = $db->prepare("UPDATE `barang` SET `nm_brg` = :nm_brg,`jenis` = :jenis,`satuan` = :satuan, `harga` = :harga, `stok` = :stok WHERE kd_brg = :kd_brg");
+    $query = $db->prepare("UPDATE `barang` SET `nm_brg` = :nm_brg,`jenis` = :jenis,`satuan` = :satuan, `hrg_brg` = :hrg_brg, `stok` = :stok WHERE kd_brg = :kd_brg");
     $query->bindParam(":nm_brg", $nm_brg);
     $query->bindParam(":jenis", $jenis);
     $query->bindParam(":satuan", $satuan);
-    $query->bindParam(":harga", $harga);
+    $query->bindParam(":hrg_brg", $hrg_brg);
     $query->bindParam(":stok", $stok);
     $query->bindParam(":kd_brg", $_GET['id']);
     // Jalankan perintah SQL
@@ -136,10 +136,10 @@ if(isset($_POST['submit'])){
                                     <input type="text" name="satuan" id="satuan" class="form-control" value="<?php echo $data['satuan'] ?>" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)" required="">
                                 </div>
                                 <div class="form-group">
-                                    <label for="harga">Harga Barang</label>
+                                    <label for="hrg_brg">Harga Barang</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">Rp</span>
-                                        <input type="number" name="harga" id="harga" class="form-control" value="<?php echo $data['harga'] ?>" required="">
+                                        <input type="number" name="hrg_brg" id="hrg_brg" class="form-control" value="<?php echo $data['hrg_brg'] ?>" required="">
                                         <span class="input-group-addon">,00</span>
                                     </div>
                                 </div>
