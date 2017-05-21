@@ -2,9 +2,8 @@
 include 'header.php';
 
 //Ambil data
-$query  = $db->prepare("SELECT MAX(no_klr) AS palingGede FROM barang_klr");
+$query  = $db->prepare("SELECT MAX(kd_klr) AS palingGede FROM brg_klr");
 $query1 = $db->prepare("SELECT nip, nm_staf FROM staf");
-$query2 = $db->prepare("SELECT kd_brg, nm_brg, stok FROM barang");
 //Jalankan perintah SQL
 $query->execute();
 if ($query->rowCount() == 0) {
@@ -16,45 +15,24 @@ if ($query->rowCount() == 0) {
     $kode = $data['palingGede'] + 1;
 }
 $query1->execute();
-$query2->execute();
 // Ambil semua data dan masukkan ke variable $data
 $data1 = $query1->fetchAll();
-$data2 = $query2->fetchAll();
 
 if(isset($_POST['submit'])){
     // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
-    $kd_brg  = htmlentities($_POST['kd_brg']);
-    $jml_klr = htmlentities($_POST['jml_klr']);
     $wkt_klr = htmlentities($_POST['wkt_klr']);
     $tgl_klr = htmlentities($_POST['tgl_klr']);
 
-    $ambil = $db->prepare("SELECT `stok` FROM `barang` WHERE `kd_brg` = :kd_brg");
-    $ambil->bindParam(":kd_brg", $kd_brg);
-    $ambil->execute();
-    $data3 = $ambil->fetch();
-    $stok = $data3['stok'];
-    if ($jml_klr <= $stok) {
-      // Prepared statement untuk menambah data
-      $query = $db->prepare("INSERT INTO `barang_klr`(`no_klr`, `nip`, `kd_brg`, `jml_klr`, `wkt_klr`, `tgl_klr`) VALUES (:no_klr, :nip, :kd_brg, :jml_klr, :wkt_klr, :tgl_klr)");
-      $query->bindParam(":no_klr", $kode);
-      $query->bindParam(":nip", $currentUser['nip']);
-      $query->bindParam(":kd_brg", $kd_brg);
-      $query->bindParam(":jml_klr", $jml_klr);
-      $query->bindParam(":wkt_klr", $wkt_klr);
-      $query->bindParam(":tgl_klr", $tgl_klr);
-      // Mengurangi jumlah stok
-      $stok = $stok - $jml_klr;
-      $query2 = $db->prepare("UPDATE `barang` SET `stok` = :stok WHERE `kd_brg` = :kd_brg");
-      $query2->bindParam(":stok", $stok);
-      $query2->bindParam(":kd_brg", $kd_brg);
-      // Jalankan perintah SQL
-      $query->execute();
-      $query2->execute();
-      // Alihkan ke index.php
-      header("location: brg_klr.php");
-    } else {
-      header("location: tambah_brg_klr.php");
-    }
+    // Prepared statement untuk menambah data
+    $query = $db->prepare("INSERT INTO `brg_klr`(`kd_klr`, `nip`, `wkt_klr`, `tgl_klr`) VALUES (:kd_klr, :nip, :wkt_klr, :tgl_klr)");
+    $query->bindParam(":kd_klr", $kode);
+    $query->bindParam(":nip", $currentUser['nip']);
+    $query->bindParam(":wkt_klr", $wkt_klr);
+    $query->bindParam(":tgl_klr", $tgl_klr);
+    // Jalankan perintah SQL
+    $query->execute();
+    // Alihkan ke index.php
+    header("location: brg_klr.php");
 }
 ?>
     <!-- Let side column. contains the logo and sidebar -->
@@ -85,7 +63,9 @@ if(isset($_POST['submit'])){
                         <li><a href="../transaksi/brg_klr.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
                         <li><a href="../transaksi/surat_pesan.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
                         <li class="active"><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
-                        <li><a href="../transaksi/ttb.php"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
+                        <li><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
+                        <li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
+                        <li><a href="../transaksi/isi_nota.php"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -125,22 +105,8 @@ if(isset($_POST['submit'])){
                         <form method=post>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="no_klr">Nomor Barang Keluar</label>
-                                    <input type="text" name="no_klr" id="no_klr" class="form-control" value="<?php echo $kode ?>" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="no_sp">Kode Barang dan Nama Barang</label>
-                                    <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->
-                                    <select class="form-control select2" style="width: 100%;" name="kd_brg" id="kd_brg" required="">
-                                        <option value=""> </option>
-                                        <?php foreach ($data2 as $value): ?>
-                                        <option value="<?php echo $value['kd_brg'] ?>"><?php echo $value['kd_brg'] ?> - <?php echo $value['nm_brg']; ?> - <?php echo $value['stok']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="jml_klr">Jumlah Keluar</label>
-                                    <input type="number" name="jml_klr" id="jml_klr" class="form-control" value="" required="">
+                                    <label for="kd_klr">Nomor Barang Keluar</label>
+                                    <input type="text" name="kd_klr" id="kd_klr" class="form-control" value="<?php echo $kode ?>" readonly>
                                 </div>
                                 <div class="bootstrap-timepicker">
                                     <div class="form-group">

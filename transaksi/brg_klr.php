@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT z.*, y.nm_brg, x.nm_staf FROM staf x, barang y, barang_klr z WHERE x.nip = z.nip AND y.kd_brg = z.kd_brg");
+$query = $db->prepare("SELECT x.*, y.nm_staf FROM brg_klr x, staf y WHERE x.nip = y.nip");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
@@ -39,7 +39,9 @@ $data  = $query->fetchAll();
             <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
             <li><a href="../transaksi/sp.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
             <li class="active"><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
-            <li><a href="../transaksi/ttb.php"><i class="fa fa-reply fa-fw"></i> Tanda Terima Barang</a></li>
+            <li><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
+            <li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
+            <li><a href="../transaksi/isi_nota"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -85,8 +87,6 @@ $data  = $query->fetchAll();
                   <tr>
                     <th>Nomor Barang Keluar</th>
                     <th>Nama Staf</th>
-                    <th>Nama Barang</th>
-                    <th>Jumlah Keluar</th>
                     <th>Waktu Keluar</th>
                     <th>Tanggal Keluar</th>
                   </tr>
@@ -96,16 +96,10 @@ $data  = $query->fetchAll();
                   <?php foreach ($data as $value): ?>
                   <tr>
                     <td>
-                      <?php echo $value['no_klr']; ?>
+                      <?php echo $value['kd_klr']; ?>
                     </td>
                     <td>
                       <?php echo $value['nm_staf'] ?>
-                    </td>
-                    <td>
-                      <?php echo $value['nm_brg'] ?>
-                    </td>
-                    <td>
-                      <?php echo $value['jml_klr'] ?>
                     </td>
                     <td>
                       <?php echo $value['wkt_klr'] ?>
@@ -120,8 +114,6 @@ $data  = $query->fetchAll();
                   <tr>
                     <th>Nomor Barang Keluar</th>
                     <th>Nama Staf</th>
-                    <th>Nama Barang</th>
-                    <th>Jumlah Keluar</th>
                     <th>Waktu Keluar</th>
                     <th>Tanggal Keluar</th>
                   </tr>
