@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT x.*, y.nm_supplier FROM surat_pesan x, supplier y WHERE x.kd_supplier = y.kd_supplier");
+$query = $db->prepare("SELECT x.*, y.tgl_sp, z.nm_supplier FROM nota x, surat_pesan y, supplier z WHERE x.no_sp = y.no_sp AND z.kd_supplier = y.kd_supplier");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
@@ -37,10 +37,10 @@ $data  = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
-            <li class="active"><a href="../transaksi/sp.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
+            <li><a href="../transaksi/sp.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
             <li><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
             <li><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
-            <li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
+            <li class="active"><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
             <li><a href="../transaksi/isi_nota.php"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
           </ul>
         </li>
@@ -67,7 +67,7 @@ $data  = $query->fetchAll();
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Surat Pesan
+        Nota
       </h1>
     </section>
 
@@ -77,18 +77,19 @@ $data  = $query->fetchAll();
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Surat Pesan</h3>
-              <a href="tambah_sp.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
+              <h3 class="box-title">Data Nota</h3>
+              <a href="tambah_nota.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>
+                    <th>Nomor Nota</th>
                     <th>Nomor SP</th>
-                    <th>Kode Supplier</th>
-                    <th>Nama Supplier</th>
                     <th>Tanggal SP</th>
+                    <th>Nama Supplier</th>
+                    <th>Tanggal nota</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -96,26 +97,30 @@ $data  = $query->fetchAll();
                   <?php foreach ($data as $value): ?>
                   <tr>
                     <td>
+                      <?php echo $value['no_nota'] ?>
+                    </td>
+                    <td>
                       <?php echo $value['no_sp'] ?>
                     </td>
                     <td>
-                      <?php echo $value['kd_supplier'] ?>
+                      <?php echo $value['tgl_sp'] ?>
                     </td>
                     <td>
                       <?php echo $value['nm_supplier'] ?>
                     </td>
                     <td>
-                      <?php echo $value['tgl_sp'] ?>
+                      <?php echo $value['tgl_nota'] ?>
                     </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
                 <tfoot>
                   <tr>
+                    <th>Nomor Nota</th>
                     <th>Nomor SP</th>
-                    <th>Kode Supplier</th>
-                    <th>Nama Supplier</th>
                     <th>Tanggal SP</th>
+                    <th>Nama Supplier</th>
+                    <th>Tanggal nota</th>
                   </tr>
                 </tfoot>
               </table>

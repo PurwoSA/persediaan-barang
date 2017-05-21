@@ -2,8 +2,8 @@
 include 'header.php';
 
 //Ambil data
-$query = $db->prepare("SELECT MAX(`no_sp`) AS palingGede FROM `surat_pesan");
-$ambil = $db->prepare("SELECT `kd_supplier`, `nm_supplier` FROM `supplier`");
+$query = $db->prepare("SELECT MAX(`no_nota`) AS palingGede FROM `nota");
+$ambil = $db->prepare("SELECT x.*, y.nm_supplier FROM surat_pesan x, supplier y WHERE x.kd_supplier = y.kd_supplier");
 //Jalankan perintah SQL
 $query->execute();
 if ($query->rowCount() == 0) {
@@ -20,18 +20,18 @@ $data1 = $ambil->fetchAll();
 
 if(isset($_POST['submit'])){
     // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
-    $kd_supplier = htmlentities($_POST['kd_supplier']);
-    $tgl_sp      = htmlentities($_POST['tgl_sp']);
+    $no_sp    = htmlentities($_POST['no_sp']);
+    $tgl_nota = htmlentities($_POST['tgl_nota']);
 
     // Prepared statement untuk menambah data
-    $query = $db->prepare("INSERT INTO `surat_pesan`(`no_sp`, `kd_supplier`, `tgl_sp`) VALUES (:no_sp, :kd_supplier, :tgl_sp)");
-    $query->bindParam(":no_sp", $kode);
-    $query->bindParam(":kd_supplier", $kd_supplier);
-    $query->bindParam(":tgl_sp", $tgl_sp);
+    $query = $db->prepare("INSERT INTO `nota`(`no_nota`, `no_sp`, `tgl_nota`) VALUES (:no_nota, :no_sp, :tgl_nota)");
+    $query->bindParam(":no_nota", $kode);
+    $query->bindParam(":no_sp", $no_sp);
+    $query->bindParam(":tgl_nota", $tgl_nota);
     // Jalankan perintah SQL
     $query->execute();
     // Alihkan ke index.php
-    header("location: sp.php");
+    header("location: nota.php");
 }
 ?>
     <!-- Let side column. contains the logo and sidebar -->
@@ -60,7 +60,7 @@ if(isset($_POST['submit'])){
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
-                        <li class="active"><a href="../transaksi/surat_pesan.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
+                        <li class="active"><a href="../transaksi/nota.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
                         <li><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
                         <li><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
                         <li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
@@ -88,7 +88,7 @@ if(isset($_POST['submit'])){
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Surat Pesan
+                Nota
             </h1>
         </section>
 
@@ -98,32 +98,32 @@ if(isset($_POST['submit'])){
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Tambah Surat Pesan</h3>
+                            <h3 class="box-title">Tambah Nota</h3>
                         </div>
                         <!-- /.box-header -->
                         <form method=post>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="no_sp">Nomor Surat Pesan</label>
-                                    <input type="text" name="no_sp" id="no_sp" class="form-control" value="<?php echo $kode ?>" readonly>
+                                    <label for="no_nota">Nomor Nota</label>
+                                    <input type="text" name="no_nota" id="no_nota" class="form-control" value="<?php echo $kode ?>" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="kd_supplier">Kode dan Nama Supplier</label>
+                                    <label for="no_sp">Nomor dan Tanggal Surat Pesan beserta Nama Supplier</label>
                                     <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->
-                                    <select class="form-control select2" style="width: 100%;" name="kd_supplier" id="kd_supplier" required="">
+                                    <select class="form-control select2" style="width: 100%;" name="no_sp" id="no_sp" required="">
                                         <option value=""> </option>
                                         <?php foreach ($data1 as $value): ?>
-                                        <option value="<?php echo $value['kd_supplier'] ?>"><?php echo $value['kd_supplier'] ?> - <?php echo $value['nm_supplier']; ?></option>
+                                        <option value="<?php echo $value['no_sp'] ?>"><?php echo $value['no_sp'] ?> - <?php echo $value['tgl_sp']; ?> - <?php echo $value['nm_supplier']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                  <label>Tanggal Surat Pesan</label>
+                                  <label>Tanggal Nota</label>
                                   <div class="input-group date">
                                     <div class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control pull-right" id="datepicker" name="tgl_sp" value="<?php echo $date ?>" required="">
+                                    <input type="text" class="form-control pull-right" id="datepicker" name="tgl_nota" value="<?php echo $date ?>" required="">
                                   </div>
                                 </div>
                             <div class="box-footer">
