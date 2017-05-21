@@ -118,27 +118,27 @@ if(isset($_POST['submit'])){
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                  <label>Tanggal Surat Pesan</label>
-                                  <div class="input-group date">
-                                    <div class="input-group-addon">
-                                      <i class="fa fa-calendar"></i>
+                                    <label>Tanggal Surat Pesan</label>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right" id="datepicker" name="tgl_sp" value="<?php echo $date ?>" required="">
                                     </div>
-                                    <input type="text" class="form-control pull-right" id="datepicker" name="tgl_sp" value="<?php echo $date ?>" required="">
-                                  </div>
                                 </div>
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
-                            </div>
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
+                                </div>
                         </form>
                         <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
                     </div>
-                    <!-- /.box -->
+                    <!-- /.col -->
                 </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
+                <!-- /.row -->
         </section>
         <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-    <?php include 'footer.php'; ?>
+        </div>
+        <!-- /.content-wrapper -->
+        <?php include 'footer.php'; ?>

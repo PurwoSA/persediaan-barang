@@ -2,8 +2,7 @@
   <div class="pull-right hidden-xs">
     <b>Version</b> 2.3.8
   </div>
-  <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-  reserved.
+  <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
 </footer>
 
 <!-- Control Sidebar -->
@@ -55,28 +54,29 @@
 
     $("#example1").DataTable();
     $('#example2').DataTable({
-      "paging"      : true,
+      "paging": true,
       "lengthChange": false,
-      "searching"   : false,
-      "ordering"    : true,
-      "info"        : true,
-      "autoWidth"   : false
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
     });
     //Date picker
     $('#datepicker').datepicker({
       autoclose: true,
-      format   : 'dd/mm/yyyy'
+      format: 'dd/mm/yyyy'
     });
     //Timepicker
     $(".timepicker").timepicker({
-      showInputs  : false,
-      showSeconds : true,
+      showInputs: false,
+      showSeconds: true,
       showMeridian: false,
-      maxHours    : 24,
-      secondStep  : 1,
-      minuteStep  : 1,
+      maxHours: 24,
+      secondStep: 1,
+      minuteStep: 1,
     });
   });
 </script>
 </body>
+
 </html>

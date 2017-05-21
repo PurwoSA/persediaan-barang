@@ -122,24 +122,24 @@ if(isset($_POST['submit'])){
                                     <!-- /.form group -->
                                 </div>
                                 <div class="form-group">
-                                  <label>Tanggal Barang Keluar</label>
-                                  <div class="input-group date">
-                                    <div class="input-group-addon">
-                                      <i class="fa fa-calendar"></i>
+                                    <label>Tanggal Barang Keluar</label>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right" id="datepicker" name="tgl_klr" value="<?php echo $date ?>" required="">
                                     </div>
-                                    <input type="text" class="form-control pull-right" id="datepicker" name="tgl_klr" value="<?php echo $date ?>" required="">
-                                  </div>
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
-                                </div>
-                        </form>
-                        <!-- /.box-body -->
-                        </div>
+                                    <div class="box-footer">
+                                        <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
+                                    </div>
+                                </form>
+                                <!-- /.box-body -->
+                            </div>
                         <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
                     </div>
-                    <!-- /.col -->
-                </div>
-                <!-- /.row -->
+                    <!-- /.row -->
         </section>
         <!-- /.content -->
         </div>

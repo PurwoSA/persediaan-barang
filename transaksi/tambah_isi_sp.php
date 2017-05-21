@@ -121,19 +121,19 @@ if(isset($_POST['submit'])){
                                     <label for="jml_psn">Jumlah Pesan</label>
                                     <input type="number" name="jml_psn" id="jml_psn" class="form-control" value="" required="">
                                 </div>
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
-                            </div>
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
+                                </div>
                         </form>
                         <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
                     </div>
-                    <!-- /.box -->
+                    <!-- /.col -->
                 </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
+                <!-- /.row -->
         </section>
         <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-    <?php include 'footer.php'; ?>
+        </div>
+        <!-- /.content-wrapper -->
+        <?php include 'footer.php'; ?>

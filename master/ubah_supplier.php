@@ -66,8 +66,8 @@ if(isset($_POST['submit'])){
                         <li><a href="../transaksi/surat_pesan.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
                         <li><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
                         <li><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
-<li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
-<li><a href="../transaksi/isi_nota.php"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
+                        <li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
+                        <li><a href="../transaksi/isi_nota.php"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -120,7 +120,8 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="telp_supplier">Telepon Supplier</label>
-                                    <input type="text" name="telp_supplier" id="telp_supplier" class="form-control" value="<?php echo $data['telp_supplier'] ?>" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                    <input type="text" name="telp_supplier" id="telp_supplier" class="form-control" value="<?php echo $data['telp_supplier'] ?>"
+                                        onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                                 </div>
                             </div>
                             <div class="box-footer">

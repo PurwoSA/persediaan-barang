@@ -111,7 +111,8 @@ $data = $query->fetchAll();
                       <?php echo $value['satuan'] ?>
                     </td>
                     <td>
-                      Rp<?php echo $value['hrg_brg'] ?>,00
+                      Rp
+                      <?php echo $value['hrg_brg'] ?>,00
                     </td>
                     <td>
                       <?php echo $value['stok'] ?>

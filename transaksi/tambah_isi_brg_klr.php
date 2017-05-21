@@ -113,30 +113,30 @@ if(isset($_POST['submit'])){
                         <!-- /.box-header -->
                         <form method=post>
                             <div class="box-body">
-                              <div class="form-group">
-                                  <label for="kd_klr">Kode Keluar, Tanggal Pesan, dan Waktu Keluar</label>
-                                  <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->
-                                  <select class="form-control select2" style="width: 100%;" name="kd_klr" id="kd_klr" required="">
+                                <div class="form-group">
+                                    <label for="kd_klr">Kode Keluar, Tanggal Pesan, dan Waktu Keluar</label>
+                                    <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->
+                                    <select class="form-control select2" style="width: 100%;" name="kd_klr" id="kd_klr" required="">
                                       <option value=""> </option>
                                       <?php foreach ($data1 as $value): ?>
                                       <option value="<?php echo $value['kd_klr'] ?>"><?php echo $value['kd_klr'] ?> - <?php echo $value['tgl_klr'] ?> - <?php echo $value['wkt_klr']; ?></option>
                                       <?php endforeach; ?>
                                   </select>
-                              </div>
-                              <div class="form-group">
-                                  <label for="kd_brg">Kode Barang dan Nama Barang</label>
-                                  <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->
-                                  <select class="form-control select2" style="width: 100%;" name="kd_brg" id="kd_brg" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kd_brg">Kode Barang dan Nama Barang</label>
+                                    <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->
+                                    <select class="form-control select2" style="width: 100%;" name="kd_brg" id="kd_brg" required="">
                                       <option value=""> </option>
                                       <?php foreach ($data2 as $value): ?>
                                       <option value="<?php echo $value['kd_brg'] ?>"><?php echo $value['kd_brg'] ?> - <?php echo $value['nm_brg']; ?></option>
                                       <?php endforeach; ?>
                                   </select>
-                              </div>
-                              <div class="form-group">
-                                  <label for="jml_klr">Jumlah Keluar</label>
-                                  <input type="number" name="jml_klr" id="jml_klr" class="form-control" value="" required="">
-                              </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jml_klr">Jumlah Keluar</label>
+                                    <input type="number" name="jml_klr" id="jml_klr" class="form-control" value="" required="">
+                                </div>
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
                                 </div>
