@@ -2,7 +2,7 @@
     // Lampirkan db dan User
     require_once "../koneksi.php";
     require_once "../user.php";
-    $date = date("d/m/Y");
+    $date = date("Y-m-d");
     $time = date("H:i:s");
 
     // Buat object user
@@ -59,7 +59,7 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="../index.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>R</span>
           <!-- logo for regular state and mobile devices -->

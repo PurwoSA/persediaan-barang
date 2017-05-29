@@ -14,7 +14,7 @@ if ($query->rowCount() == 0) {
     $kode = $data['palingGede'] + 1;
 }
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
     $nm_staf   = htmlentities($_POST['nm_staf']);
     $almt_staf = htmlentities($_POST['almt_staf']);
@@ -62,12 +62,12 @@ if(isset($_POST['submit'])){
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
                         <li><a href="../transaksi/surat_pesan.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
-                        <li><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
-                        <li><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
+                        <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
                         <li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
                         <li><a href="../transaksi/isi_nota.php"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
+                        <li><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
+                        <li><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -133,6 +133,7 @@ if(isset($_POST['submit'])){
                             </div>
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
+                                <button type="reset" class="btn btn-default btn-flat" name="reset">Batal</button>
                             </div>
                         </form>
                         <!-- /.box-body -->

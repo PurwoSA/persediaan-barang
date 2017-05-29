@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
     $ambil->bindParam(":kd_brg", $kd_brg);
     $ambil->execute();
     $data3 = $ambil->fetch();
-    $stok = $data3['stok'];
+    $stok  = $data3['stok'];
     if ($jml_klr <= $stok) {
       // Prepared statement untuk menambah data
       $query = $db->prepare("INSERT INTO `isi_brg_klr`(`kd_brg`, `kd_klr`, `jml_klr`) VALUES (:kd_brg, :kd_klr, :jml_klr)");
@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
       $query->bindParam(":kd_brg", $kd_brg);
       $query->bindParam(":jml_klr", $jml_klr);
       // Mengurangi jumlah stok
-      $stok = $stok - $jml_klr;
+      $stok   = $stok - $jml_klr;
       $query2 = $db->prepare("UPDATE `barang` SET `stok` = :stok WHERE `kd_brg` = :kd_brg");
       $query2->bindParam(":stok", $stok);
       $query2->bindParam(":kd_brg", $kd_brg);
@@ -69,12 +69,12 @@ if(isset($_POST['submit'])){
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../transaksi/isi_nota.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
-                        <li><a href="../transaksi/surat_pesan.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
-                        <li><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
-                        <li class="active"><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
+                        <li><a href="../transaksi/sp.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
+                        <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
                         <li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
                         <li><a href="../transaksi/isi_nota.php"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
+                        <li><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
+                        <li class="active"><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -139,6 +139,7 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
+                                    <button type="reset" class="btn btn-default btn-flat" name="reset">Batal</button>
                                 </div>
                         </form>
                         <!-- /.box-body -->
