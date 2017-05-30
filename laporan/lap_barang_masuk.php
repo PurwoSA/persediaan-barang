@@ -39,8 +39,8 @@
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="../laporan/lap_barang_keluar.php"><i class="fa fa-file fa-fw"></i> Laporan Barang Keluar</a></li>
-                        <li><a href="../laporan/lap_barang_masuk.php"><i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk</a></li>
+                        <li><a href="../laporan/lap_barang_keluar.php"><i class="fa fa-file fa-fw"></i> Laporan Barang Keluar</a></li>
+                        <li class="active"><a href="../laporan/lap_barang_masuk.php"><i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk</a></li>
                     </ul>
                 </li>
             </ul>
@@ -53,7 +53,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Laporan Barang Keluar
+                Laporan Barang Masuk
             </h1>
         </section>
 
@@ -63,10 +63,10 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Buat Laporan Barang Keluar</h3>
+                            <h3 class="box-title">Buat Laporan Barang Masuk</h3>
                         </div>
                         <!-- /.box-header -->
-                        <form action="cetak_barang_keluar.php" method=post>
+                        <form action="cetak_barang_masuk.php" method=post>
                             <div class="box-body">
                                 <div class="form-group">
                                     <label>Bulan</label>
