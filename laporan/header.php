@@ -2,9 +2,7 @@
     // Lampirkan db dan User
     require_once "../koneksi.php";
     require_once "../user.php";
-    $date = date("Y-m-d");
     $year = date("Y");
-    $time = date("H:i:s");
 
     // Buat object user
     $user = new User($db);
