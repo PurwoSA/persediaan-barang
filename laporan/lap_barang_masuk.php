@@ -92,7 +92,7 @@
                                     <select class="form-control select2" style="width: 100%;" name="thn" id="thn" required="">
                                       <option value=""> </option>
                                       <?php
-                                      $thn = 2000;
+                                      $thn = 2017;
                                       while ($thn <= $year) {
                                           ?>
                                       <option value="<?php echo $thn; ?>"><?php echo $thn; ?></option>

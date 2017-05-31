@@ -2,6 +2,7 @@
     // Lampirkan db dan User
     require_once "../koneksi.php";
     require_once "../user.php";
+    $year = date("Y");
 
     // Buat object user
     $user = new User($db);

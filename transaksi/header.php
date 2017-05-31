@@ -4,6 +4,7 @@
     require_once "../user.php";
     $date = date("Y-m-d");
     $time = date("H:i:s");
+    $year = date("Y");
 
     // Buat object user
     $user = new User($db);

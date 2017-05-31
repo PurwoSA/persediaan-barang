@@ -2,6 +2,7 @@
     // Lampirkan db dan User
     require_once "koneksi.php";
     require_once "user.php";
+    $year = date("Y");
 
     // Buat object user
     $user = new User($db);
@@ -332,7 +333,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.8
         </div>
-        <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+        <strong>Amanda Reload &copy; <?php echo $year; ?></strong> All rights reserved.
       </footer>
 
       <!-- Control Sidebar -->
