@@ -57,7 +57,7 @@
   <![endif]-->
   </head>
 
-  <body class="hold-transition skin-blue sidebar-mini">
+  <body class="hold-transition skin-blue fixed sidebar-mini">
     <div class="wrapper">
 
       <header class="main-header">
@@ -330,9 +330,6 @@
       </div>
       <!-- /.content-wrapper -->
       <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.8
-        </div>
         <strong>Amanda Reload &copy; <?php echo $year; ?></strong> All rights reserved.
       </footer>
 

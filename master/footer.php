@@ -1,7 +1,4 @@
 <footer class="main-footer">
-  <div class="pull-right hidden-xs">
-    <b>Version</b> 2.3.8
-  </div>
   <strong>Amanda Reload &copy; <?php echo $year; ?></strong> All rights reserved.
 </footer>
 
