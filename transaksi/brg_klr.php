@@ -19,7 +19,7 @@ $data  = $query->fetchAll();
             <i class="fa fa-book"></i> <span>Master</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-          </span>
+            </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="../master/staf.php"><i class="fa fa-users fa-fw"></i> Staf</a></li>
@@ -68,6 +68,7 @@ $data  = $query->fetchAll();
     <section class="content-header">
       <h1>
         Barang Keluar
+        <a href="tambah_brg_klr.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
       </h1>
     </section>
 
@@ -78,7 +79,6 @@ $data  = $query->fetchAll();
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Barang Keluar</h3>
-              <a href="tambah_brg_klr.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

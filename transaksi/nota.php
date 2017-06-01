@@ -68,6 +68,7 @@ $data  = $query->fetchAll();
     <section class="content-header">
       <h1>
         Nota
+        <a href="tambah_nota.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
       </h1>
     </section>
 
@@ -78,7 +79,6 @@ $data  = $query->fetchAll();
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Nota</h3>
-              <a href="tambah_nota.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

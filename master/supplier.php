@@ -19,7 +19,7 @@ $data = $query->fetchAll();
             <i class="fa fa-book"></i> <span>Master</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-          </span>
+            </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="../master/staf.php"><i class="fa fa-users fa-fw"></i> Staf</a></li>
