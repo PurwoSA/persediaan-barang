@@ -9,7 +9,8 @@ $year = date("Y");
 $user = new User($db);
 // Jika belum login
 if (!$user->isLoggedIn()) {
-  header("location: login.php"); //Redirect ke halaman login
+  // Redirect ke halaman login
+  header("location: ../login.php");
 }
 // Ambil data user saat ini
 $currentUser = $user->getUser();
