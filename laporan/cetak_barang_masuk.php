@@ -46,7 +46,6 @@ if ($bln == 01) {
             <i class="fa fa-home"></i>
             <span>Beranda</span>
           </a>
-
         </li>
         <li class="treeview">
           <a href="#">
@@ -147,7 +146,7 @@ if ($bln == 01) {
     <section class="content-header">
       <h1>
         Laporan Barang Masuk
-        <a data-layout="fixed" onClick="window.print()" class="btn btn-primary btn-flat pull-right"> Cetak</a>
+        <a data-layout="fixed" onClick="window.print()" class="btn btn-primary btn-flat pull-right"><i class="fa fa-print"></i> Cetak</a>
       </h1>
     </section>
 

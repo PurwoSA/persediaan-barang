@@ -146,7 +146,7 @@ if ($bln == 01) {
     <section class="content-header">
       <h1>
         Laporan Barang Keluar
-        <a onClick="window.print()" class="btn btn-primary btn-flat pull-right"> Cetak</a>
+        <a onClick="window.print()" class="btn btn-primary btn-flat pull-right"><i class="fa fa-print"></i> Cetak</a>
       </h1>
     </section>
 
