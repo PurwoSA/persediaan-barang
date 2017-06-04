@@ -160,7 +160,7 @@
               </div>
             </div>
             <div class="box-footer">
-              <button type="submit" class="btn btn-primary btn-flat" name="submit">Lihat</button>
+              <button type="submit" class="btn btn-primary btn-flat" name="submit"><i class="fa fa-window-maximize"></i> Lihat</button>
             </div>
           </form>
           <!-- /.box-body -->
