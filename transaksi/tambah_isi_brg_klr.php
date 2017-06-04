@@ -193,7 +193,7 @@ if(isset($_POST['submit'])){
                 <input type="number" name="jml_klr" id="jml_klr" class="form-control" value="" required="">
               </div>
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-flat" name="submit">Tambah</button>
+                <button type="submit" class="btn btn-primary btn-flat" name="submit"><i class="fa fa-plus-circle"></i> Tambah</button>
                 <button type="reset" class="btn btn-default btn-flat" name="reset">Batal</button>
               </div>
             </form>
