@@ -16,7 +16,8 @@ $data = $query->fetchAll();
         <li><a href="../index.php"><i class="fa fa-home"></i> <span>Beranda</span></a></li>
         <li class="treeview active">
           <a href="#">
-            <i class="fa fa-book"></i> <span>Master</span>
+            <i class="fa fa-book"></i>
+<span>Master</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

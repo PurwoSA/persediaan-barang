@@ -1,21 +1,18 @@
 <?php
-    // Lampirkan db dan User
-    require_once "../koneksi.php";
-    require_once "../user.php";
-    $year = date("Y");
-
-    // Buat object user
-    $user = new User($db);
-
-    // Jika belum login
-    if (!$user->isLoggedIn()) {
-        header("location: login.php"); //Redirect ke halaman login
-    }
-
-    // Ambil data user saat ini
-    $currentUser = $user->getUser();
-
- ?>
+// Lampirkan db dan User
+require_once "../koneksi.php";
+require_once "../user.php";
+$year = date("Y");
+// Buat object user
+$user = new User($db);
+// Jika belum login
+if (!$user->isLoggedIn()) {
+  //Redirect ke halaman login
+  header("location: login.php");
+}
+// Ambil data user saat ini
+$currentUser = $user->getUser();
+?>
   <!DOCTYPE html>
   <html>
 
@@ -37,16 +34,15 @@
     <link rel="stylesheet" href="../plugins/select2/select2.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
+    <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
   <body class="hold-transition skin-blue fixed sidebar-mini">
@@ -70,11 +66,21 @@
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <!-- User Account: style can be found in dropdown.less -->
-              <li><a href="#"><i class="fa fa-user-circle"></i> <?php echo $currentUser['nm_staf'] ?></a></li>
-              <li><a href="../logout.php"><i class="fa fa-sign-out"></i> Keluar</a></li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-user-circle"></i> <?php echo $currentUser['nm_staf'] ?>
+                </a>
+              </li>
+              <li>
+                <a href="../logout.php">
+                  <i class="fa fa-sign-out"></i> Keluar
+                </a>
+              </li>
               <!-- Control Sidebar Toggle Button -->
               <li>
-                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                <a href="#" data-toggle="control-sidebar">
+                  <i class="fa fa-gears"></i>
+                </a>
               </li>
             </ul>
           </div>

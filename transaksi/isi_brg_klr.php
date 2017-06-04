@@ -5,7 +5,7 @@ $query = $db->prepare("SELECT z.*, y.nm_brg, x.tgl_klr FROM brg_klr x, barang y,
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
-$data  = $query->fetchAll();
+$data = $query->fetchAll();
 ?>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
@@ -13,18 +13,36 @@ $data  = $query->fetchAll();
     <section class="sidebar">
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li><a href="../index.php"><i class="fa fa-home"></i> <span>Beranda</span></a></li>
+        <li>
+          <a href="../index.php">
+            <i class="fa fa-home"></i>
+            <span>Beranda</span>
+          </a>
+        </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-book"></i> <span>Master</span>
+            <i class="fa fa-book"></i>
+            <span>Master</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-          </span>
+            </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../master/staf.php"><i class="fa fa-users fa-fw"></i> Staf</a></li>
-            <li><a href="../master/barang.php"><i class="fa fa-archive fa-fw"></i> Barang</a></li>
-            <li><a href="../master/supplier.php"><i class="fa fa-building fa-fw"></i> Supplier</a></li>
+            <li>
+              <a href="../master/staf.php">
+                <i class="fa fa-users fa-fw"></i> Staf
+              </a>
+            </li>
+            <li>
+              <a href="../master/barang.php">
+                <i class="fa fa-archive fa-fw"></i> Barang
+              </a>
+            </li>
+            <li>
+              <a href="../master/supplier.php">
+                <i class="fa fa-building fa-fw"></i> Supplier
+              </a>
+            </li>
           </ul>
         </li>
         <li class="treeview active">
@@ -33,15 +51,39 @@ $data  = $query->fetchAll();
             <span>Transaksi</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-          </span>
+            </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../transaksi/sp.php"><i class="fa fa-envelope fa-fw"></i> Surat Pesan</a></li>
-            <li><a href="../transaksi/isi_sp.php"><i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan</a></li>
-            <li><a href="../transaksi/nota.php"><i class="fa fa-reply fa-fw"></i> Nota</a></li>
-            <li><a href="../transaksi/isi_nota.php"><i class="fa fa-list fa-fw"></i> Isi Nota</a></li>
-            <li><a href="../transaksi/brg_klr.php"><i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar</a></li>
-            <li class="active"><a href="../transaksi/isi_brg_klr.php"><i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar</a></li>
+            <li>
+              <a href="../transaksi/sp.php">
+                <i class="fa fa-envelope fa-fw"></i> Surat Pesan
+              </a>
+            </li>
+            <li>
+              <a href="../transaksi/isi_sp.php">
+                <i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan
+              </a>
+            </li>
+            <li>
+              <a href="../transaksi/nota.php">
+                <i class="fa fa-reply fa-fw"></i> Nota
+              </a>
+            </li>
+            <li>
+              <a href="../transaksi/isi_nota.php">
+                <i class="fa fa-list fa-fw"></i> Isi Nota
+              </a>
+            </li>
+            <li>
+              <a href="../transaksi/brg_klr.php">
+                <i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar
+              </a>
+            </li>
+            <li class="active">
+              <a href="../transaksi/isi_brg_klr.php">
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar
+              </a>
+            </li>
           </ul>
         </li>
         <li class="treeview">
@@ -53,8 +95,16 @@ $data  = $query->fetchAll();
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../laporan/lap_barang_keluar.php"><i class="fa fa-file fa-fw"></i> Laporan Barang Keluar</a></li>
-            <li><a href="../laporan/lap_barang_masuk.php"><i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk</a></li>
+            <li>
+              <a href="../laporan/lap_barang_keluar.php">
+                <i class="fa fa-file fa-fw"></i> Laporan Barang Keluar
+              </a>
+            </li>
+            <li>
+              <a href="../laporan/lap_barang_masuk.php">
+                <i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk
+              </a>
+            </li>
           </ul>
         </li>
       </ul>
@@ -68,7 +118,9 @@ $data  = $query->fetchAll();
     <section class="content-header">
       <h1>
         Isi Barang Keluar
-        <a href="tambah_isi_brg_klr.php" class="btn btn-primary btn-flat pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
+        <a href="tambah_isi_brg_klr.php" class="btn btn-primary btn-flat pull-right">
+          <i class="fa fa-plus"></i> Tambah Data
+        </a>
       </h1>
     </section>
 

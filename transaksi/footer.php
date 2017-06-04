@@ -1,25 +1,23 @@
-<footer class="main-footer">
-  <strong>Amanda Reload &copy; <?php echo $year; ?></strong> All rights reserved.
-</footer>
+  <footer class="main-footer">
+    <strong>Amanda Reload &copy; <?php echo $year; ?></strong> All rights reserved.
+  </footer>
 
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-  <!-- Create the tabs -->
-  <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-  </ul>
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <!-- Home tab content -->
-    <div class="tab-pane" id="control-sidebar-home-tab">
-      <!-- /.control-sidebar-menu -->
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs"></ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane" id="control-sidebar-home-tab">
+        <!-- /.control-sidebar-menu -->
+      </div>
+      <!-- /.tab-pane -->
     </div>
-    <!-- /.tab-pane -->
-  </div>
-</aside>
-<!-- /.control-sidebar -->
-<!-- Add the sidebar's background. This div must be placed
-     immediately after the control sidebar -->
-<div class="control-sidebar-bg"></div>
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 <!-- jQuery 2.2.3 -->
@@ -53,16 +51,16 @@
     //Date picker
     $('#datepicker').datepicker({
       autoclose: true,
-      format: 'yyyy-mm-dd'
+      format   : 'yyyy-mm-dd'
     });
     //Timepicker
     $(".timepicker").timepicker({
-      showInputs: false,
-      showSeconds: true,
+      showInputs  : false,
+      showSeconds : true,
       showMeridian: false,
-      maxHours: 24,
-      secondStep: 1,
-      minuteStep: 1,
+      maxHours    : 24,
+      secondStep  : 1,
+      minuteStep  : 1,
     });
   });
 </script>

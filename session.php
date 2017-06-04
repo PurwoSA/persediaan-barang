@@ -10,8 +10,7 @@ $user_check    = $_SESSION['login_user'];
 $ses_sql       = mysql_query("SELECT nip FROM staf WHERE nip='$user_check'", $connection);
 $row           = mysql_fetch_assoc($ses_sql);
 $login_session = $row['nip'];
-if(!isset($login_session)){
-	mysql_close($connection); // Menutup koneksi
-	header('Location: index.php'); // Mengarahkan ke Home Page
+if (!isset($login_session)) {
+  mysql_close($connection); // Menutup koneksi
+  header('Location: index.php'); // Mengarahkan ke Home Page
 }
-?>
