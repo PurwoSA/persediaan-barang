@@ -202,7 +202,7 @@ if(isset($_POST['submit'])){
               </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary btn-flat" name="submit">Ubah</button>
-                <button type="reset" class="btn btn-default btn-flat" name="reset">Batal</button>
+                <button type="reset" class="btn btn-default btn-flat" name="reset"><i class="fa fa-repeat"></i> Batal</button>
               </div>
             </form>
             <!-- /.box-body -->
