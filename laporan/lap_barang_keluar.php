@@ -6,7 +6,8 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       <li>
-        <a href="../index.php"><i class="fa fa-home"></i>
+        <a href="../index.php">
+          <i class="fa fa-home"></i>
           <span>Beranda</span>
         </a>
       </li>
@@ -157,19 +158,20 @@
                   ?>
                 </select>
               </div>
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-flat" name="submit">Lihat</button>
-              </div>
-              <!-- /.box-body -->
             </div>
-            <!-- /.box -->
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary btn-flat" name="submit">Lihat</button>
+            </div>
           </form>
+          <!-- /.box-body -->
         </div>
-        <!-- /.col -->
+        <!-- /.box -->
       </div>
-      <!-- /.row -->
+      <!-- /.col -->
     </div>
-    <!-- /.content-wrapper -->
+    <!-- /.row -->
   </section>
   <!-- /.content -->
-  <?php include 'footer.php'; ?>
+</div>
+<!-- /.content-wrapper -->
+<?php include 'footer.php'; ?>
