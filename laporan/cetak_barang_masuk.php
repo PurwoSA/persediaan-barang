@@ -156,7 +156,7 @@ if ($bln == 01) {
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Amanda Reload</h3>
+              <h3 class="box-title">Umar Bakery</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -192,7 +192,7 @@ if ($bln == 01) {
               </table>
               <p class="text-right">Mengetahui</p><br><br><br>
               <p class="text-right"><strong>Agus</strong></p>
-              <p class="text-right">Pemilik Amanda Reload</p>
+              <p class="text-right">Pemilik Umar Bakery</p>
             </div>
             <!-- /.box-body -->
           </div>

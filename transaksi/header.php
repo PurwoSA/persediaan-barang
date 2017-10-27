@@ -21,7 +21,7 @@ $currentUser = $user->getUser();
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Amanda Reload | Transaksi</title>
+    <title>Umar Bakery | Transaksi</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -58,9 +58,9 @@ $currentUser = $user->getUser();
         <!-- Logo -->
         <a href="../index.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>R</span>
+          <span class="logo-mini"><b>U</b>B</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Amanda</b>Reload</span>
+          <span class="logo-lg"><b>Umar</b>Bakery</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">

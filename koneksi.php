@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username   = "root";
 $password   = "";
-$dbname     = "db_persediaan";
+$dbname     = "umar_bakery";
 try {
   // Buat Object PDO baru dan simpan ke variable $db
   $db = new PDO("mysql:host={$servername};dbname={$dbname}", $username, $password);

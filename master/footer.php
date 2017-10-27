@@ -1,5 +1,5 @@
     <footer class="main-footer">
-      <strong>Amanda Reload &copy; <?php echo $year; ?></strong> All rights reserved.
+      <strong>Umar Bakery &copy; <?php echo $year; ?></strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->
