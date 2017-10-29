@@ -124,11 +124,6 @@
                     <i class="fa fa-archive"></i> Barang
                   </a>
                 </li>
-                <li>
-                  <a href="master/supplier.php">
-                    <i class="fa fa-building"></i> Supplier
-                  </a>
-                </li>
               </ul>
             </li>
             <li class="treeview">
@@ -141,33 +136,13 @@
               </a>
               <ul class="treeview-menu">
                 <li>
-                  <a href="transaksi/sp.php">
-                    <i class="fa fa-envelope"></i> Surat Pesan
-                  </a>
-                </li>
-                <li>
-                  <a href="transaksi/isi_sp.php">
-                    <i class="fa fa-pencil-square-o"></i> Isi Surat Pesan
-                  </a>
-                </li>
-                <li>
-                  <a href="transaksi/nota.php">
-                    <i class="fa fa-reply"></i> Nota
-                  </a>
-                </li>
-                <li>
-                  <a href="transaksi/isi_nota.php">
-                    <i class="fa fa-list"></i> Isi Nota
-                  </a>
-                </li>
-                <li>
                   <a href="transaksi/ubah_brg.php">
-                    <i class="fa fa-shopping-cart"></i> Barang Keluar
+                    <i class="fa fa-shopping-cart"></i> Ubah Barang
                   </a>
                 </li>
                 <li>
                   <a href="transaksi/isi_ubah_brg.php">
-                    <i class="fa fa-cart-plus"></i> Isi Barang Keluar
+                    <i class="fa fa-cart-plus"></i> Isi Ubah Barang
                   </a>
                 </li>
               </ul>
@@ -182,13 +157,8 @@
               </a>
               <ul class="treeview-menu">
                 <li>
-                  <a href="laporan/lap_barang_keluar.php">
-                    <i class="fa fa-file"></i> Laporan Barang Keluar
-                  </a>
-                </li>
-                <li>
-                  <a href="laporan/lap_barang_masuk.php">
-                    <i class="fa fa-file-text"></i> Laporan Barang Masuk
+                  <a href="laporan/lap_ubah_brg.php">
+                    <i class="fa fa-file"></i> Laporan Ubah Barang
                   </a>
                 </li>
               </ul>
@@ -218,7 +188,7 @@
             </div>
             <div class="box-body">
               <div class="row">
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-lg-6 col-xs-6">
                   <!-- small box -->
                   <div class="small-box bg-aqua">
                     <div class="inner">
@@ -233,7 +203,7 @@
                   </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-lg-6 col-xs-6">
                   <!-- small box -->
                   <div class="small-box bg-green">
                     <div class="inner">
@@ -248,20 +218,6 @@
                   </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-4 col-xs-6">
-                  <!-- small box -->
-                  <div class="small-box bg-yellow">
-                    <div class="inner">
-                      <h4>Supplier</h4><br>
-                    </div>
-                    <div class="icon">
-                      <i class="fa fa-building"></i>
-                    </div>
-                    <a href="master/supplier.php" class="small-box-footer">Lihat
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -274,71 +230,11 @@
             </div>
             <div class="box-body">
               <div class="row">
-                <div class="col-lg-4 col-xs-6">
-                  <!-- small box -->
-                  <div class="small-box bg-red">
-                    <div class="inner">
-                      <h4>Surat Pesan</h4><br>
-                    </div>
-                    <div class="icon">
-                      <i class="fa fa-envelope"></i>
-                    </div>
-                    <a href="transaksi/sp.php" class="small-box-footer">Lihat
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </a>
-                  </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-4 col-xs-6">
-                  <!-- small box -->
-                  <div class="small-box bg-gray">
-                    <div class="inner">
-                      <h4>Isi Surat Pesan</h4><br>
-                    </div>
-                    <div class="icon">
-                      <i class="fa fa-pencil-square-o"></i>
-                    </div>
-                    <a href="transaksi/isi_sp.php" class="small-box-footer">Lihat
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </a>
-                  </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-4 col-xs-6">
-                  <!-- small box -->
-                  <div class="small-box bg-navy">
-                    <div class="inner">
-                      <h4>Nota</h4><br>
-                    </div>
-                    <div class="icon">
-                      <i class="fa fa-reply"></i>
-                    </div>
-                    <a href="transaksi/nota.php" class="small-box-footer">Lihat
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </a>
-                  </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-4 col-xs-6">
-                  <!-- small box -->
-                  <div class="small-box bg-teal">
-                    <div class="inner">
-                      <h4>Isi Nota</h4><br>
-                    </div>
-                    <div class="icon">
-                      <i class="fa fa-list"></i>
-                    </div>
-                    <a href="transaksi/isi_nota.php" class="small-box-footer">Lihat
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </a>
-                  </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-lg-6 col-xs-6">
                   <!-- small box -->
                   <div class="small-box bg-purple">
                     <div class="inner">
-                      <h4>Barang Keluar</h4><br>
+                      <h4>Ubah Barang</h4><br>
                     </div>
                     <div class="icon">
                       <i class="fa fa-shopping-cart"></i>
@@ -349,11 +245,11 @@
                   </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-lg-6 col-xs-6">
                   <!-- small box -->
                   <div class="small-box bg-orange">
                     <div class="inner">
-                      <h4>Isi Barang Keluar</h4><br>
+                      <h4>Isi Ubah Barang</h4><br>
                     </div>
                     <div class="icon">
                       <i class="fa fa-cart-plus"></i>
@@ -376,35 +272,21 @@
             </div>
             <div class="box-body">
               <div class="row">
-                <div class="col-lg-6 col-xs-6">
+                <div class="col-lg-12 col-xs-12">
                   <!-- small box -->
                   <div class="small-box bg-maroon">
                     <div class="inner">
-                      <h4>Laporan Barang Keluar</h4><br>
+                      <h4>Laporan Ubah Barang</h4><br>
                     </div>
                     <div class="icon">
                       <i class="fa fa-file"></i>
                     </div>
-                    <a href="laporan/lap_barang_keluar.php" class="small-box-footer">Lihat
+                    <a href="laporan/lap_ubah_brg.php" class="small-box-footer">Lihat
                       <i class="fa fa-arrow-circle-right"></i>
                     </a>
                   </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-6 col-xs-6">
-                  <!-- small box -->
-                  <div class="small-box bg-black">
-                    <div class="inner">
-                      <h4>Laporan Barang Masuk</h4><br>
-                    </div>
-                    <div class="icon">
-                      <i class="fa fa-file-text"></i>
-                    </div>
-                    <a href="laporan/lap_barang_masuk.php" class="small-box-footer">Lihat
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

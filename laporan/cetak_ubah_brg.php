@@ -9,29 +9,29 @@ $query->execute();
 // Ambil semua data dan masukkan ke variable $data
 $data = $query->fetchAll();
 // Pilih nama bulan
-if ($bln == 01) {
+if ($bln == "01") {
   $nmbln = "Januari";
-} elseif ($bln == 02) {
+} elseif ($bln == "02") {
   $nmbln = "Februari";
-} elseif ($bln == 03) {
+} elseif ($bln == "03") {
   $nmbln = "Maret";
-} elseif ($bln == 04) {
+} elseif ($bln == "04") {
   $nmbln = "April";
-} elseif ($bln == 05) {
+} elseif ($bln == "05") {
   $nmbln = "Mei";
-} elseif ($bln == 06) {
+} elseif ($bln == "06") {
   $nmbln = "Juni";
-} elseif ($bln == 07) {
+} elseif ($bln == "07") {
   $nmbln = "Juli";
-} elseif ($bln == 08) {
+} elseif ($bln == "08") {
   $nmbln = "Agustus";
-} elseif ($bln == 09) {
+} elseif ($bln == "09") {
   $nmbln = "September";
-} elseif ($bln == 10) {
+} elseif ($bln == "10") {
   $nmbln = "Oktober";
-} elseif ($bln == 11) {
+} elseif ($bln == "11") {
   $nmbln = "November";
-} elseif ($bln == 12) {
+} elseif ($bln == "12") {
   $nmbln = "Desember";
 }
 ?>
@@ -66,11 +66,6 @@ if ($bln == 01) {
                 <i class="fa fa-archive fa-fw"></i> Barang
               </a>
             </li>
-            <li>
-              <a href="../master/supplier.php">
-                <i class="fa fa-building fa-fw"></i> Supplier
-              </a>
-            </li>
           </ul>
         </li>
         <li class="treeview">
@@ -83,33 +78,13 @@ if ($bln == 01) {
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/sp.php">
-                <i class="fa fa-envelope fa-fw"></i> Surat Pesan
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/isi_sp.php">
-                <i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/nota.php">
-                <i class="fa fa-reply fa-fw"></i> Nota
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/isi_nota.php">
-                <i class="fa fa-list fa-fw"></i> Isi Nota
-              </a>
-            </li>
-            <li>
               <a href="../transaksi/ubah_brg.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar
+                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Barang
               </a>
             </li>
             <li>
               <a href="../transaksi/isi_ubah_brg.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Barang
               </a>
             </li>
           </ul>
@@ -124,13 +99,8 @@ if ($bln == 01) {
           </a>
           <ul class="treeview-menu">
             <li class="active">
-              <a href="../laporan/lap_barang_keluar.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Barang Keluar
-              </a>
-            </li>
-            <li>
-              <a href="../laporan/lap_barang_masuk.php">
-                <i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk
+              <a href="../laporan/lap_ubah_brg.php">
+                <i class="fa fa-file fa-fw"></i> Laporan Ubah Barang
               </a>
             </li>
           </ul>
@@ -145,7 +115,7 @@ if ($bln == 01) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Laporan Barang Keluar
+        Laporan Ubah Barang
         <a onClick="window.print()" class="btn btn-primary btn-flat pull-right"><i class="fa fa-print"></i> Cetak</a>
       </h1>
     </section>
@@ -160,7 +130,7 @@ if ($bln == 01) {
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <p>Laporan Barang Keluar Bulan <strong><?php echo $nmbln; ?></strong> Tahun <strong><?php echo $thn; ?></strong></p>
+              <p>Laporan Ubah Barang Bulan <strong><?php echo $nmbln; ?></strong> Tahun <strong><?php echo $thn; ?></strong></p>
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>

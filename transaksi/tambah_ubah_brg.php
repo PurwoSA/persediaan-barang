@@ -63,11 +63,6 @@ if (isset($_POST['submit'])) {
                 <i class="fa fa-archive fa-fw"></i> Barang
               </a>
             </li>
-            <li>
-              <a href="../master/supplier.php">
-                <i class="fa fa-building fa-fw"></i> Supplier
-              </a>
-            </li>
           </ul>
         </li>
         <li class="treeview active">
@@ -79,34 +74,14 @@ if (isset($_POST['submit'])) {
             </span>
           </a>
           <ul class="treeview-menu">
-            <li>
-              <a href="../transaksi/sp.php">
-                <i class="fa fa-envelope fa-fw"></i> Surat Pesan
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/isi_sp.php">
-                <i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/nota.php">
-                <i class="fa fa-reply fa-fw"></i> Nota
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/isi_nota.php">
-                <i class="fa fa-list fa-fw"></i> Isi Nota
-              </a>
-            </li>
             <li class="active">
               <a href="../transaksi/ubah_brg.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar
+                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Barang
               </a>
             </li>
             <li>
               <a href="../transaksi/isi_ubah_brg.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Barang
               </a>
             </li>
           </ul>
@@ -121,13 +96,8 @@ if (isset($_POST['submit'])) {
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../laporan/lap_barang_keluar.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Barang Keluar
-              </a>
-            </li>
-            <li>
-              <a href="../laporan/lap_barang_masuk.php">
-                <i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk
+              <a href="../laporan/lap_ubah_brg.php">
+                <i class="fa fa-file fa-fw"></i> Laporan Ubah Barang
               </a>
             </li>
           </ul>
@@ -142,7 +112,7 @@ if (isset($_POST['submit'])) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Barang Keluar
+        Ubah Barang
       </h1>
     </section>
 
@@ -152,13 +122,13 @@ if (isset($_POST['submit'])) {
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Tambah Barang Keluar</h3>
+              <h3 class="box-title">Tambah Ubah Barang</h3>
             </div>
             <!-- /.box-header -->
             <form method=post>
               <div class="box-body">
                 <div class="form-group">
-                  <label for="kd_ubah">Nomor Barang Keluar</label>
+                  <label for="kd_ubah">Nomor Ubah Barang</label>
                   <input type="text" name="kd_ubah" id="kd_ubah" class="form-control" value="<?php echo $kode ?>" readonly>
                 </div>
                 <div class="bootstrap-timepicker">
@@ -175,7 +145,7 @@ if (isset($_POST['submit'])) {
                   <!-- /.form group -->
                 </div>
                 <div class="form-group">
-                  <label>Tanggal Barang Keluar</label>
+                  <label>Tanggal Ubah Barang</label>
                   <div class="input-group date">
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>

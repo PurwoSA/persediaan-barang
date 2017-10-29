@@ -37,11 +37,6 @@ $data = $query->fetchAll();
                 <i class="fa fa-archive fa-fw"></i> Barang
               </a>
             </li>
-            <li>
-              <a href="../master/supplier.php">
-                <i class="fa fa-building fa-fw"></i> Supplier
-              </a>
-            </li>
           </ul>
         </li>
         <li class="treeview">
@@ -50,37 +45,17 @@ $data = $query->fetchAll();
             <span>Transaksi</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-          </span>
+            </span>
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/sp.php">
-                <i class="fa fa-envelope fa-fw"></i> Surat Pesan
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/isi_sp.php">
-                <i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/nota.php">
-                <i class="fa fa-reply fa-fw"></i> Nota
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/isi_nota.php">
-                <i class="fa fa-list fa-fw"></i> Isi Nota
-              </a>
-            </li>
-            <li>
               <a href="../transaksi/ubah_brg.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar
+                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Barang
               </a>
             </li>
             <li>
               <a href="../transaksi/isi_ubah_brg.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Barang
               </a>
             </li>
           </ul>
@@ -95,13 +70,8 @@ $data = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../laporan/lap_barang_keluar.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Barang Keluar
-              </a>
-            </li>
-            <li>
-              <a href="../laporan/lap_barang_masuk.php">
-                <i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk
+              <a href="../laporan/lap_ubah_brg.php">
+                <i class="fa fa-file fa-fw"></i> Laporan Ubah Barang
               </a>
             </li>
           </ul>

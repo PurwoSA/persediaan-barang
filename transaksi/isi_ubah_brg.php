@@ -38,11 +38,6 @@ $data = $query->fetchAll();
                 <i class="fa fa-archive fa-fw"></i> Barang
               </a>
             </li>
-            <li>
-              <a href="../master/supplier.php">
-                <i class="fa fa-building fa-fw"></i> Supplier
-              </a>
-            </li>
           </ul>
         </li>
         <li class="treeview active">
@@ -55,33 +50,13 @@ $data = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/sp.php">
-                <i class="fa fa-envelope fa-fw"></i> Surat Pesan
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/isi_sp.php">
-                <i class="fa fa-pencil-square-o fa-fw"></i> Isi Surat Pesan
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/nota.php">
-                <i class="fa fa-reply fa-fw"></i> Nota
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/isi_nota.php">
-                <i class="fa fa-list fa-fw"></i> Isi Nota
-              </a>
-            </li>
-            <li>
               <a href="../transaksi/ubah_brg.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar
+                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Barang
               </a>
             </li>
             <li class="active">
               <a href="../transaksi/isi_ubah_brg.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Barang
               </a>
             </li>
           </ul>
@@ -96,13 +71,8 @@ $data = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../laporan/lap_barang_keluar.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Barang Keluar
-              </a>
-            </li>
-            <li>
-              <a href="../laporan/lap_barang_masuk.php">
-                <i class="fa fa-file-text fa-fw"></i> Laporan Barang Masuk
+              <a href="../laporan/lap_ubah_brg.php">
+                <i class="fa fa-file fa-fw"></i> Laporan Ubah Barang
               </a>
             </li>
           </ul>
@@ -117,7 +87,7 @@ $data = $query->fetchAll();
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Isi Barang Keluar
+        Isi Ubah Barang
         <a href="tambah_isi_ubah_brg.php" class="btn btn-primary btn-flat pull-right">
           <i class="fa fa-plus"></i> Tambah Data
         </a>
@@ -130,7 +100,7 @@ $data = $query->fetchAll();
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Isi Barang Keluar</h3>
+              <h3 class="box-title">Data Isi Ubah Barang</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
