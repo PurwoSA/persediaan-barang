@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 //Ambil data
-$query1 = $db->prepare("SELECT * FROM brg_klr WHERE nip = :nip");
+$query1 = $db->prepare("SELECT * FROM ubah_brg WHERE nip = :nip");
 $query2 = $db->prepare("SELECT kd_brg, nm_brg, stok FROM barang");
 //Jalankan perintah SQL
 $query1->bindParam(":nip", $currentUser['nip']);
@@ -12,7 +12,7 @@ $data1 = $query1->fetchAll();
 $data2 = $query2->fetchAll();
 if(isset($_POST['submit'])){
   // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
-  $kd_klr  = htmlentities($_POST['kd_klr']);
+  $kd_ubah  = htmlentities($_POST['kd_ubah']);
   $kd_brg  = htmlentities($_POST['kd_brg']);
   $jml_klr = htmlentities($_POST['jml_klr']);
   // Mengambil jumlah stok
@@ -23,8 +23,8 @@ if(isset($_POST['submit'])){
   $stok  = $data3['stok'];
   if ($jml_klr <= $stok) {
     // Prepared statement untuk menambah data
-    $query = $db->prepare("INSERT INTO `isi_brg_klr`(`kd_brg`, `kd_klr`, `jml_klr`) VALUES (:kd_brg, :kd_klr, :jml_klr)");
-    $query->bindParam(":kd_klr", $kd_klr);
+    $query = $db->prepare("INSERT INTO `isi_ubah_brg`(`kd_brg`, `kd_ubah`, `jml_klr`) VALUES (:kd_brg, :kd_ubah, :jml_klr)");
+    $query->bindParam(":kd_ubah", $kd_ubah);
     $query->bindParam(":kd_brg", $kd_brg);
     $query->bindParam(":jml_klr", $jml_klr);
     // Mengurangi jumlah stok
@@ -36,9 +36,9 @@ if(isset($_POST['submit'])){
     $query->execute();
     $query2->execute();
     // Alihkan ke index.php
-    header("location: isi_brg_klr.php");
+    header("location: isi_ubah_brg.php");
   } else {
-    header("location: tambah_isi_brg_klr.php");
+    header("location: tambah_isi_ubah_brg.php");
   }
 }
 ?>
@@ -110,12 +110,12 @@ if(isset($_POST['submit'])){
               </a>
             </li>
             <li>
-              <a href="../transaksi/brg_klr.php">
+              <a href="../transaksi/ubah_brg.php">
                 <i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar
               </a>
             </li>
             <li class="active">
-              <a href="../transaksi/isi_brg_klr.php">
+              <a href="../transaksi/isi_ubah_brg.php">
                 <i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar
               </a>
             </li>
@@ -168,12 +168,12 @@ if(isset($_POST['submit'])){
             <form method=post>
               <div class="box-body">
                 <div class="form-group">
-                  <label for="kd_klr">Kode Keluar, Tanggal Pesan, dan Waktu Keluar</label>
+                  <label for="kd_ubah">Kode Keluar, Tanggal Pesan, dan Waktu Keluar</label>
                   <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->
-                  <select class="form-control select2" style="width: 100%;" name="kd_klr" id="kd_klr" required="">
+                  <select class="form-control select2" style="width: 100%;" name="kd_ubah" id="kd_ubah" required="">
                     <option value=""> </option>
                     <?php foreach ($data1 as $value): ?>
-                      <option value="<?php echo $value['kd_klr'] ?>"><?php echo $value['kd_klr'] ?> - <?php echo $value['tgl_klr'] ?> - <?php echo $value['wkt_klr']; ?></option>
+                      <option value="<?php echo $value['kd_ubah'] ?>"><?php echo $value['kd_ubah'] ?> - <?php echo $value['tgl_ubah'] ?> - <?php echo $value['wkt_ubah']; ?></option>
                     <?php endforeach; ?>
                   </select>
                 </div>

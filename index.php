@@ -161,12 +161,12 @@
                   </a>
                 </li>
                 <li>
-                  <a href="transaksi/brg_klr.php">
+                  <a href="transaksi/ubah_brg.php">
                     <i class="fa fa-shopping-cart"></i> Barang Keluar
                   </a>
                 </li>
                 <li>
-                  <a href="transaksi/isi_brg_klr.php">
+                  <a href="transaksi/isi_ubah_brg.php">
                     <i class="fa fa-cart-plus"></i> Isi Barang Keluar
                   </a>
                 </li>
@@ -343,7 +343,7 @@
                     <div class="icon">
                       <i class="fa fa-shopping-cart"></i>
                     </div>
-                    <a href="transaksi/brg_klr.php" class="small-box-footer">Lihat
+                    <a href="transaksi/ubah_brg.php" class="small-box-footer">Lihat
                       <i class="fa fa-arrow-circle-right"></i>
                     </a>
                   </div>
@@ -358,7 +358,7 @@
                     <div class="icon">
                       <i class="fa fa-cart-plus"></i>
                     </div>
-                    <a href="transaksi/isi_brg_klr.php" class="small-box-footer">Lihat
+                    <a href="transaksi/isi_ubah_brg.php" class="small-box-footer">Lihat
                       <i class="fa fa-arrow-circle-right"></i>
                     </a>
                   </div>

@@ -1,11 +1,11 @@
 <?php
 include 'header.php';
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT z.*, y.nm_brg, x.tgl_klr FROM brg_klr x, barang y, isi_brg_klr z WHERE x.kd_klr = z.kd_klr AND y.kd_brg = z.kd_brg");
+$query = $db->prepare("SELECT x.*, y.nm_staf FROM ubah_brg x, staf y WHERE x.nip = y.nip");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
-$data = $query->fetchAll();
+$data  = $query->fetchAll();
 ?>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
@@ -70,17 +70,17 @@ $data = $query->fetchAll();
               </a>
             </li>
             <li>
-              <a href="../transaksi/isi_nota.php">
-                <i class="fa fa-list fa-fw"></i> Isi Nota
-              </a>
-            </li>
-            <li>
-              <a href="../transaksi/brg_klr.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar
+              <a href="../transaksi/isi_nota"><i c
+                lass="fa fa-list fa-fw"></i> Isi Nota
               </a>
             </li>
             <li class="active">
-              <a href="../transaksi/isi_brg_klr.php">
+              <a href="../transaksi/ubah_brg.php">
+                <i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar
+              </a>
+            </li>
+            <li>
+              <a href="../transaksi/isi_ubah_brg.php">
                 <i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar
               </a>
             </li>
@@ -117,8 +117,8 @@ $data = $query->fetchAll();
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Isi Barang Keluar
-        <a href="tambah_isi_brg_klr.php" class="btn btn-primary btn-flat pull-right">
+        Barang Keluar
+        <a href="tambah_ubah_brg.php" class="btn btn-primary btn-flat pull-right">
           <i class="fa fa-plus"></i> Tambah Data
         </a>
       </h1>
@@ -130,18 +130,17 @@ $data = $query->fetchAll();
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Isi Barang Keluar</h3>
+              <h3 class="box-title">Data Barang Keluar</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>
-                    <th>Kode Keluar</th>
-                    <th>Kode Barang</th>
-                    <th>Nama Barang</th>
+                    <th>Nomor Barang Keluar</th>
+                    <th>Nama Staf</th>
+                    <th>Waktu Keluar</th>
                     <th>Tanggal Keluar</th>
-                    <th>Jumlah Keluar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -149,30 +148,26 @@ $data = $query->fetchAll();
                   <?php foreach ($data as $value): ?>
                   <tr>
                     <td>
-                      <?php echo $value['kd_klr'] ?>
+                      <?php echo $value['kd_ubah']; ?>
                     </td>
                     <td>
-                      <?php echo $value['kd_brg'] ?>
+                      <?php echo $value['nm_staf'] ?>
                     </td>
                     <td>
-                      <?php echo $value['nm_brg'] ?>
+                      <?php echo $value['wkt_ubah'] ?>
                     </td>
                     <td>
-                      <?php echo $value['tgl_klr'] ?>
-                    </td>
-                    <td>
-                      <?php echo $value['jml_klr'] ?>
+                      <?php echo $value['tgl_ubah'] ?>
                     </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Kode Keluar</th>
-                    <th>Kode Barang</th>
-                    <th>Nama Barang</th>
+                    <th>Nomor Barang Keluar</th>
+                    <th>Nama Staf</th>
+                    <th>Waktu Keluar</th>
                     <th>Tanggal Keluar</th>
-                    <th>Jumlah Keluar</th>
                   </tr>
                 </tfoot>
               </table>

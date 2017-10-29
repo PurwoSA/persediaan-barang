@@ -3,7 +3,7 @@ include 'header.php';
 $bln = $_POST['bln'];
 $thn = $_POST['thn'];
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT w.nm_staf, x.*, y.*, z.nm_brg FROM staf w, brg_klr x, isi_brg_klr y, barang z WHERE YEAR(x.tgl_klr) = '$thn' AND MONTH(x.tgl_klr) = '$bln' AND x.kd_klr = y.kd_klr AND y.kd_brg = z.kd_brg AND w.nip = x.nip");
+$query = $db->prepare("SELECT w.nm_staf, x.*, y.*, z.nm_brg FROM staf w, ubah_brg x, isi_ubah_brg y, barang z WHERE YEAR(x.tgl_ubah) = '$thn' AND MONTH(x.tgl_ubah) = '$bln' AND x.kd_ubah = y.kd_ubah AND y.kd_brg = z.kd_brg AND w.nip = x.nip");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
@@ -103,12 +103,12 @@ if ($bln == 01) {
               </a>
             </li>
             <li>
-              <a href="../transaksi/brg_klr.php">
+              <a href="../transaksi/ubah_brg.php">
                 <i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar
               </a>
             </li>
             <li>
-              <a href="../transaksi/isi_brg_klr.php">
+              <a href="../transaksi/isi_ubah_brg.php">
                 <i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar
               </a>
             </li>
@@ -176,13 +176,13 @@ if ($bln == 01) {
                   <?php foreach ($data as $value): ?>
                   <tr>
                     <td>
-                      <?php echo $value['kd_klr'] ?>
+                      <?php echo $value['kd_ubah'] ?>
                     </td>
                     <td>
                       <?php echo $value['nm_brg'] ?>
                     </td>
                     <td>
-                      <?php echo $value['tgl_klr'] ?>
+                      <?php echo $value['tgl_ubah'] ?>
                     </td>
                     <td>
                       <?php echo $value['jml_klr'] ?>

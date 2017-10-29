@@ -67,12 +67,12 @@
             </a>
           </li>
           <li>
-            <a href="../transaksi/brg_klr.php">
+            <a href="../transaksi/ubah_brg.php">
               <i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar
             </a>
           </li>
           <li>
-            <a href="../transaksi/isi_brg_klr.php">
+            <a href="../transaksi/isi_ubah_brg.php">
               <i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar
             </a>
           </li>

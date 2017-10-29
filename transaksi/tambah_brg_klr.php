@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 //Ambil data
-$query  = $db->prepare("SELECT MAX(kd_klr) AS palingGede FROM brg_klr");
+$query  = $db->prepare("SELECT MAX(kd_ubah) AS palingGede FROM ubah_brg");
 $query1 = $db->prepare("SELECT nip, nm_staf FROM staf");
 //Jalankan perintah SQL
 $query->execute();
@@ -18,18 +18,18 @@ $query1->execute();
 $data1 = $query1->fetchAll();
 if (isset($_POST['submit'])) {
   // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
-  $wkt_klr = htmlentities($_POST['wkt_klr']);
-  $tgl_klr = htmlentities($_POST['tgl_klr']);
+  $wkt_ubah = htmlentities($_POST['wkt_ubah']);
+  $tgl_ubah = htmlentities($_POST['tgl_ubah']);
   // Prepared statement untuk menambah data
-  $query = $db->prepare("INSERT INTO `brg_klr`(`kd_klr`, `nip`, `wkt_klr`, `tgl_klr`) VALUES (:kd_klr, :nip, :wkt_klr, :tgl_klr)");
-  $query->bindParam(":kd_klr", $kode);
+  $query = $db->prepare("INSERT INTO `ubah_brg`(`kd_ubah`, `nip`, `wkt_ubah`, `tgl_ubah`) VALUES (:kd_ubah, :nip, :wkt_ubah, :tgl_ubah)");
+  $query->bindParam(":kd_ubah", $kode);
   $query->bindParam(":nip", $currentUser['nip']);
-  $query->bindParam(":wkt_klr", $wkt_klr);
-  $query->bindParam(":tgl_klr", $tgl_klr);
+  $query->bindParam(":wkt_ubah", $wkt_ubah);
+  $query->bindParam(":tgl_ubah", $tgl_ubah);
   // Jalankan perintah SQL
   $query->execute();
   // Alihkan ke index.php
-  header("location: brg_klr.php");
+  header("location: ubah_brg.php");
 }
 ?>
   <!-- Left side column. contains the logo and sidebar -->
@@ -100,12 +100,12 @@ if (isset($_POST['submit'])) {
               </a>
             </li>
             <li class="active">
-              <a href="../transaksi/brg_klr.php">
+              <a href="../transaksi/ubah_brg.php">
                 <i class="fa fa-shopping-cart fa-fw"></i> Barang Keluar
               </a>
             </li>
             <li>
-              <a href="../transaksi/isi_brg_klr.php">
+              <a href="../transaksi/isi_ubah_brg.php">
                 <i class="fa fa-cart-plus fa-fw"></i> Isi Barang Keluar
               </a>
             </li>
@@ -158,14 +158,14 @@ if (isset($_POST['submit'])) {
             <form method=post>
               <div class="box-body">
                 <div class="form-group">
-                  <label for="kd_klr">Nomor Barang Keluar</label>
-                  <input type="text" name="kd_klr" id="kd_klr" class="form-control" value="<?php echo $kode ?>" readonly>
+                  <label for="kd_ubah">Nomor Barang Keluar</label>
+                  <input type="text" name="kd_ubah" id="kd_ubah" class="form-control" value="<?php echo $kode ?>" readonly>
                 </div>
                 <div class="bootstrap-timepicker">
                   <div class="form-group">
                     <label>Waktu Keluar</label>
                     <div class="input-group">
-                      <input type="text" class="form-control timepicker" name="wkt_klr" value="<?php echo $time ?>" required="">
+                      <input type="text" class="form-control timepicker" name="wkt_ubah" value="<?php echo $time ?>" required="">
                       <div class="input-group-addon">
                         <i class="fa fa-clock-o"></i>
                       </div>
@@ -180,7 +180,7 @@ if (isset($_POST['submit'])) {
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="datepicker" name="tgl_klr" value="<?php echo $date ?>" required="">
+                    <input type="text" class="form-control pull-right" id="datepicker" name="tgl_ubah" value="<?php echo $date ?>" required="">
                   </div>
                 </div>
               </div>
