@@ -143,13 +143,14 @@ if(isset($_POST['submit'])){
                   <label for="jenis">Jenis Barang</label>
                   <select class="form-control select2" style="width: 100%;" name="jenis" id="jenis" required="">
                     <option value="<?php echo $data['jenis']?>" selected="selected"><?php echo $data['jenis']?></option>
-                    <option value=""></option>
-                    <option value="Aksesoris">Aksesoris</option>
-                    <option value="Case">Case</option>
-                    <option value="Charger">Charger</option>
-                    <option value="Headset">Headset</option>
-                    <option value="Kabel Data">Kabel Data</option>
-                    <option value="Power Bank">Power Bank</option>
+                    <option value=""> </option>
+                    <option value="Tepung">Tepung</option>
+                    <option value="Telur">Telur</option>
+                    <option value="Gula">Gula</option>
+                    <option value="Pewarna">Pewarna</option>
+                    <option value="Perisa">Perisa</option>
+                    <option value="Pengembang">Pengembang</option>
+                    <option value="Buah">Buah</option>
                     <option value="Lainnya">Lainnya</option>
                   </select>
                 </div>
