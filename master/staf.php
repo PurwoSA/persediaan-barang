@@ -49,13 +49,13 @@ $data = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/ubah_brg.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Barang
+              <a href="../transaksi/ubah_kondisi.php">
+                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi Barang
               </a>
             </li>
             <li>
-              <a href="../transaksi/isi_ubah_brg.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Barang
+              <a href="../transaksi/isi_ubah_kondisi.php">
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi Barang
               </a>
             </li>
           </ul>
@@ -70,8 +70,8 @@ $data = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../laporan/lap_ubah_brg.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Barang
+              <a href="../laporan/lap_ubah_kondisi.php">
+                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi Barang
               </a>
             </li>
           </ul>

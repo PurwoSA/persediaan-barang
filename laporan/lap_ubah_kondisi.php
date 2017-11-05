@@ -42,13 +42,13 @@
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="../transaksi/ubah_brg.php">
-              <i class="fa fa-shopping-cart fa-fw"></i> Ubah Barang
+            <a href="../transaksi/ubah_kondisi.php">
+              <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi
             </a>
           </li>
           <li>
-            <a href="../transaksi/isi_ubah_brg.php">
-              <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Barang
+            <a href="../transaksi/isi_ubah_kondisi.php">
+              <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi
             </a>
           </li>
         </ul>
@@ -63,8 +63,8 @@
         </a>
         <ul class="treeview-menu">
           <li class="active">
-            <a href="../laporan/lap_ubah_brg.php">
-              <i class="fa fa-file fa-fw"></i> Laporan Ubah Barang
+            <a href="../laporan/lap_ubah_kondisi.php">
+              <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi
             </a>
           </li>
         </ul>
@@ -79,7 +79,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Laporan Ubah Barang
+      Laporan Ubah Kondisi
     </h1>
   </section>
 
@@ -89,10 +89,10 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">Buat Laporan Ubah Barang</h3>
+            <h3 class="box-title">Buat Laporan Ubah Kondisi</h3>
           </div>
           <!-- /.box-header -->
-          <form action="cetak_ubah_brg.php" method=post>
+          <form action="cetak_ubah_kondisi.php" method=post>
             <div class="box-body">
               <div class="form-group">
                 <label>Bulan</label>

@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 //Ambil data
-$query1 = $db->prepare("SELECT * FROM ubah_brg WHERE nip = :nip");
+$query1 = $db->prepare("SELECT * FROM ubah_kondisi WHERE nip = :nip");
 $query2 = $db->prepare("SELECT kd_brg, nm_brg, stok FROM barang");
 //Jalankan perintah SQL
 $query1->bindParam(":nip", $currentUser['nip']);
@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
   $stok  = $data3['stok'];
   if ($jml_klr <= $stok) {
     // Prepared statement untuk menambah data
-    $query = $db->prepare("INSERT INTO `isi_ubah_brg`(`kd_brg`, `kd_ubah`, `jml_klr`) VALUES (:kd_brg, :kd_ubah, :jml_klr)");
+    $query = $db->prepare("INSERT INTO `isi_ubah_kondisi`(`kd_brg`, `kd_ubah`, `jml_klr`) VALUES (:kd_brg, :kd_ubah, :jml_klr)");
     $query->bindParam(":kd_ubah", $kd_ubah);
     $query->bindParam(":kd_brg", $kd_brg);
     $query->bindParam(":jml_klr", $jml_klr);
@@ -36,9 +36,9 @@ if(isset($_POST['submit'])){
     $query->execute();
     $query2->execute();
     // Alihkan ke index.php
-    header("location: isi_ubah_brg.php");
+    header("location: isi_ubah_kondisi.php");
   } else {
-    header("location: tambah_isi_ubah_brg.php");
+    header("location: tambah_isi_ubah_kondisi.php");
   }
 }
 ?>
@@ -85,13 +85,13 @@ if(isset($_POST['submit'])){
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/ubah_brg.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Barang
+              <a href="../transaksi/ubah_kondisi.php">
+                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi
               </a>
             </li>
             <li class="active">
-              <a href="../transaksi/isi_ubah_brg.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Barang
+              <a href="../transaksi/isi_ubah_kondisi.php">
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi
               </a>
             </li>
           </ul>
@@ -106,8 +106,8 @@ if(isset($_POST['submit'])){
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../laporan/lap_ubah_brg.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Barang
+              <a href="../laporan/lap_ubah_kondisi.php">
+                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi
               </a>
             </li>
           </ul>
@@ -122,7 +122,7 @@ if(isset($_POST['submit'])){
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Isi Ubah Barang
+        Isi Ubah Kondisi
       </h1>
     </section>
 
@@ -132,7 +132,7 @@ if(isset($_POST['submit'])){
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Tambah Isi Ubah Barang</h3>
+              <h3 class="box-title">Tambah Isi Ubah Kondisi</h3>
             </div>
             <!-- /.box-header -->
             <form method=post>

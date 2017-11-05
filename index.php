@@ -136,13 +136,13 @@
               </a>
               <ul class="treeview-menu">
                 <li>
-                  <a href="transaksi/ubah_brg.php">
-                    <i class="fa fa-shopping-cart"></i> Ubah Barang
+                  <a href="transaksi/ubah_kondisi.php">
+                    <i class="fa fa-shopping-cart"></i> Ubah Kondisi Barang
                   </a>
                 </li>
                 <li>
-                  <a href="transaksi/isi_ubah_brg.php">
-                    <i class="fa fa-cart-plus"></i> Isi Ubah Barang
+                  <a href="transaksi/isi_ubah_kondisi.php">
+                    <i class="fa fa-cart-plus"></i> Isi Ubah Kondisi Barang
                   </a>
                 </li>
               </ul>
@@ -157,8 +157,8 @@
               </a>
               <ul class="treeview-menu">
                 <li>
-                  <a href="laporan/lap_ubah_brg.php">
-                    <i class="fa fa-file"></i> Laporan Ubah Barang
+                  <a href="laporan/lap_ubah_kondisi.php">
+                    <i class="fa fa-file"></i> Laporan Ubah Kondisi Barang
                   </a>
                 </li>
               </ul>
@@ -234,12 +234,12 @@
                   <!-- small box -->
                   <div class="small-box bg-purple">
                     <div class="inner">
-                      <h4>Ubah Barang</h4><br>
+                      <h4>Ubah Kondisi Barang</h4><br>
                     </div>
                     <div class="icon">
                       <i class="fa fa-shopping-cart"></i>
                     </div>
-                    <a href="transaksi/ubah_brg.php" class="small-box-footer">Lihat
+                    <a href="transaksi/ubah_kondisi.php" class="small-box-footer">Lihat
                       <i class="fa fa-arrow-circle-right"></i>
                     </a>
                   </div>
@@ -249,12 +249,12 @@
                   <!-- small box -->
                   <div class="small-box bg-orange">
                     <div class="inner">
-                      <h4>Isi Ubah Barang</h4><br>
+                      <h4>Isi Ubah Kondisi Barang</h4><br>
                     </div>
                     <div class="icon">
                       <i class="fa fa-cart-plus"></i>
                     </div>
-                    <a href="transaksi/isi_ubah_brg.php" class="small-box-footer">Lihat
+                    <a href="transaksi/isi_ubah_kondisi.php" class="small-box-footer">Lihat
                       <i class="fa fa-arrow-circle-right"></i>
                     </a>
                   </div>
@@ -276,12 +276,12 @@
                   <!-- small box -->
                   <div class="small-box bg-maroon">
                     <div class="inner">
-                      <h4>Laporan Ubah Barang</h4><br>
+                      <h4>Laporan Ubah Kondisi Barang</h4><br>
                     </div>
                     <div class="icon">
                       <i class="fa fa-file"></i>
                     </div>
-                    <a href="laporan/lap_ubah_brg.php" class="small-box-footer">Lihat
+                    <a href="laporan/lap_ubah_kondisi.php" class="small-box-footer">Lihat
                       <i class="fa fa-arrow-circle-right"></i>
                     </a>
                   </div>

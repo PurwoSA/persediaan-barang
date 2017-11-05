@@ -1,39 +1,11 @@
 <?php
 include 'header.php';
-$bln = $_POST['bln'];
-$thn = $_POST['thn'];
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT w.nm_staf, x.*, y.*, z.nm_brg FROM staf w, ubah_brg x, isi_ubah_brg y, barang z WHERE YEAR(x.tgl_ubah) = '$thn' AND MONTH(x.tgl_ubah) = '$bln' AND x.kd_ubah = y.kd_ubah AND y.kd_brg = z.kd_brg AND w.nip = x.nip");
+$query = $db->prepare("SELECT x.*, y.nm_staf FROM ubah_kondisi x, staf y WHERE x.nip = y.nip");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
-$data = $query->fetchAll();
-// Pilih nama bulan
-if ($bln == "01") {
-  $nmbln = "Januari";
-} elseif ($bln == "02") {
-  $nmbln = "Februari";
-} elseif ($bln == "03") {
-  $nmbln = "Maret";
-} elseif ($bln == "04") {
-  $nmbln = "April";
-} elseif ($bln == "05") {
-  $nmbln = "Mei";
-} elseif ($bln == "06") {
-  $nmbln = "Juni";
-} elseif ($bln == "07") {
-  $nmbln = "Juli";
-} elseif ($bln == "08") {
-  $nmbln = "Agustus";
-} elseif ($bln == "09") {
-  $nmbln = "September";
-} elseif ($bln == "10") {
-  $nmbln = "Oktober";
-} elseif ($bln == "11") {
-  $nmbln = "November";
-} elseif ($bln == "12") {
-  $nmbln = "Desember";
-}
+$data  = $query->fetchAll();
 ?>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
@@ -68,7 +40,7 @@ if ($bln == "01") {
             </li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
             <i class="fa fa-money"></i>
             <span>Transaksi</span>
@@ -77,19 +49,19 @@ if ($bln == "01") {
             </span>
           </a>
           <ul class="treeview-menu">
-            <li>
-              <a href="../transaksi/ubah_brg.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Barang
+            <li class="active">
+              <a href="../transaksi/ubah_kondisi.php">
+                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi
               </a>
             </li>
             <li>
-              <a href="../transaksi/isi_ubah_brg.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Barang
+              <a href="../transaksi/isi_ubah_kondisi.php">
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi
               </a>
             </li>
           </ul>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Laporan</span>
@@ -98,9 +70,9 @@ if ($bln == "01") {
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active">
-              <a href="../laporan/lap_ubah_brg.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Barang
+            <li>
+              <a href="../laporan/lap_ubah_kondisi.php">
+                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi
               </a>
             </li>
           </ul>
@@ -115,8 +87,10 @@ if ($bln == "01") {
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Laporan Ubah Barang
-        <a onClick="window.print()" class="btn btn-primary btn-flat pull-right"><i class="fa fa-print"></i> Cetak</a>
+        Ubah Kondisi
+        <a href="tambah_ubah_kondisi.php" class="btn btn-primary btn-flat pull-right">
+          <i class="fa fa-plus"></i> Tambah Data
+        </a>
       </h1>
     </section>
 
@@ -126,19 +100,17 @@ if ($bln == "01") {
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Umar Bakery</h3>
+              <h3 class="box-title">Data Ubah Kondisi</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <p>Laporan Ubah Barang Bulan <strong><?php echo $nmbln; ?></strong> Tahun <strong><?php echo $thn; ?></strong></p>
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>
-                    <th>Kode Keluar</th>
-                    <th>Nama Barang</th>
+                    <th>Nomor Ubah Kondisi</th>
+                    <th>Nama Staf</th>
+                    <th>Waktu Keluar</th>
                     <th>Tanggal Keluar</th>
-                    <th>Jumlah Keluar</th>
-                    <th>Pengambil</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -146,27 +118,29 @@ if ($bln == "01") {
                   <?php foreach ($data as $value): ?>
                   <tr>
                     <td>
-                      <?php echo $value['kd_ubah'] ?>
-                    </td>
-                    <td>
-                      <?php echo $value['nm_brg'] ?>
-                    </td>
-                    <td>
-                      <?php echo $value['tgl_ubah'] ?>
-                    </td>
-                    <td>
-                      <?php echo $value['jml_klr'] ?>
+                      <?php echo $value['kd_ubah']; ?>
                     </td>
                     <td>
                       <?php echo $value['nm_staf'] ?>
                     </td>
+                    <td>
+                      <?php echo $value['wkt_ubah'] ?>
+                    </td>
+                    <td>
+                      <?php echo $value['tgl_ubah'] ?>
+                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Nomor Ubah Kondisi</th>
+                    <th>Nama Staf</th>
+                    <th>Waktu Keluar</th>
+                    <th>Tanggal Keluar</th>
+                  </tr>
+                </tfoot>
               </table>
-              <p class="text-right">Mengetahui</p><br><br><br>
-              <p class="text-right"><strong>Agus</strong></p>
-              <p class="text-right">Pemilik Umar Bakery</p>
             </div>
             <!-- /.box-body -->
           </div>

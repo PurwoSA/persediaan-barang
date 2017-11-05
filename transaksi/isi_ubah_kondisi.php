@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT z.*, y.nm_brg, x.tgl_ubah FROM ubah_brg x, barang y, isi_ubah_brg z WHERE x.kd_ubah = z.kd_ubah AND y.kd_brg = z.kd_brg");
+$query = $db->prepare("SELECT z.*, y.nm_brg, x.tgl_ubah FROM ubah_kondisi x, barang y, isi_ubah_kondisi z WHERE x.kd_ubah = z.kd_ubah AND y.kd_brg = z.kd_brg");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
@@ -50,13 +50,13 @@ $data = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/ubah_brg.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Barang
+              <a href="../transaksi/ubah_kondisi.php">
+                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi
               </a>
             </li>
             <li class="active">
-              <a href="../transaksi/isi_ubah_brg.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Barang
+              <a href="../transaksi/isi_ubah_kondisi.php">
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi
               </a>
             </li>
           </ul>
@@ -71,8 +71,8 @@ $data = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../laporan/lap_ubah_brg.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Barang
+              <a href="../laporan/lap_ubah_kondisi.php">
+                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi
               </a>
             </li>
           </ul>
@@ -87,8 +87,8 @@ $data = $query->fetchAll();
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Isi Ubah Barang
-        <a href="tambah_isi_ubah_brg.php" class="btn btn-primary btn-flat pull-right">
+        Isi Ubah Kondisi
+        <a href="tambah_isi_ubah_kondisi.php" class="btn btn-primary btn-flat pull-right">
           <i class="fa fa-plus"></i> Tambah Data
         </a>
       </h1>
@@ -100,7 +100,7 @@ $data = $query->fetchAll();
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Isi Ubah Barang</h3>
+              <h3 class="box-title">Data Isi Ubah Kondisi</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
