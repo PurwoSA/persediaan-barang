@@ -51,12 +51,12 @@ $data = $query->fetchAll();
           <ul class="treeview-menu">
             <li>
               <a href="../transaksi/ubah_kondisi.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi
+                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi Barang
               </a>
             </li>
             <li class="active">
               <a href="../transaksi/isi_ubah_kondisi.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi Barang
               </a>
             </li>
           </ul>
@@ -72,7 +72,7 @@ $data = $query->fetchAll();
           <ul class="treeview-menu">
             <li>
               <a href="../laporan/lap_ubah_kondisi.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi
+                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi Barang
               </a>
             </li>
           </ul>
@@ -87,7 +87,7 @@ $data = $query->fetchAll();
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Isi Ubah Kondisi
+        Isi Ubah Kondisi Barang
         <a href="tambah_isi_ubah_kondisi.php" class="btn btn-primary btn-flat pull-right">
           <i class="fa fa-plus"></i> Tambah Data
         </a>
@@ -100,7 +100,7 @@ $data = $query->fetchAll();
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Isi Ubah Kondisi</h3>
+              <h3 class="box-title">Data Isi Ubah Kondisi Barang</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

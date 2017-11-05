@@ -76,12 +76,12 @@ if (isset($_POST['submit'])) {
           <ul class="treeview-menu">
             <li class="active">
               <a href="../transaksi/ubah_kondisi.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi
+                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi Barang
               </a>
             </li>
             <li>
               <a href="../transaksi/isi_ubah_kondisi.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi Barang
               </a>
             </li>
           </ul>
@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
           <ul class="treeview-menu">
             <li>
               <a href="../laporan/lap_ubah_kondisi.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi
+                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi Barang
               </a>
             </li>
           </ul>
@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Ubah Kondisi
+        Ubah Kondisi Barang
       </h1>
     </section>
 
@@ -122,13 +122,13 @@ if (isset($_POST['submit'])) {
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Tambah Ubah Kondisi</h3>
+              <h3 class="box-title">Tambah Ubah Kondisi Barang</h3>
             </div>
             <!-- /.box-header -->
             <form method=post>
               <div class="box-body">
                 <div class="form-group">
-                  <label for="kd_ubah">Nomor Ubah Kondisi</label>
+                  <label for="kd_ubah">Nomor Ubah Kondisi Barang</label>
                   <input type="text" name="kd_ubah" id="kd_ubah" class="form-control" value="<?php echo $kode ?>" readonly>
                 </div>
                 <div class="bootstrap-timepicker">

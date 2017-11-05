@@ -43,12 +43,12 @@
         <ul class="treeview-menu">
           <li>
             <a href="../transaksi/ubah_kondisi.php">
-              <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi
+              <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi Barang
             </a>
           </li>
           <li>
             <a href="../transaksi/isi_ubah_kondisi.php">
-              <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi
+              <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi Barang
             </a>
           </li>
         </ul>
@@ -64,7 +64,7 @@
         <ul class="treeview-menu">
           <li class="active">
             <a href="../laporan/lap_ubah_kondisi.php">
-              <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi
+              <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi Barang
             </a>
           </li>
         </ul>
@@ -79,7 +79,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Laporan Ubah Kondisi
+      Laporan Ubah Kondisi Barang
     </h1>
   </section>
 
@@ -89,7 +89,7 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">Buat Laporan Ubah Kondisi</h3>
+            <h3 class="box-title">Buat Laporan Ubah Kondisi Barang</h3>
           </div>
           <!-- /.box-header -->
           <form action="cetak_ubah_kondisi.php" method=post>

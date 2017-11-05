@@ -79,12 +79,12 @@ if ($bln == "01") {
           <ul class="treeview-menu">
             <li>
               <a href="../transaksi/ubah_kondisi.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi
+                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi Barang
               </a>
             </li>
             <li>
               <a href="../transaksi/isi_ubah_kondisi.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi
+                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi Barang
               </a>
             </li>
           </ul>
@@ -100,7 +100,7 @@ if ($bln == "01") {
           <ul class="treeview-menu">
             <li class="active">
               <a href="../laporan/lap_ubah_kondisi.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi
+                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi Barang
               </a>
             </li>
           </ul>
@@ -115,7 +115,7 @@ if ($bln == "01") {
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Laporan Ubah Kondisi
+        Laporan Ubah Kondisi Barang
         <a onClick="window.print()" class="btn btn-primary btn-flat pull-right"><i class="fa fa-print"></i> Cetak</a>
       </h1>
     </section>
@@ -130,7 +130,7 @@ if ($bln == "01") {
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <p>Laporan Ubah Kondisi Bulan <strong><?php echo $nmbln; ?></strong> Tahun <strong><?php echo $thn; ?></strong></p>
+              <p>Laporan Ubah Kondisi Barang Bulan <strong><?php echo $nmbln; ?></strong> Tahun <strong><?php echo $thn; ?></strong></p>
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>
