@@ -29,6 +29,8 @@
   <!-- DataTables -->
   <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <!-- bootstrap datepicker -->
+  <script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
   <!-- SlimScroll -->
   <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
   <!-- FastClick -->
@@ -39,12 +41,30 @@
   <script src="../dist/js/demo.js"></script>
   <!-- page script -->
   <script>
-    $(function () {
-      //Initialize Select2 Elements
-      $(".select2").select2();
-      //Initialize DataTable
-      $("#example1").DataTable();
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2();
+    //Initialize DataTable
+    $("#example1").DataTable();
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true,
+      format   : 'yyyy-mm-dd'
     });
+    $('#datepicker1').datepicker({
+      autoclose: true,
+      format   : 'yyyy-mm-dd'
+    });
+    //Timepicker
+    $(".timepicker").timepicker({
+      showInputs  : false,
+      showSeconds : true,
+      showMeridian: false,
+      maxHours    : 24,
+      secondStep  : 1,
+      minuteStep  : 1,
+    });
+  });
     </script>
 </body>
 

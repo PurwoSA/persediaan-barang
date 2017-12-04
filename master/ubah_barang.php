@@ -168,11 +168,21 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="form-group">
                   <label for="tgl_msk">Tanggal Masuk</label>
-                  <input type="date" name="tgl_msk" id="tgl_msk" class="form-control" value="<?php echo $data['tgl_msk'] ?>" required="">
+                  <div class="input-group date">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control pull-right" id="datepicker" name="tgl_msk" value="<?php echo $data['tgl_msk'] ?>" required="">
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="tgl_kadaluarsa">Tanggal Kadaluarsa</label>
-                  <input type="date" name="tgl_kadaluarsa" id="tgl_kadaluarsa" class="form-control" value="<?php echo $data['tgl_kadaluarsa'] ?>" required="">
+                  <div class="input-group date">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control pull-right" id="datepicker1" name="tgl_kadaluarsa" value="<?php echo $data['tgl_kadaluarsa'] ?>" required="">
+                  </div>
                 </div>
               </div>
               <div class="box-footer">
