@@ -1,11 +1,11 @@
 <?php
 include 'header.php';
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT x.*, y.nm_staf FROM ubah_kondisi x, staf y WHERE x.nip = y.nip");
+$query = $db->prepare("SELECT z.*, y.nm_brg, x.tgl_ubah FROM ubah_kondisi x, barang y, isi_ubah_kondisi z WHERE x.kd_ubah = z.kd_ubah AND y.kd_brg = z.kd_brg");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
-$data  = $query->fetchAll();
+$data = $query->fetchAll();
 ?>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
@@ -49,14 +49,14 @@ $data  = $query->fetchAll();
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active">
-              <a href="../transaksi/ubah_kondisi.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi Barang
+            <li>
+              <a href="../transaksi/restock.php">
+                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
               </a>
             </li>
-            <li>
-              <a href="../transaksi/isi_ubah_kondisi.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi Barang
+            <li class="active">
+              <a href="../transaksi/cek_barang.php">
+                <i class="fa fa-check-square fa-fw"></i> Cek Barang
               </a>
             </li>
           </ul>
@@ -71,8 +71,8 @@ $data  = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../laporan/lap_ubah_kondisi.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi Barang
+              <a href="../laporan/lap_restock.php">
+                <i class="fa fa-file-text fa-fw"></i> Laporan Daftar <i>Restock</i> Barang
               </a>
             </li>
           </ul>
@@ -87,8 +87,8 @@ $data  = $query->fetchAll();
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Ubah Kondisi Barang
-        <a href="tambah_ubah_kondisi.php" class="btn btn-primary btn-flat pull-right">
+        Cek Barang
+        <a href="tambah_cek_barang.php" class="btn btn-primary btn-flat pull-right">
           <i class="fa fa-plus"></i> Tambah Data
         </a>
       </h1>
@@ -100,17 +100,18 @@ $data  = $query->fetchAll();
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Ubah Kondisi Barang</h3>
+              <h3 class="box-title">Data Cek Barang</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>
-                    <th>Nomor Ubah Kondisi Barang</th>
-                    <th>Nama Staf</th>
-                    <th>Waktu Keluar</th>
+                    <th>Kode Keluar</th>
+                    <th>Kode Barang</th>
+                    <th>Nama Barang</th>
                     <th>Tanggal Keluar</th>
+                    <th>Jumlah Keluar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -118,26 +119,30 @@ $data  = $query->fetchAll();
                   <?php foreach ($data as $value): ?>
                   <tr>
                     <td>
-                      <?php echo $value['kd_ubah']; ?>
+                      <?php echo $value['kd_ubah'] ?>
                     </td>
                     <td>
-                      <?php echo $value['nm_staf'] ?>
+                      <?php echo $value['kd_brg'] ?>
                     </td>
                     <td>
-                      <?php echo $value['wkt_ubah'] ?>
+                      <?php echo $value['nm_brg'] ?>
                     </td>
                     <td>
                       <?php echo $value['tgl_ubah'] ?>
+                    </td>
+                    <td>
+                      <?php echo $value['jml_klr'] ?>
                     </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Nomor Ubah Kondisi Barang</th>
-                    <th>Nama Staf</th>
-                    <th>Waktu Keluar</th>
+                    <th>Kode Keluar</th>
+                    <th>Kode Barang</th>
+                    <th>Nama Barang</th>
                     <th>Tanggal Keluar</th>
+                    <th>Jumlah Keluar</th>
                   </tr>
                 </tfoot>
               </table>

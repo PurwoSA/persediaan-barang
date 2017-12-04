@@ -17,18 +17,20 @@ if($query->rowCount() == 0){
 }
 if(isset($_POST['submit'])){
   // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
-  $nm_brg  = htmlentities($_POST['nm_brg']);
-  $jenis   = htmlentities($_POST['jenis']);
-  $satuan  = htmlentities($_POST['satuan']);
-  $hrg_brg = htmlentities($_POST['hrg_brg']);
-  $stok    = htmlentities($_POST['stok']);
+  $nm_brg         = htmlentities($_POST['nm_brg']);
+  $stok           = htmlentities($_POST['stok']);
+  $satuan         = htmlentities($_POST['satuan']);
+  $jenis          = htmlentities($_POST['jenis']);
+  $tgl_msk        = htmlentities($_POST['tgl_msk']);
+  $tgl_kadaluarsa = htmlentities($_POST['tgl_kadaluarsa']);
   // Prepared statement untuk mengubah data
-  $query = $db->prepare("UPDATE `barang` SET `nm_brg` = :nm_brg,`jenis` = :jenis,`satuan` = :satuan, `hrg_brg` = :hrg_brg, `stok` = :stok WHERE kd_brg = :kd_brg");
+  $query = $db->prepare("UPDATE `barang` SET `nm_brg` = :nm_brg,`stok` = :stok,`satuan` = :satuan, `jenis` = :jenis, `tgl_msk` = :tgl_msk, `tgl_kadaluarsa` = :tgl_kadaluarsa WHERE kd_brg = :kd_brg");
   $query->bindParam(":nm_brg", $nm_brg);
-  $query->bindParam(":jenis", $jenis);
-  $query->bindParam(":satuan", $satuan);
-  $query->bindParam(":hrg_brg", $hrg_brg);
   $query->bindParam(":stok", $stok);
+  $query->bindParam(":satuan", $satuan);
+  $query->bindParam(":jenis", $jenis);
+  $query->bindParam(":tgl_msk", $tgl_msk);
+  $query->bindParam(":tgl_kadaluarsa", $tgl_kadaluarsa);
   $query->bindParam(":kd_brg", $_GET['id']);
   // Jalankan perintah SQL
   $query->execute();
@@ -79,13 +81,13 @@ if(isset($_POST['submit'])){
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/ubah_kondisi.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi Barang
+              <a href="../transaksi/restock.php">
+                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
               </a>
             </li>
             <li>
-              <a href="../transaksi/isi_ubah_kondisi.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi Barang
+              <a href="../transaksi/cek_barang.php">
+                <i class="fa fa-check-square fa-fw"></i> Cek Barang
               </a>
             </li>
           </ul>
@@ -100,8 +102,8 @@ if(isset($_POST['submit'])){
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../laporan/lap_ubah_kondisi.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi Barang
+              <a href="../laporan/lap_restock.php">
+                <i class="fa fa-file-text fa-fw"></i> Laporan Daftar <i>Restock</i> Barang
               </a>
             </li>
           </ul>
@@ -140,35 +142,37 @@ if(isset($_POST['submit'])){
                   <input type="text" name="nm_brg" id="nm_brg" class="form-control" value="<?php echo $data['nm_brg'] ?>" required="">
                 </div>
                 <div class="form-group">
-                  <label for="jenis">Jenis Barang</label>
-                  <select class="form-control select2" style="width: 100%;" name="jenis" id="jenis" required="">
-                    <option value="<?php echo $data['jenis']?>" selected="selected"><?php echo $data['jenis']?></option>
-                    <option value=""> </option>
-                    <option value="Tepung">Tepung</option>
-                    <option value="Telur">Telur</option>
-                    <option value="Gula">Gula</option>
-                    <option value="Pewarna">Pewarna</option>
-                    <option value="Perisa">Perisa</option>
-                    <option value="Pengembang">Pengembang</option>
-                    <option value="Buah">Buah</option>
-                    <option value="Lainnya">Lainnya</option>
-                  </select>
+                  <label for="satuan">Stok Barang</label>
+                  <input type="number" name="stok" id="stok" class="form-control" value="<?php echo $data['stok'] ?>" required="">
                 </div>
                 <div class="form-group">
                   <label for="satuan">Satuan Barang</label>
                   <input type="text" name="satuan" id="satuan" class="form-control" value="<?php echo $data['satuan'] ?>" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)" required="">
                 </div>
                 <div class="form-group">
-                  <label for="hrg_brg">Harga Barang</label>
-                  <div class="input-group">
-                    <span class="input-group-addon">Rp</span>
-                    <input type="number" name="hrg_brg" id="hrg_brg" class="form-control" value="<?php echo $data['hrg_brg'] ?>" required="">
-                    <span class="input-group-addon">,00</span>
-                  </div>
+                  <label for="jenis">Jenis Barang</label>
+                  <select class="form-control select2" style="width: 100%;" name="jenis" id="jenis" required="">
+                    <option value="<?php echo $data['jenis']?>" selected="selected"><?php echo $data['jenis']?></option>
+                    <option value=""> </option>
+                    <option value="Buah">Buah</option>
+                    <option value="Gula">Gula</option>
+                    <option value="Pengembang">Pengembang</option>
+                    <option value="Perisa">Perisa</option>
+                    <option value="Pewarna">Pewarna</option>
+                    <option value="Sagu">Sagu</option>
+                    <option value="Telur">Telur</option>
+                    <option value="Tepung kanji">Tepung kanji</option>
+                    <option value="Tepung terigu">Tepung terigu</option>
+                    <option value="Lainnya">Lainnya</option>
+                  </select>
                 </div>
                 <div class="form-group">
-                  <label for="satuan">Stok Barang</label>
-                  <input type="number" name="stok" id="stok" class="form-control" value="<?php echo $data['stok'] ?>" required="">
+                  <label for="tgl_msk">Tanggal Masuk</label>
+                  <input type="date" name="tgl_msk" id="tgl_msk" class="form-control" value="<?php echo $data['tgl_msk'] ?>" required="">
+                </div>
+                <div class="form-group">
+                  <label for="tgl_kadaluarsa">Tanggal Kadaluarsa</label>
+                  <input type="date" name="tgl_kadaluarsa" id="tgl_kadaluarsa" class="form-control" value="<?php echo $data['tgl_kadaluarsa'] ?>" required="">
                 </div>
               </div>
               <div class="box-footer">

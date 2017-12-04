@@ -36,9 +36,9 @@ if(isset($_POST['submit'])){
     $query->execute();
     $query2->execute();
     // Alihkan ke index.php
-    header("location: isi_ubah_kondisi.php");
+    header("location: cek_barang.php");
   } else {
-    header("location: tambah_isi_ubah_kondisi.php");
+    header("location: tambah_cek_barang.php");
   }
 }
 ?>
@@ -85,13 +85,13 @@ if(isset($_POST['submit'])){
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/ubah_kondisi.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi Barang
+              <a href="../transaksi/restock.php">
+                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
               </a>
             </li>
             <li class="active">
-              <a href="../transaksi/isi_ubah_kondisi.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi Barang
+              <a href="../transaksi/cek_barang.php">
+                <i class="fa fa-check-square fa-fw"></i> Cek Barang
               </a>
             </li>
           </ul>
@@ -106,8 +106,8 @@ if(isset($_POST['submit'])){
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../laporan/lap_ubah_kondisi.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi Barang
+              <a href="../laporan/lap_restock.php">
+                <i class="fa fa-file-text fa-fw"></i> Laporan Daftar <i>Restock</i> Barang
               </a>
             </li>
           </ul>
@@ -122,7 +122,7 @@ if(isset($_POST['submit'])){
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Isi Ubah Kondisi Barang
+        Cek Barang
       </h1>
     </section>
 
@@ -132,7 +132,7 @@ if(isset($_POST['submit'])){
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Tambah Isi Ubah Kondisi Barang</h3>
+              <h3 class="box-title">Tambah Cek Barang</h3>
             </div>
             <!-- /.box-header -->
             <form method=post>

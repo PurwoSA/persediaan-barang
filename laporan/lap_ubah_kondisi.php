@@ -42,13 +42,13 @@
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="../transaksi/ubah_kondisi.php">
-              <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi Barang
+            <a href="../transaksi/restock.php">
+              <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
             </a>
           </li>
           <li>
-            <a href="../transaksi/isi_ubah_kondisi.php">
-              <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi Barang
+            <a href="../transaksi/cek_barang.php">
+              <i class="fa fa-check-square fa-fw"></i> Cek Barang
             </a>
           </li>
         </ul>
@@ -63,8 +63,8 @@
         </a>
         <ul class="treeview-menu">
           <li class="active">
-            <a href="../laporan/lap_ubah_kondisi.php">
-              <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi Barang
+            <a href="../laporan/lap_restock.php">
+              <i class="fa fa-file-text fa-fw"></i> Laporan Daftar <i>Restock</i> Barang
             </a>
           </li>
         </ul>
@@ -79,7 +79,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Laporan Ubah Kondisi Barang
+      Laporan Daftar <i>Restock</i> Barang
     </h1>
   </section>
 
@@ -89,7 +89,7 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">Buat Laporan Ubah Kondisi Barang</h3>
+            <h3 class="box-title">Buat Laporan Daftar <i>Restock</i> Barang</h3>
           </div>
           <!-- /.box-header -->
           <form action="cetak_ubah_kondisi.php" method=post>

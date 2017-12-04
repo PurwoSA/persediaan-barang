@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT * FROM barang");
+$query = $db->prepare("SELECT b.*, s.nm_staf FROM barang b, staf s WHERE b.nip = s.nip");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
@@ -50,13 +50,13 @@ $data = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/ubah_kondisi.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi Barang
+              <a href="../transaksi/restock.php">
+                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
               </a>
             </li>
             <li>
-              <a href="../transaksi/isi_ubah_kondisi.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi Barang
+              <a href="../transaksi/cek_barang.php">
+                <i class="fa fa-check-square fa-fw"></i> Cek Barang
               </a>
             </li>
           </ul>
@@ -71,8 +71,8 @@ $data = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../laporan/lap_ubah_kondisi.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi Barang
+              <a href="../laporan/lap_restock.php">
+                <i class="fa fa-file-text fa-fw"></i> Laporan Daftar <i>Restock</i> Barang
               </a>
             </li>
           </ul>
@@ -107,12 +107,14 @@ $data = $query->fetchAll();
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>
-                    <th>Kode Barang</th>
+                    <th>Kode</th>
                     <th>Nama Barang</th>
-                    <th>Jenis</th>
-                    <th>Satuan</th>
-                    <th>Harga</th>
                     <th>Stok</th>
+                    <th>Satuan</th>
+                    <th>Jenis</th>
+                    <th>Tanggal Masuk</th>
+                    <th>Kadaluarsa</th>
+                    <th>Pengentry</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -127,17 +129,22 @@ $data = $query->fetchAll();
                       <?php echo $value['nm_brg'] ?>
                     </td>
                     <td>
-                      <?php echo $value['jenis'] ?>
+                      <?php echo $value['stok'] ?>
                     </td>
                     <td>
                       <?php echo $value['satuan'] ?>
                     </td>
                     <td>
-                      Rp
-                      <?php echo $value['hrg_brg'] ?>,00
+                      <?php echo $value['jenis'] ?>
                     </td>
                     <td>
-                      <?php echo $value['stok'] ?>
+                      <?php echo $value['tgl_msk']; ?>
+                    </td>
+                    <td>
+                      <?php echo $value['tgl_kadaluarsa']; ?>
+                    </td>
+                    <td>
+                      <?php echo $value['nm_staf'] ?>
                     </td>
                     <td>
                       <a href="ubah_barang.php?id=<?php echo $value['kd_brg']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
@@ -148,12 +155,14 @@ $data = $query->fetchAll();
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Kode Barang</th>
+                    <th>Kode</th>
                     <th>Nama Barang</th>
-                    <th>Jenis</th>
-                    <th>Satuan</th>
-                    <th>Harga</th>
                     <th>Stok</th>
+                    <th>Satuan</th>
+                    <th>Jenis</th>
+                    <th>Tanggal Masuk</th>
+                    <th>Kadaluarsa</th>
+                    <th>Pengentry</th>
                     <th>Aksi</th>
                   </tr>
                 </tfoot>

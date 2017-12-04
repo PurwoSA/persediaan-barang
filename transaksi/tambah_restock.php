@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
   // Jalankan perintah SQL
   $query->execute();
   // Alihkan ke index.php
-  header("location: ubah_kondisi.php");
+  header("location: restock.php");
 }
 ?>
   <!-- Left side column. contains the logo and sidebar -->
@@ -75,13 +75,13 @@ if (isset($_POST['submit'])) {
           </a>
           <ul class="treeview-menu">
             <li class="active">
-              <a href="../transaksi/ubah_kondisi.php">
-                <i class="fa fa-shopping-cart fa-fw"></i> Ubah Kondisi Barang
+              <a href="../transaksi/restock.php">
+                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
               </a>
             </li>
             <li>
-              <a href="../transaksi/isi_ubah_kondisi.php">
-                <i class="fa fa-cart-plus fa-fw"></i> Isi Ubah Kondisi Barang
+              <a href="../transaksi/cek_barang.php">
+                <i class="fa fa-check-square fa-fw"></i> Cek Barang
               </a>
             </li>
           </ul>
@@ -96,8 +96,8 @@ if (isset($_POST['submit'])) {
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../laporan/lap_ubah_kondisi.php">
-                <i class="fa fa-file fa-fw"></i> Laporan Ubah Kondisi Barang
+              <a href="../laporan/lap_restock.php">
+                <i class="fa fa-file-text fa-fw"></i> Laporan Daftar <i>Restock</i> Barang
               </a>
             </li>
           </ul>
@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Ubah Kondisi Barang
+        Daftar <i>Restock</i> Barang
       </h1>
     </section>
 
@@ -122,13 +122,13 @@ if (isset($_POST['submit'])) {
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Tambah Ubah Kondisi Barang</h3>
+              <h3 class="box-title">Tambah Daftar <i>Restock</i> Barang</h3>
             </div>
             <!-- /.box-header -->
             <form method=post>
               <div class="box-body">
                 <div class="form-group">
-                  <label for="kd_ubah">Nomor Ubah Kondisi Barang</label>
+                  <label for="kd_ubah">Nomor Daftar <i>Restock</i> Barang</label>
                   <input type="text" name="kd_ubah" id="kd_ubah" class="form-control" value="<?php echo $kode ?>" readonly>
                 </div>
                 <div class="bootstrap-timepicker">
