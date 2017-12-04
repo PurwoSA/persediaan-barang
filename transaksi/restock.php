@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT x.*, y.nm_staf FROM ubah_kondisi x, staf y WHERE x.nip = y.nip");
+$query = $db->prepare("SELECT * FROM restock");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
@@ -88,7 +88,7 @@ $data  = $query->fetchAll();
     <section class="content-header">
       <h1>
         Daftar <i>Restock</i> Barang
-        <a href="tambah_ubah_kondisi.php" class="btn btn-primary btn-flat pull-right">
+        <a href="tambah_restock.php" class="btn btn-primary btn-flat pull-right">
           <i class="fa fa-plus"></i> Tambah Data
         </a>
       </h1>
@@ -107,10 +107,8 @@ $data  = $query->fetchAll();
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>
-                    <th>Nomor Daftar <i>Restock</i> Barang</th>
-                    <th>Nama Staf</th>
-                    <th>Waktu Keluar</th>
-                    <th>Tanggal Keluar</th>
+                    <th>Kode Daftar <i>Restock</i></th>
+                    <th>Tanggal Daftar <i>Restock</i></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -118,26 +116,18 @@ $data  = $query->fetchAll();
                   <?php foreach ($data as $value): ?>
                   <tr>
                     <td>
-                      <?php echo $value['kd_ubah']; ?>
+                      <?php echo $value['kd_list']; ?>
                     </td>
                     <td>
-                      <?php echo $value['nm_staf'] ?>
-                    </td>
-                    <td>
-                      <?php echo $value['wkt_ubah'] ?>
-                    </td>
-                    <td>
-                      <?php echo $value['tgl_ubah'] ?>
+                      <?php echo $value['tgl_list'] ?>
                     </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Nomor Daftar <i>Restock</i> Barang</th>
-                    <th>Nama Staf</th>
-                    <th>Waktu Keluar</th>
-                    <th>Tanggal Keluar</th>
+                    <th>Kode <i>Restock</i></th>
+                    <th>Tanggal <i>Restock</i></th>
                   </tr>
                 </tfoot>
               </table>

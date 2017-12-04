@@ -1,8 +1,7 @@
 <?php
 include 'header.php';
 //Ambil data
-$query  = $db->prepare("SELECT MAX(kd_ubah) AS palingGede FROM ubah_kondisi");
-$query1 = $db->prepare("SELECT nip, nm_staf FROM staf");
+$query  = $db->prepare("SELECT MAX(kd_list) AS palingGede FROM restock");
 //Jalankan perintah SQL
 $query->execute();
 if ($query->rowCount() == 0) {
@@ -13,19 +12,14 @@ if ($query->rowCount() == 0) {
   $data = $query->fetch();
   $kode = $data['palingGede'] + 1;
 }
-$query1->execute();
 // Ambil semua data dan masukkan ke variable $data
-$data1 = $query1->fetchAll();
 if (isset($_POST['submit'])) {
   // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
-  $wkt_ubah = htmlentities($_POST['wkt_ubah']);
-  $tgl_ubah = htmlentities($_POST['tgl_ubah']);
+  $tgl_list = htmlentities($_POST['tgl_list']);
   // Prepared statement untuk menambah data
-  $query = $db->prepare("INSERT INTO `ubah_kondisi`(`kd_ubah`, `nip`, `wkt_ubah`, `tgl_ubah`) VALUES (:kd_ubah, :nip, :wkt_ubah, :tgl_ubah)");
-  $query->bindParam(":kd_ubah", $kode);
-  $query->bindParam(":nip", $currentUser['nip']);
-  $query->bindParam(":wkt_ubah", $wkt_ubah);
-  $query->bindParam(":tgl_ubah", $tgl_ubah);
+  $query = $db->prepare("INSERT INTO `restock`(`kd_list`, `tgl_list`) VALUES (:kd_list, :tgl_list)");
+  $query->bindParam(":kd_list", $kode);
+  $query->bindParam(":tgl_list", $tgl_list);
   // Jalankan perintah SQL
   $query->execute();
   // Alihkan ke index.php
@@ -128,29 +122,16 @@ if (isset($_POST['submit'])) {
             <form method=post>
               <div class="box-body">
                 <div class="form-group">
-                  <label for="kd_ubah">Nomor Daftar <i>Restock</i> Barang</label>
-                  <input type="text" name="kd_ubah" id="kd_ubah" class="form-control" value="<?php echo $kode ?>" readonly>
-                </div>
-                <div class="bootstrap-timepicker">
-                  <div class="form-group">
-                    <label>Waktu Keluar</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control timepicker" name="wkt_ubah" value="<?php echo $time ?>" required="">
-                      <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
-                      </div>
-                    </div>
-                    <!-- /.input group -->
-                  </div>
-                  <!-- /.form group -->
+                  <label for="kd_list">Kode Daftar <i>Restock</i></label>
+                  <input type="text" name="kd_list" id="kd_list" class="form-control" value="<?php echo $kode ?>" readonly>
                 </div>
                 <div class="form-group">
-                  <label>Tanggal Ubah Barang</label>
+                  <label>Tanggal Daftar <i>Restock</i></label>
                   <div class="input-group date">
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="datepicker" name="tgl_ubah" value="<?php echo $date ?>" required="">
+                    <input type="text" class="form-control pull-right" id="datepicker" name="tgl_list" value="<?php echo $date ?>" required="">
                   </div>
                 </div>
               </div>
