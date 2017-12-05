@@ -128,9 +128,20 @@ $data = $query->fetchAll();
                     <td>
                       <?php echo $value['nm_brg'] ?>
                     </td>
-                    <td>
-                      <?php echo $value['stok'] ?>
-                    </td>
+                    <?php if ($value['stok'] <= 5) {
+                      ?>
+                      <td class="danger">
+                        <?php echo $value['stok'] ?>
+                      </td>
+                    <?php } elseif ($value['stok'] <= 10) { ?>
+                      <td class="warning">
+                        <?php echo $value['stok'] ?>
+                      </td>
+                    <?php } else { ?>
+                      <td>
+                        <?php echo $value['stok'] ?>
+                      </td>
+                    <?php } ?>
                     <td>
                       <?php echo $value['satuan'] ?>
                     </td>
@@ -140,8 +151,14 @@ $data = $query->fetchAll();
                     <td>
                       <?php echo $value['tgl_msk']; ?>
                     </td>
-                    <td>
-                      <?php echo $value['tgl_kadaluarsa']; ?>
+                    <?php if (((strtotime($date)-(strtotime($value['tgl_kadaluarsa'])))/(60*60*24)) >= -3) { ?>
+                      <td class="danger">
+                    <?php } elseif (((strtotime($date)-(strtotime($value['tgl_kadaluarsa'])))/(60*60*24)) >= -5) { ?>
+                      <td class="warning">
+                    <?php } else { ?>
+                      <td>
+                    <?php }
+                      echo (strtotime($date)-(strtotime($value['tgl_kadaluarsa'])))/(60*60*24)?>
                     </td>
                     <td>
                       <?php echo $value['nm_staf'] ?>
