@@ -1,10 +1,9 @@
 <?php
 include 'header.php';
 //Ambil data
-$query1 = $db->prepare("SELECT * FROM ubah_kondisi WHERE nip = :nip");
+$query1 = $db->prepare("SELECT * FROM restock");
 $query2 = $db->prepare("SELECT kd_brg, nm_brg, stok FROM barang");
 //Jalankan perintah SQL
-$query1->bindParam(":nip", $currentUser['nip']);
 $query1->execute();
 $query2->execute();
 // Ambil semua data dan masukkan ke variable $data
@@ -12,34 +11,30 @@ $data1 = $query1->fetchAll();
 $data2 = $query2->fetchAll();
 if(isset($_POST['submit'])){
   // Simpan data yang di inputkan ke POST ke masing-masing variable dan convert semua tag HTML yang mungkin dimasukkan untuk mengindari XSS
-  $kd_ubah  = htmlentities($_POST['kd_ubah']);
+  $kd_list  = htmlentities($_POST['kd_list']);
   $kd_brg  = htmlentities($_POST['kd_brg']);
-  $jml_klr = htmlentities($_POST['jml_klr']);
-  // Mengambil jumlah stok
-  $ambil = $db->prepare("SELECT `stok` FROM `barang` WHERE `kd_brg` = :kd_brg");
-  $ambil->bindParam(":kd_brg", $kd_brg);
-  $ambil->execute();
-  $data3 = $ambil->fetch();
+  $jml_restock = htmlentities($_POST['jml_restock']);
+  // Menambah jumlah stok
+  $tambah = $db->prepare("SELECT `stok` FROM `barang` WHERE `kd_brg` = :kd_brg");
+  $tambah->bindParam(":kd_brg", $kd_brg);
+  $tambah->execute();
+  $data3 = $tambah->fetch();
   $stok  = $data3['stok'];
-  if ($jml_klr <= $stok) {
-    // Prepared statement untuk menambah data
-    $query = $db->prepare("INSERT INTO `isi_ubah_kondisi`(`kd_brg`, `kd_ubah`, `jml_klr`) VALUES (:kd_brg, :kd_ubah, :jml_klr)");
-    $query->bindParam(":kd_ubah", $kd_ubah);
-    $query->bindParam(":kd_brg", $kd_brg);
-    $query->bindParam(":jml_klr", $jml_klr);
-    // Mengurangi jumlah stok
-    $stok   = $stok - $jml_klr;
-    $query2 = $db->prepare("UPDATE `barang` SET `stok` = :stok WHERE `kd_brg` = :kd_brg");
-    $query2->bindParam(":stok", $stok);
-    $query2->bindParam(":kd_brg", $kd_brg);
-    // Jalankan perintah SQL
-    $query->execute();
-    $query2->execute();
-    // Alihkan ke index.php
-    header("location: cek_barang.php");
-  } else {
-    header("location: tambah_cek_barang.php");
-  }
+  // Prepared statement untuk menambah data
+  $query = $db->prepare("INSERT INTO `cek`(`kd_brg`, `kd_list`, `jml_restock`) VALUES (:kd_brg, :kd_list, :jml_restock)");
+  $query->bindParam(":kd_list", $kd_list);
+  $query->bindParam(":kd_brg", $kd_brg);
+  $query->bindParam(":jml_restock", $jml_restock);
+  // Menambah jumlah stok
+  $stok   = $stok + $jml_restock;
+  $query2 = $db->prepare("UPDATE `barang` SET `stok` = :stok WHERE `kd_brg` = :kd_brg");
+  $query2->bindParam(":stok", $stok);
+  $query2->bindParam(":kd_brg", $kd_brg);
+  // Jalankan perintah SQL
+  $query->execute();
+  $query2->execute();
+  // Alihkan ke index.php
+  header("location: cek_barang.php");
 }
 ?>
   <!-- Let side column. contains the logo and sidebar -->
@@ -138,12 +133,12 @@ if(isset($_POST['submit'])){
             <form method=post>
               <div class="box-body">
                 <div class="form-group">
-                  <label for="kd_ubah">Kode Keluar, Tanggal Pesan, dan Waktu Keluar</label>
+                  <label for="kd_list">Kode dan Tanggal <i>Restock</i></label>
                   <!-- Perulangan Untuk Menampilkan Semua Data yang ada di Variable Data -->
-                  <select class="form-control select2" style="width: 100%;" name="kd_ubah" id="kd_ubah" required="">
+                  <select class="form-control select2" style="width: 100%;" name="kd_list" id="kd_list" required="">
                     <option value=""> </option>
                     <?php foreach ($data1 as $value): ?>
-                      <option value="<?php echo $value['kd_ubah'] ?>"><?php echo $value['kd_ubah'] ?> - <?php echo $value['tgl_ubah'] ?> - <?php echo $value['wkt_ubah']; ?></option>
+                      <option value="<?php echo $value['kd_list'] ?>"><?php echo $value['kd_list'] ?> - <?php echo $value['tgl_list']; ?></option>
                     <?php endforeach; ?>
                   </select>
                 </div>
@@ -157,10 +152,10 @@ if(isset($_POST['submit'])){
                     <?php endforeach; ?>
                   </select>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="jml_klr">Jumlah Keluar</label>
-                <input type="number" name="jml_klr" id="jml_klr" class="form-control" value="" required="">
+                <div class="form-group">
+                  <label for="jml_restock">Jumlah <i>Restock</i></label>
+                  <input type="number" name="jml_restock" id="jml_restock" class="form-control" value="" required="">
+                </div>
               </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary btn-flat" name="submit"><i class="fa fa-plus-circle"></i> Tambah</button>
