@@ -3,7 +3,7 @@ include 'header.php';
 $bln = $_POST['bln'];
 $thn = $_POST['thn'];
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT w.nm_staf, x.*, y.*, z.nm_brg FROM staf w, ubah_kondisi x, isi_ubah_kondisi y, barang z WHERE YEAR(x.tgl_ubah) = '$thn' AND MONTH(x.tgl_ubah) = '$bln' AND x.kd_ubah = y.kd_ubah AND y.kd_brg = z.kd_brg AND w.nip = x.nip");
+$query = $db->prepare("SELECT r.*, c.*, b.nm_brg FROM restock r, cek c, barang b WHERE YEAR(r.tgl_list) = '$thn' AND MONTH(r.tgl_list) = '$bln' AND r.kd_list = c.kd_list AND c.kd_brg = b.kd_brg");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
@@ -62,8 +62,8 @@ if ($bln == "01") {
               </a>
             </li>
             <li>
-              <a href="../master/barang.php">
-                <i class="fa fa-archive fa-fw"></i> Barang
+              <a href="../master/restock.php">
+                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
               </a>
             </li>
           </ul>
@@ -78,8 +78,8 @@ if ($bln == "01") {
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/restock.php">
-                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
+              <a href="../transaksi/barang.php">
+                <i class="fa fa-archive fa-fw"></i> Barang
               </a>
             </li>
             <li>
@@ -134,11 +134,10 @@ if ($bln == "01") {
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>
-                    <th>Kode Keluar</th>
+                    <th>Kode <i>Restock</i></th>
                     <th>Nama Barang</th>
-                    <th>Tanggal Keluar</th>
-                    <th>Jumlah Keluar</th>
-                    <th>Pengambil</th>
+                    <th>Tanggal <i>Restock</i></th>
+                    <th>Jumlah <i>Restock</i></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -146,26 +145,23 @@ if ($bln == "01") {
                   <?php foreach ($data as $value): ?>
                   <tr>
                     <td>
-                      <?php echo $value['kd_ubah'] ?>
+                      <?php echo $value['kd_list'] ?>
                     </td>
                     <td>
                       <?php echo $value['nm_brg'] ?>
                     </td>
                     <td>
-                      <?php echo $value['tgl_ubah'] ?>
+                      <?php echo $value['tgl_list'] ?>
                     </td>
                     <td>
-                      <?php echo $value['jml_klr'] ?>
-                    </td>
-                    <td>
-                      <?php echo $value['nm_staf'] ?>
+                      <?php echo $value['jml_restock'] ?>
                     </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
               </table>
               <p class="text-right">Mengetahui</p><br><br><br>
-              <p class="text-right"><strong>Umar</strong></p>
+              <p class="text-right"><strong>Umar Bakrie</strong></p>
               <p class="text-right">Pemilik Umar Bakery</p>
             </div>
             <!-- /.box-body -->

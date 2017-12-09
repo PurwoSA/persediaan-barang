@@ -26,8 +26,8 @@
             </a>
           </li>
           <li>
-            <a href="../master/barang.php">
-              <i class="fa fa-archive fa-fw"></i> Barang
+            <a href="../master/restock.php">
+              <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
             </a>
           </li>
         </ul>
@@ -42,8 +42,8 @@
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="../transaksi/restock.php">
-              <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
+            <a href="../transaksi/barang.php">
+              <i class="fa fa-archive fa-fw"></i> Barang
             </a>
           </li>
           <li>
@@ -92,7 +92,7 @@
             <h3 class="box-title">Buat Laporan Daftar <i>Restock</i> Barang</h3>
           </div>
           <!-- /.box-header -->
-          <form action="cetak_ubah_kondisi.php" method=post>
+          <form action="cetak_lap_restock.php" method=post>
             <div class="box-body">
               <div class="form-group">
                 <label>Bulan</label>

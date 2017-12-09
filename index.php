@@ -100,7 +100,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="active">
-              <a href="index.php">
+              <a href="../index.php">
                 <i class="fa fa-home"></i>
                 <span>Beranda</span>
               </a>
@@ -116,12 +116,12 @@
               <ul class="treeview-menu">
                 <li>
                   <a href="master/staf.php">
-                    <i class="fa fa-users"></i> Staf
+                    <i class="fa fa-users fa-fw"></i> Staf
                   </a>
                 </li>
                 <li>
-                  <a href="master/barang.php">
-                    <i class="fa fa-archive"></i> Barang
+                  <a href="master/restock.php">
+                    <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
                   </a>
                 </li>
               </ul>
@@ -136,13 +136,13 @@
               </a>
               <ul class="treeview-menu">
                 <li>
-                  <a href="transaksi/restock.php">
-                    <i class="fa fa-list"></i> Daftar <i>Restock</i> Barang
+                  <a href="transaksi/barang.php">
+                    <i class="fa fa-archive fa-fw"></i> Barang
                   </a>
                 </li>
                 <li>
                   <a href="transaksi/cek_barang.php">
-                    <i class="fa fa-check-square"></i> Cek Barang
+                    <i class="fa fa-check-square fa-fw"></i> Cek Barang
                   </a>
                 </li>
               </ul>
@@ -158,7 +158,7 @@
               <ul class="treeview-menu">
                 <li>
                   <a href="laporan/lap_restock.php">
-                    <i class="fa fa-file-text"></i> Laporan Daftar <i>Restock</i> Barang
+                    <i class="fa fa-file-text fa-fw"></i> Laporan Daftar <i>Restock</i> Barang
                   </a>
                 </li>
               </ul>
@@ -207,12 +207,12 @@
                   <!-- small box -->
                   <div class="small-box bg-green">
                     <div class="inner">
-                      <h4>Barang</h4><br>
+                      <h4>Daftar <i>Restock</i> Barang</h4><br>
                     </div>
                     <div class="icon">
-                      <i class="fa fa-archive"></i>
+                      <i class="fa fa-list"></i>
                     </div>
-                    <a href="master/barang.php" class="small-box-footer">Lihat
+                    <a href="master/restock.php" class="small-box-footer">Lihat
                       <i class="fa fa-arrow-circle-right"></i>
                     </a>
                   </div>
@@ -234,12 +234,12 @@
                   <!-- small box -->
                   <div class="small-box bg-purple">
                     <div class="inner">
-                      <h4>Daftar <i>Restock</i> Barang</h4><br>
+                      <h4>Barang</h4><br>
                     </div>
                     <div class="icon">
-                      <i class="fa fa-list"></i>
+                      <i class="fa fa-archive"></i>
                     </div>
-                    <a href="transaksi/restock.php" class="small-box-footer">Lihat
+                    <a href="transaksi/barang.php" class="small-box-footer">Lihat
                       <i class="fa fa-arrow-circle-right"></i>
                     </a>
                   </div>
