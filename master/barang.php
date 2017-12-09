@@ -158,7 +158,7 @@ $data = $query->fetchAll();
                     <?php } else { ?>
                       <td>
                     <?php }
-                      echo (strtotime($date)-(strtotime($value['tgl_kadaluarsa'])))/(60*60*24)?>
+                      echo $value['tgl_kadaluarsa']?>
                     </td>
                     <td>
                       <?php echo $value['nm_staf'] ?>
