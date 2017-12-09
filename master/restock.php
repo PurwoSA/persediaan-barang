@@ -1,11 +1,11 @@
 <?php
 include 'header.php';
 // Buat prepared statement untuk mengambil semua data dari tbBiodata
-$query = $db->prepare("SELECT b.*, s.nm_staf FROM barang b, staf s WHERE b.nip = s.nip");
+$query = $db->prepare("SELECT * FROM restock");
 // Jalankan perintah SQL
 $query->execute();
 // Ambil semua data dan masukkan ke variable $data
-$data = $query->fetchAll();
+$data  = $query->fetchAll();
 ?>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
@@ -34,8 +34,8 @@ $data = $query->fetchAll();
               </a>
             </li>
             <li class="active">
-              <a href="../master/barang.php">
-                <i class="fa fa-archive fa-fw"></i> Barang
+              <a href="../master/restock.php">
+                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
               </a>
             </li>
           </ul>
@@ -50,8 +50,8 @@ $data = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/restock.php">
-                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
+              <a href="../transaksi/barang.php">
+                <i class="fa fa-archive fa-fw"></i> Barang
               </a>
             </li>
             <li>
@@ -87,8 +87,8 @@ $data = $query->fetchAll();
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Barang
-        <a href="tambah_barang.php" class="btn btn-primary btn-flat pull-right">
+        Daftar <i>Restock</i> Barang
+        <a href="tambah_restock.php" class="btn btn-primary btn-flat pull-right">
           <i class="fa fa-plus"></i> Tambah Data
         </a>
       </h1>
@@ -100,22 +100,15 @@ $data = $query->fetchAll();
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Barang</h3>
+              <h3 class="box-title">Data Daftar <i>Restock</i> Barang</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover table-responsive">
                 <thead>
                   <tr>
-                    <th>Kode</th>
-                    <th>Nama Barang</th>
-                    <th>Stok</th>
-                    <th>Satuan</th>
-                    <th>Jenis</th>
-                    <th>Tanggal Masuk</th>
-                    <th>Kadaluarsa</th>
-                    <th>Pengentry</th>
-                    <th>Aksi</th>
+                    <th>Kode Daftar <i>Restock</i></th>
+                    <th>Tanggal Daftar <i>Restock</i></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -123,64 +116,18 @@ $data = $query->fetchAll();
                   <?php foreach ($data as $value): ?>
                   <tr>
                     <td>
-                      <?php echo $value['kd_brg'] ?>
+                      <?php echo $value['kd_list']; ?>
                     </td>
                     <td>
-                      <?php echo $value['nm_brg'] ?>
-                    </td>
-                    <?php if ($value['stok'] <= 5) {
-                      ?>
-                      <td class="danger">
-                        <?php echo $value['stok'] ?>
-                      </td>
-                    <?php } elseif ($value['stok'] <= 10) { ?>
-                      <td class="warning">
-                        <?php echo $value['stok'] ?>
-                      </td>
-                    <?php } else { ?>
-                      <td>
-                        <?php echo $value['stok'] ?>
-                      </td>
-                    <?php } ?>
-                    <td>
-                      <?php echo $value['satuan'] ?>
-                    </td>
-                    <td>
-                      <?php echo $value['jenis'] ?>
-                    </td>
-                    <td>
-                      <?php echo $value['tgl_msk']; ?>
-                    </td>
-                    <?php if (((strtotime($date)-(strtotime($value['tgl_kadaluarsa'])))/(60*60*24)) >= -3) { ?>
-                      <td class="danger">
-                    <?php } elseif (((strtotime($date)-(strtotime($value['tgl_kadaluarsa'])))/(60*60*24)) >= -5) { ?>
-                      <td class="warning">
-                    <?php } else { ?>
-                      <td>
-                    <?php }
-                      echo $value['tgl_kadaluarsa']?>
-                    </td>
-                    <td>
-                      <?php echo $value['nm_staf'] ?>
-                    </td>
-                    <td>
-                      <a href="ubah_barang.php?id=<?php echo $value['kd_brg']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
-                      <a href="hapus_barang.php?id=<?php echo $value['kd_brg']?>" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
+                      <?php echo $value['tgl_list'] ?>
                     </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Kode</th>
-                    <th>Nama Barang</th>
-                    <th>Stok</th>
-                    <th>Satuan</th>
-                    <th>Jenis</th>
-                    <th>Tanggal Masuk</th>
-                    <th>Kadaluarsa</th>
-                    <th>Pengentry</th>
-                    <th>Aksi</th>
+                    <th>Kode <i>Restock</i></th>
+                    <th>Tanggal <i>Restock</i></th>
                   </tr>
                 </tfoot>
               </table>

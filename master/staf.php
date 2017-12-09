@@ -30,11 +30,12 @@ $data = $query->fetchAll();
           <ul class="treeview-menu">
             <li class="active">
               <a href="../master/staf.php">
-                <i class="fa fa-users fa-fw"></i> Staf</a>
+                <i class="fa fa-users fa-fw"></i> Staf
+              </a>
             </li>
             <li>
-              <a href="../master/barang.php">
-                <i class="fa fa-archive fa-fw"></i> Barang
+              <a href="../master/restock.php">
+                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
               </a>
             </li>
           </ul>
@@ -49,8 +50,8 @@ $data = $query->fetchAll();
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="../transaksi/restock.php">
-                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
+              <a href="../transaksi/barang.php">
+                <i class="fa fa-archive fa-fw"></i> Barang
               </a>
             </li>
             <li>

@@ -52,7 +52,7 @@ if(isset($_POST['submit'])){
             <span>Beranda</span>
           </a>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-book"></i>
             <span>Master</span>
@@ -66,14 +66,14 @@ if(isset($_POST['submit'])){
                 <i class="fa fa-users fa-fw"></i> Staf
               </a>
             </li>
-            <li class="active">
-              <a href="../master/barang.php">
-                <i class="fa fa-archive fa-fw"></i> Barang
+            <li>
+              <a href="../master/restock.php">
+                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
               </a>
             </li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
             <i class="fa fa-money"></i>
             <span>Transaksi</span>
@@ -82,9 +82,9 @@ if(isset($_POST['submit'])){
             </span>
           </a>
           <ul class="treeview-menu">
-            <li>
-              <a href="../transaksi/restock.php">
-                <i class="fa fa-list fa-fw"></i> Daftar <i>Restock</i> Barang
+            <li class="active">
+              <a href="../transaksi/barang.php">
+                <i class="fa fa-archive fa-fw"></i> Barang
               </a>
             </li>
             <li>
