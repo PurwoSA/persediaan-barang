@@ -47,7 +47,11 @@
     //Initialize Select2 Elements
     $(".select2").select2();
     //Initialize DataTable
-    $("#example1").DataTable();
+    $("#example1").DataTable({
+      language: {
+        url: '../dist/Indonesian.json'
+      }
+    });
     //Date picker
     $('#datepicker').datepicker({
       autoclose: true,
