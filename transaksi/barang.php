@@ -165,7 +165,6 @@ $data = $query->fetchAll();
                     </td>
                     <td>
                       <a href="ubah_barang.php?id=<?php echo $value['kd_brg']?>" class="btn btn-warning btn-flat"><i class="fa fa-pencil"></i></a>
-                      <a href="hapus_barang.php?id=<?php echo $value['kd_brg']?>" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
                     </td>
                   </tr>
                   <?php endforeach; ?>

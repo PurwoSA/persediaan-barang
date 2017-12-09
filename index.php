@@ -100,7 +100,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="active">
-              <a href="../index.php">
+              <a href="index.php">
                 <i class="fa fa-home"></i>
                 <span>Beranda</span>
               </a>
@@ -295,7 +295,7 @@
       </div>
       <!-- /.content-wrapper -->
       <footer class="main-footer">
-        <strong>Umar Bakery &copy; <?php echo $year; ?></strong> All rights reserved.
+        <strong>Umar Bakery &copy; <?php echo $year; ?></strong> Hak cipta dilindungi.
       </footer>
 
       <!-- Control Sidebar -->
