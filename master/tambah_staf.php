@@ -135,7 +135,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="form-group">
                   <label for="nm_staf">Nama Staf</label>
-                  <input type="text" name="nm_staf" id="nm_staf" class="form-control" value="" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)">
+                  <input type="text" name="nm_staf" id="nm_staf" class="form-control" value="">
                 </div>
                 <div class="form-group">
                   <label for="almt_staf">Alamat Staf</label>
@@ -143,7 +143,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="form-group">
                   <label for="telp_staf">Telepon Staf</label>
-                  <input type="text" name="telp_staf" id="telp_staf" class="form-control" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                  <input type="text" name="telp_staf" id="telp_staf" class="form-control" value="">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>

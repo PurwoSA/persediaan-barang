@@ -147,7 +147,7 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="form-group">
                   <label for="satuan">Satuan Barang</label>
-                  <input type="text" name="satuan" id="satuan" class="form-control" value="<?php echo $data['satuan'] ?>" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 96 && event.charCode <= 122) || (event.charCode >= 32 && event.charCode <= 32)" required="">
+                  <input type="text" name="satuan" id="satuan" class="form-control" value="<?php echo $data['satuan'] ?>" required="">
                 </div>
                 <div class="form-group">
                   <label for="jenis">Jenis Barang</label>
